@@ -255,6 +255,7 @@ def main():
 
         # plot of analytical solution
         r_list = np.linspace(0, r_2, 100)
+        r_list[0] = r_list[1] * 0.5
         fig, axs = plt.subplots(3, 1)
         axs[0].plot(r_list, analytic_sol.B_phi(r_list))
         axs[0].set_title("B")

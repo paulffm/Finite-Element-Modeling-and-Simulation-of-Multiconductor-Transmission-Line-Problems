@@ -213,9 +213,6 @@ def main():
         mesh.plot_equilines(real_vp, title='Äquipotetiallinien Vector Potential')
         # nur das hier war die Aufgabe
         mesh.plot_scalar_field(np.linalg.norm(b_field, axis=1), title="Absolute b field")
-
-
-
         plt.show()
 
 if __name__ == '__main__':

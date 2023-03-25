@@ -42,14 +42,14 @@ def plot_mesh(msh):
     :return:
     '''
 
-    x = np.array(msh.node[:, 0], ndmin=1).T
-    y = np.array(msh.node[:, 1], ndmin=1).T
+    x = np.array(msh.node[:, 0]).T
+    y = np.array(msh.node[:, 1]).T
     triang = Triangulation(x, y, msh.elem_to_node)
     fig = plt.figure()
     plt.title('Mesh')
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.triplot(triang, color='green')
+    plt.triplot(triang, color='black')
     plt.show()
 
 def plot_regions_of_mesh(msh, physical_groups):
@@ -144,8 +144,10 @@ def plot_sol(msh, a):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_aspect('equal', 'box')
-    surf = ax.tripcolor(triang, a, cmap='plasma')  # cmap=plt.cm.CMRmap)
-    fig.colorbar(surf, shrink=0.5, aspect=5)
+    tpc = ax.tripcolor(triang, a, cmap='plasma')  # cmap=plt.cm.CMRmap)
+    #fig.colorbar(surf, shrink=0.5, aspect=5)
+    fig.colorbar(tpc)
+    ax.triplot(triang, color='black', lw=0.1)
     plt.title('solution for a')
     plt.show()
 

@@ -12,7 +12,7 @@ from pyrit.problem import MagneticProblemCartStatic
 from pyrit.toolbox.PostprocessToolbox import plot_field_on_line, get_field_on_line
 
 # Variable to show or suppress the plots.
-show_plot = True
+show_plot = False
 
 
 @dataclass
@@ -314,23 +314,30 @@ if show_plot:
 We automate the FE procedure such that the calculations are repeated for models with different mesh sizes, 
 created by different values for the mesh size option.
 """
-
-refinements_steps = [0, 1, 2, 3, 4, 5]  # variable for the mesh size refinement
-energies = np.empty_like(refinements_steps, dtype=float)  # outputs for the convergence plot
-element_sizes = np.empty_like(refinements_steps, dtype=float)
-
 """Iterate over refinement steps. In every step:
 - Solve the Problem
 - Compute the energy
 - Determine the maximum element size
 """
+
+refinements_steps = [0, 1, 2, 3, 4, 5]  # variable for the mesh size refinement
+energies = np.empty_like(refinements_steps, dtype=float)  # outputs for the convergence plot
+element_sizes = np.empty_like(refinements_steps, dtype=float)
+num_elems = np.empty_like(refinements_steps, dtype=float)
+num_nodes = np.empty_like(refinements_steps, dtype=float)
+
 print('Refinement')
 for k, refinement in enumerate(refinements_steps):
     problem = wire_problem.create_problem(mesh_size=1, refinement_steps=refinement)
     solution = problem.solve()
     energies[k] = solution.energy
     element_sizes[k] = np.max(solution.mesh.edge_length)
+    num_nodes[k] = solution.mesh.num_node
+    num_elems[k] = solution.mesh.num_elem
     solution.plot_vector_potential()
+
+print('num_nodes', num_nodes)
+print('num_elems', num_elems)
 
 # Relative error in the energy and convergence order
 rel_error = np.abs((energies - wire_problem.analytic_energy) / wire_problem.analytic_energy)
@@ -339,10 +346,33 @@ print(f'max element sizes: {element_sizes}')
 conv_order = (np.log(rel_error[0]) - np.log(rel_error[-1])) / (np.log(element_sizes[0]) - np.log(element_sizes[-1]))
 print(f'Convergence order: {conv_order:.2f}')
 
+
 plt.figure()
 plt.loglog(element_sizes, rel_error, label="Error")
 plt.xlabel('element size')
 plt.ylabel('relative error')
 plt.title(f"Relative error. Convergence of order {conv_order:.2f}")
 plt.show()
+
+conv_order = - (np.log(rel_error[0]) - np.log(rel_error[-1])) / (np.log(num_nodes[0]) - np.log(num_nodes[-1]))
+
+plt.figure()
+plt.loglog(num_nodes, rel_error, label="Error")
+plt.xlabel('number of nodes')
+plt.ylabel('relative error')
+plt.title(f"Relative error. Convergence of order {conv_order:.2f}")
+plt.show()
+
+conv_order = - (np.log(rel_error[0]) - np.log(rel_error[-1])) / (np.log(num_elems[0]) - np.log(num_elems[-1]))
+
+plt.figure()
+plt.loglog(num_elems, rel_error, label="Error")
+plt.xlabel('number of elements')
+plt.ylabel('relative error')
+plt.title(f"Relative error. Convergence of order {conv_order:.2f}")
+plt.show()
+
+
+
+
 
