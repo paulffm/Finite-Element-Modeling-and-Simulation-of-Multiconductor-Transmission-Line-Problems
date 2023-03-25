@@ -19,7 +19,7 @@ def A(L, C, R, f, depth):
     Y = 1 / Z_char
     return np.array([
         [np.cosh(bl), -Z_char * np.sinh(bl)],
-        [-Y * np.sinh(bl), np.cosh(bl)]
+        [- (1 / Z_char) * np.sinh(bl), np.cosh(bl)]
     ])
 
 def B(L, C, R, f, depth):
@@ -31,11 +31,11 @@ def B(L, C, R, f, depth):
     Y_i = (w * C) * 1j
     beta = np.sqrt(Z_i * Y_i)
     bl = beta * depth
-    Y = (w * C) * 1j
+    Y_ch = np.sqrt(Y_i / Z_i)
     return np.array([
         [np.cosh(bl), -1],
         [1, -np.cosh(bl)]
-    ]) * Y / np.sinh(bl)
+    ]) * Y_ch / np.sinh(bl)
 
 
 def main():
@@ -63,6 +63,7 @@ def main():
 
     # resistance per length
     R = 1 / (sigma * np.pi * r_1 ** 2)
+    print('R', R)
 
     # impedance matrix
     Z = []
@@ -70,12 +71,10 @@ def main():
     w = []
     beta = []
     Z_char = []
-    c_0 = 1 / np.sqrt(mu_0 * eps_0)
-    v_phase = c_0
-    v_2 = 1 / (np.sqrt(L * C))
+    v_phase = 1 / np.sqrt(mu_0 * 5 * eps_0)
+
 
     wave_len = []
-    wave_len2 = []
     f = np.logspace(0, 5, 100)
 
     # for loop, um Z_char, lambda für verschiedene f zu berechnen.
@@ -91,7 +90,8 @@ def main():
         beta.append(np.sqrt(Z_i * Y_i))
         Z_char.append(np.sqrt(Z_i / Y_i))
         wave_len.append(v_phase / f[i])
-        wave_len2.append(v_2 / f[i])
+
+
 
     Z_abs = np.abs(Z_char)
     Z_ang = np.angle(Z_char, deg=True)
@@ -104,7 +104,6 @@ def main():
         plt.loglog(f, Z_abs)
         plt.show()
 
-
         plt.xlabel('frequency')
         plt.ylabel('angle(Z) in Degrees')
         plt.title('Plot of angle(Z_char) in semilog')
@@ -112,37 +111,21 @@ def main():
         plt.xscale('log')
         plt.show()
 
-        '''plt.xlabel('frequency')
+        plt.xlabel('frequency')
         plt.ylabel('wave length')
         plt.title('Plot of wave length in semilog')
         plt.plot(f, wave_len)
         plt.xscale('log')
-        plt.show()'''
-
-        plt.xlabel('frequency')
-        plt.ylabel('wave length2')
-        plt.title('Plot of wave length in semilog')
-        plt.plot(f, wave_len2)
-        plt.xscale('log')
         plt.show()
 
         plt.xlabel('frequency')
         plt.ylabel('v_phase')
         plt.title('plot of v_phase in semilog')
-        plt.plot(f, wave_len2 * f)
+        plt.plot(f, wave_len * f)
         plt.xscale('log')
         plt.xlabel('frequency')
         plt.ylabel('v_phase')
         plt.show()
-
-        '''plt.xlabel('frequency')
-        plt.ylabel('v_phase2')
-        plt.title('plot of v_phase in semilog')
-        plt.plot(f, wave_len2 * f)
-        plt.xscale('log')
-        plt.xlabel('frequency')
-        plt.ylabel('v_phase')
-        plt.show()'''
 
     # propagation and admittance matrix for f_3 = 1kHz: f up => absolute Values up
     f_3 = 1e3
@@ -150,11 +133,13 @@ def main():
     print('propagation matrix', prop_mat)
     adm_mat = B(L, C, R, f_3, depth)
     print('Admittance matrix', adm_mat)
+    #         If set to true the values are smoothend by a Savitzky-Golay filter implemented in scipy:
+    #         :py:func:'scipy.signal.savgol_filter'.
 
     '''propagation matrix [[ 1.00000000e+00+3.87654960e-11j -4.13747686e-04-1.14909869e-03j]
  [ 2.42137603e-18-1.87387131e-07j  1.00000000e+00+3.87654960e-11j]]
-Admittance matrix [[ 0.04067406+0.00709951j -0.04067406-0.00709951j]
- [ 0.04067406+0.00709951j -0.04067406-0.00709951j]]'''
+Admittance matrix [[ 277.38236836-770.37220197j -277.38236836+770.37220207j]
+ [ 277.38236836-770.37220207j -277.38236836+770.37220197j]]'''
 
 if __name__ == '__main__':
     main()

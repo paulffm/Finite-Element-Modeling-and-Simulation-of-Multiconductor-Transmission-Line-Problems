@@ -315,7 +315,7 @@ We automate the FE procedure such that the calculations are repeated for models 
 created by different values for the mesh size option.
 """
 
-refinements_steps = [0, 1, 2, 3]  # variable for the mesh size refinement
+refinements_steps = [0, 1, 2, 3, 4, 5]  # variable for the mesh size refinement
 energies = np.empty_like(refinements_steps, dtype=float)  # outputs for the convergence plot
 element_sizes = np.empty_like(refinements_steps, dtype=float)
 
