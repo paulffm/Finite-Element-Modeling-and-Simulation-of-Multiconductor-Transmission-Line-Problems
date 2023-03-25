@@ -1,6 +1,0 @@
-pyrit.Logger.COLOR\_WARNING
-===========================
-
-.. currentmodule:: pyrit.Logger
-
-.. autodata:: COLOR_WARNING

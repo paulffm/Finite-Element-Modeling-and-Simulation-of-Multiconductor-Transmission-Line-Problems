@@ -1,6 +1,0 @@
-generate\_regions
-=================
-
-.. currentmodule:: pyrit.toolbox.ImportGmshToolbox
-
-.. autofunction:: generate_regions

@@ -1,6 +1,0 @@
-read\_msh\_file
-===============
-
-.. currentmodule:: pyrit.toolbox.ImportGmshToolbox
-
-.. autofunction:: read_msh_file

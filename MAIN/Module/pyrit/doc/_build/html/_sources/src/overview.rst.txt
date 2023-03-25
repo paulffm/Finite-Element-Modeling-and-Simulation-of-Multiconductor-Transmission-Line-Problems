@@ -1,9 +1,0 @@
-========
-Overview
-========
-
-Pyrit is Python-based a finite element (FE) solver for Maxwells equations in static and quasistatic settings and heat flow in two and three dimensions.
-One of the central aims of Pyrit is to provide a user-friendly and computationally efficient FE code with a template-based structure for standard and coupled EM and thermal problems. Furthermore, a plain user interface via Python scripts supports the implementation of new modeling and simulation ideas.
-The code is transparent, stable and organized in packages.
-Its inherent structure supports students to learn how to implement and use a FE solver.
-

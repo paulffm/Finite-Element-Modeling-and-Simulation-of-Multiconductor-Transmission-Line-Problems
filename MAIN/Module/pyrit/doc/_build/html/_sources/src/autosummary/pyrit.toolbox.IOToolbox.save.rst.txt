@@ -1,6 +1,0 @@
-save
-====
-
-.. currentmodule:: pyrit.toolbox.IOToolbox
-
-.. autofunction:: save

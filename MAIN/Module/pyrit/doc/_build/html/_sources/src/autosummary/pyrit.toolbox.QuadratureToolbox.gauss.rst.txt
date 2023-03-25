@@ -1,6 +1,0 @@
-gauss
-=====
-
-.. currentmodule:: pyrit.toolbox.QuadratureToolbox
-
-.. autofunction:: gauss

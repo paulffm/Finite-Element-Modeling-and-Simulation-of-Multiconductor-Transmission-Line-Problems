@@ -1,6 +1,0 @@
-set\_format
-===========
-
-.. currentmodule:: pyrit.Logger
-
-.. autofunction:: set_format

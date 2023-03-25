@@ -1,6 +1,0 @@
-pyrit.Logger.COLOR\_DEBUG
-=========================
-
-.. currentmodule:: pyrit.Logger
-
-.. autodata:: COLOR_DEBUG

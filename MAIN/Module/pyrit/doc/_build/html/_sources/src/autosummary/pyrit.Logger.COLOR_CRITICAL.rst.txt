@@ -1,6 +1,0 @@
-pyrit.Logger.COLOR\_CRITICAL
-============================
-
-.. currentmodule:: pyrit.Logger
-
-.. autodata:: COLOR_CRITICAL
