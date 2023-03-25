@@ -194,6 +194,7 @@ def main():
     phi_arr = np.hstack((phi_elec[0], phi_elec[1], phi_elec[2]))
 
     print('C', phi_arr.T @ K_list[0] @ phi_arr)
+    print(K_list[0] == K_list[1])
 
 
 

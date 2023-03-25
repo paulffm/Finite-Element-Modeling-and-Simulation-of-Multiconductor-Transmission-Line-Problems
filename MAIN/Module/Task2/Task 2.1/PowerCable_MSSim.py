@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from PowerCable import PowerCable_Magn
-show_plot = True
+show_plot = False
 '''
 Task 2.1 a, b): Simulation von PowerCable in M-Statik zur Berechnung von R und L mit low frequency approach
 '''
@@ -28,7 +28,7 @@ def main():
 
         print('Energy', solution.energy)
         X_mag.append(np.asarray(X.toarray()))
-        K_list.append(np.asarray(curlcurl_matrix))
+        K_list.append(np.asarray(curlcurl_matrix.toarray()))
         a_mag.append(np.asarray(solution.vector_potential).reshape(-1, 1))
         current_list.append(power_cable.current)
 
@@ -56,7 +56,11 @@ def main():
     R = np.eye(3) * (1 / (sigma * np.pi * r_w ** 2))
     print('Resistance:', R)
     L = Xm_arr.T @ am_arr / current_list[0]
-    print('Inductivity', L)
+    print('Inductivity', L, am_arr.T @ K_list[0] @ am_arr)
+
+    '''Inductivity [[2.11889983e-07 6.48576562e-08 6.48568935e-08]
+                    [6.48576562e-08 2.11890109e-07 6.48566612e-08]
+                    [6.48568935e-08 6.48566612e-08 2.11884862e-07]]'''
 
 
 if __name__ == '__main__':

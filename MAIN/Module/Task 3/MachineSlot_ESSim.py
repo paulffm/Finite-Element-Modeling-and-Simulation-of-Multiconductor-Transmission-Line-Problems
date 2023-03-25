@@ -19,7 +19,7 @@ from pyrit.problem import MagneticProblemCartStatic, ElectricProblemCartStatic
 from scipy.stats import norm
 import scipy.sparse.linalg as sla
 
-show_plot = True
+show_plot = False
 
 
 def create_machine_slot_problem(excitations_left: List[Exci], excitations_right: List[Exci], bcs: List[BC], **kwargs):
@@ -64,7 +64,7 @@ def create_machine_slot_problem(excitations_left: List[Exci], excitations_right:
     # Physical groups of the boundaries of the right conductors
     pgs_conductor_bound_right = [geo.create_physical_group(max_tag + 1 + k, 1, f"conductor_bound_right_{k}") for k in
                                  range(number_wires)]
-    print('pgs_conductor_bound_right', pgs_conductor_bound_right)
+    #print('pgs_conductor_bound_right', pgs_conductor_bound_right)
 
     max_tag = pgs_conductor_bound_right[-1].tag
     # Physical groups of the boundaries of the left conductors

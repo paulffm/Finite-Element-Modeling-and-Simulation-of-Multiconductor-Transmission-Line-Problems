@@ -46,10 +46,10 @@ def plot_mesh(msh):
     y = np.array(msh.node[:, 1], ndmin=1).T
     triang = Triangulation(x, y, msh.elem_to_node)
     fig = plt.figure()
-    plt.title('2D')
+    plt.title('Mesh')
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.triplot(triang)
+    plt.triplot(triang, color='green')
     plt.show()
 
 def plot_regions_of_mesh(msh, physical_groups):
@@ -76,15 +76,15 @@ def plot_regions_of_mesh(msh, physical_groups):
     # Plot shell, wire and edges on ground potential
     fig, ax = plt.subplots()
     ax.set_aspect('equal')
-    ax.triplot(triang_wire, color='green', label='wire')
-    ax.triplot(triang_shell, color='blue', label='shell')
+    ax.triplot(triang_wire, color='green', label='Wire')
+    ax.triplot(triang_shell, color='blue', label='Shell')
     plt.legend()
     for edge in edges_on_ground:
         # in i zeichnet von line i von x zu y koordinate
         node_x = msh.node[msh.edge_to_node[edge, [0, 1]], 0]
         node_y = msh.node[msh.edge_to_node[edge, [0, 1]], 1]
         line, = ax.plot(node_x, node_y, color='black')
-    line.set_label('ground')
+    line.set_label('GND')
     plt.title('Regions plot')
     plt.legend()
     plt.show()
@@ -103,7 +103,7 @@ def plot_reluctivity(msh, reluctivity_in_elements):
     # Plotting
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    tpc = ax.tripcolor(triang, facecolors=reluctivity_in_elements)
+    tpc = ax.tripcolor(triang, facecolors=reluctivity_in_elements, cmap='plasma')
     fig.colorbar(tpc)
     ax.triplot(triang, color='blue', lw=0.1)
     ax.set_aspect('equal', 'box')
@@ -124,7 +124,7 @@ def plot_current(msh, current_density_in_elems):
     # Plotting
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    tpc = ax.tripcolor(triang, facecolors=current_density_in_elems)
+    tpc = ax.tripcolor(triang, facecolors=current_density_in_elems, cmap='plasma')
     fig.colorbar(tpc)
     ax.triplot(triang, lw=0.1)
     ax.set_aspect('equal', 'box')
@@ -144,7 +144,7 @@ def plot_sol(msh, a):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_aspect('equal', 'box')
-    surf = ax.tripcolor(triang, a, cmap='viridis')  # cmap=plt.cm.CMRmap)
+    surf = ax.tripcolor(triang, a, cmap='plasma')  # cmap=plt.cm.CMRmap)
     fig.colorbar(surf, shrink=0.5, aspect=5)
     plt.title('solution for a')
     plt.show()
@@ -161,7 +161,7 @@ def plot_bfield(msh, b_field_abs):
     # Plotting
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    tpc = ax.tripcolor(triang, facecolors=b_field_abs)
+    tpc = ax.tripcolor(triang, facecolors=b_field_abs, cmap='plasma')
     fig.colorbar(tpc)
     ax.triplot(triang, color='black', lw=0.1)
     ax.set_aspect('equal', 'box')
