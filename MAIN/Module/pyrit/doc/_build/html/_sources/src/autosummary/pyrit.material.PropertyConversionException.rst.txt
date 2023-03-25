@@ -1,6 +1,0 @@
-﻿pyrit.material.PropertyConversionException
-==========================================
-
-.. currentmodule:: pyrit.material
-
-.. autoexception:: PropertyConversionException

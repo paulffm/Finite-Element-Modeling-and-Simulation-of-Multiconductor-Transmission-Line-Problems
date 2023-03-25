@@ -1,6 +1,0 @@
-get\_field\_on\_line
-====================
-
-.. currentmodule:: pyrit.toolbox.PostprocessToolbox
-
-.. autofunction:: get_field_on_line

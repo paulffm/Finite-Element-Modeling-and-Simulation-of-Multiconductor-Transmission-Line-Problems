@@ -1,6 +1,0 @@
-geo\_to\_msh
-============
-
-.. currentmodule:: pyrit.toolbox.ImportGmshToolbox
-
-.. autofunction:: geo_to_msh

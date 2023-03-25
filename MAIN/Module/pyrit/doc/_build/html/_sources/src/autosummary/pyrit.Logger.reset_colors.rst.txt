@@ -1,6 +1,0 @@
-reset\_colors
-=============
-
-.. currentmodule:: pyrit.Logger
-
-.. autofunction:: reset_colors

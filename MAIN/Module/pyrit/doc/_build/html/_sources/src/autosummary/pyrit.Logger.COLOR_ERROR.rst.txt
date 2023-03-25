@@ -1,6 +1,0 @@
-pyrit.Logger.COLOR\_ERROR
-=========================
-
-.. currentmodule:: pyrit.Logger
-
-.. autodata:: COLOR_ERROR

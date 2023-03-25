@@ -1,6 +1,0 @@
-timer\_func
-===========
-
-.. currentmodule:: pyrit.toolbox.MiscellaneousToolbox
-
-.. autofunction:: timer_func

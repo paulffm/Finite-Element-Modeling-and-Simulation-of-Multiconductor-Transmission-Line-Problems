@@ -1,6 +1,0 @@
-profile
-=======
-
-.. currentmodule:: pyrit.toolbox.MiscellaneousToolbox
-
-.. autofunction:: profile

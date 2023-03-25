@@ -1,6 +1,0 @@
-read\_physical\_groups
-======================
-
-.. currentmodule:: pyrit.toolbox.ImportGmshToolbox
-
-.. autofunction:: read_physical_groups

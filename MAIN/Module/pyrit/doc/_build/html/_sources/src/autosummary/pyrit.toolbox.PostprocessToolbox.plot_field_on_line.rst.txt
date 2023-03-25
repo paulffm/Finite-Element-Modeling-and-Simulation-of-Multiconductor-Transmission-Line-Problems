@@ -1,6 +1,0 @@
-plot\_field\_on\_line
-=====================
-
-.. currentmodule:: pyrit.toolbox.PostprocessToolbox
-
-.. autofunction:: plot_field_on_line

@@ -1,6 +1,0 @@
-gauss\_triangle
-===============
-
-.. currentmodule:: pyrit.toolbox.QuadratureToolbox
-
-.. autofunction:: gauss_triangle
