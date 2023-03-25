@@ -1,0 +1,6 @@
+gauss\_tetrahedron
+==================
+
+.. currentmodule:: pyrit.toolbox.QuadratureToolbox
+
+.. autofunction:: gauss_tetrahedron

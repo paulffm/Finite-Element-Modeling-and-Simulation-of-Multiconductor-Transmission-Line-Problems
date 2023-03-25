@@ -1,0 +1,30 @@
+﻿Regions
+=======
+
+.. currentmodule:: pyrit.region
+
+.. autoclass:: Regions
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Regions.add_regi
+      ~Regions.delete_regi
+      ~Regions.find_regions_of_boundary_condition
+      ~Regions.find_regions_of_excitations
+      ~Regions.get_keys
+      ~Regions.get_regi
+   
+   
+
+   
+   
+   

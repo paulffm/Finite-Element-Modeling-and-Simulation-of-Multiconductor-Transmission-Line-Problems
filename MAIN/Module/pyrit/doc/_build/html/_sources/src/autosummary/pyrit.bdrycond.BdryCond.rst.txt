@@ -1,0 +1,43 @@
+﻿BdryCond
+========
+
+.. currentmodule:: pyrit.bdrycond
+
+.. autoclass:: BdryCond
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~BdryCond.add_bc
+      ~BdryCond.delete_bc
+      ~BdryCond.dict_of_boundary_condition
+      ~BdryCond.get_bc
+      ~BdryCond.get_ids
+      ~BdryCond.inflate
+      ~BdryCond.num_bc
+      ~BdryCond.regions_of_bc
+      ~BdryCond.shrink
+      ~BdryCond.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BdryCond.is_constant
+      ~BdryCond.is_homogeneous
+      ~BdryCond.is_linear
+      ~BdryCond.is_time_dependent
+   
+   

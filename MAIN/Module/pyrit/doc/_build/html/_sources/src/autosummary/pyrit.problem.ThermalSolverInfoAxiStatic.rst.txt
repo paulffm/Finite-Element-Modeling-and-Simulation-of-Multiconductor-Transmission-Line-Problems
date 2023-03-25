@@ -1,0 +1,32 @@
+﻿ThermalSolverInfoAxiStatic
+==========================
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: ThermalSolverInfoAxiStatic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ThermalSolverInfoAxiStatic.max_iter_successive_substitution
+      ~ThermalSolverInfoAxiStatic.relaxation_successive_substitution
+      ~ThermalSolverInfoAxiStatic.tolerance_successive_substitution
+   
+   

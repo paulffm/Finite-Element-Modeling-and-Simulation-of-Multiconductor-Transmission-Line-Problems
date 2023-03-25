@@ -1,0 +1,32 @@
+﻿BasicAnchor
+===========
+
+.. currentmodule:: pyrit.geometry
+
+.. autoclass:: BasicAnchor
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BasicAnchor.SOUTH
+      ~BasicAnchor.EAST
+      ~BasicAnchor.NORTH
+      ~BasicAnchor.WEST
+      ~BasicAnchor.SOUTH_WEST
+      ~BasicAnchor.SOUTH_EAST
+      ~BasicAnchor.NORTH_WEST
+      ~BasicAnchor.NORTH_EAST
+      ~BasicAnchor.CENTER
+   
+   

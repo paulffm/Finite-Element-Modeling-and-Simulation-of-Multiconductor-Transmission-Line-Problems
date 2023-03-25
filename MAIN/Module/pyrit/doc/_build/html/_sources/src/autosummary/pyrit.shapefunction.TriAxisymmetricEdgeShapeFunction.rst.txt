@@ -1,0 +1,47 @@
+﻿TriAxisymmetricEdgeShapeFunction
+================================
+
+.. currentmodule:: pyrit.shapefunction
+
+.. autoclass:: TriAxisymmetricEdgeShapeFunction
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~TriAxisymmetricEdgeShapeFunction.compute_support_data
+      ~TriAxisymmetricEdgeShapeFunction.curl
+      ~TriAxisymmetricEdgeShapeFunction.curlcurl_operator
+      ~TriAxisymmetricEdgeShapeFunction.current_distribution_function
+      ~TriAxisymmetricEdgeShapeFunction.dirichlet_equations
+      ~TriAxisymmetricEdgeShapeFunction.inflate
+      ~TriAxisymmetricEdgeShapeFunction.inflate_dirichlet
+      ~TriAxisymmetricEdgeShapeFunction.load_vector
+      ~TriAxisymmetricEdgeShapeFunction.mass_matrix
+      ~TriAxisymmetricEdgeShapeFunction.neumann_term
+      ~TriAxisymmetricEdgeShapeFunction.robin_terms
+      ~TriAxisymmetricEdgeShapeFunction.shrink
+      ~TriAxisymmetricEdgeShapeFunction.shrink_dirichlet
+      ~TriAxisymmetricEdgeShapeFunction.shrink_neumann
+      ~TriAxisymmetricEdgeShapeFunction.shrink_robin
+      ~TriAxisymmetricEdgeShapeFunction.voltage_distribution_function
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TriAxisymmetricEdgeShapeFunction.dim
+      ~TriAxisymmetricEdgeShapeFunction.mesh
+   
+   

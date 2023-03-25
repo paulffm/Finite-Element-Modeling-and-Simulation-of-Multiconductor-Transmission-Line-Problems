@@ -1,0 +1,43 @@
+﻿VolumetricHeatCapacity
+======================
+
+.. currentmodule:: pyrit.material
+
+.. autoclass:: VolumetricHeatCapacity
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~VolumetricHeatCapacity.compute_args
+      ~VolumetricHeatCapacity.import_from_table
+      ~VolumetricHeatCapacity.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~VolumetricHeatCapacity.name
+      ~VolumetricHeatCapacity.inverse_value
+      ~VolumetricHeatCapacity.is_constant
+      ~VolumetricHeatCapacity.is_homogeneous
+      ~VolumetricHeatCapacity.is_hysteretic
+      ~VolumetricHeatCapacity.is_isotrop
+      ~VolumetricHeatCapacity.is_linear
+      ~VolumetricHeatCapacity.is_time_dependent
+      ~VolumetricHeatCapacity.keyword_args
+      ~VolumetricHeatCapacity.positional_args
+      ~VolumetricHeatCapacity.value
+   
+   

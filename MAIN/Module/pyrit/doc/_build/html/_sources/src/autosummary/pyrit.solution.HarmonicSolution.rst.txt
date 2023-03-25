@@ -1,0 +1,41 @@
+﻿HarmonicSolution
+================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: HarmonicSolution
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~HarmonicSolution.absolute_field
+      ~HarmonicSolution.consistency_check
+      ~HarmonicSolution.get_field_at_phase
+      ~HarmonicSolution.initialize_attributes
+      ~HarmonicSolution.load
+      ~HarmonicSolution.save
+      ~HarmonicSolution.solution_from_problem
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~HarmonicSolution.angular_frequency
+      ~HarmonicSolution.frequency
+      ~HarmonicSolution.ignore_for_saving
+      ~HarmonicSolution.omega
+      ~HarmonicSolution.solution_identifier
+   
+   

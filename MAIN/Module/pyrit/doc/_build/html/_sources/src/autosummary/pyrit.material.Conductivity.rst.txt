@@ -1,0 +1,43 @@
+﻿Conductivity
+============
+
+.. currentmodule:: pyrit.material
+
+.. autoclass:: Conductivity
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Conductivity.compute_args
+      ~Conductivity.import_from_table
+      ~Conductivity.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Conductivity.name
+      ~Conductivity.inverse_value
+      ~Conductivity.is_constant
+      ~Conductivity.is_homogeneous
+      ~Conductivity.is_hysteretic
+      ~Conductivity.is_isotrop
+      ~Conductivity.is_linear
+      ~Conductivity.is_time_dependent
+      ~Conductivity.keyword_args
+      ~Conductivity.positional_args
+      ~Conductivity.value
+   
+   

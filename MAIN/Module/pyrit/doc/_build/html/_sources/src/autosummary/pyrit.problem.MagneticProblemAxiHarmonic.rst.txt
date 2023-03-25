@@ -1,0 +1,38 @@
+﻿MagneticProblemAxiHarmonic
+==========================
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: MagneticProblemAxiHarmonic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~MagneticProblemAxiHarmonic.consistency_check
+      ~MagneticProblemAxiHarmonic.load
+      ~MagneticProblemAxiHarmonic.save
+      ~MagneticProblemAxiHarmonic.solve
+      ~MagneticProblemAxiHarmonic.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MagneticProblemAxiHarmonic.angular_frequency
+      ~MagneticProblemAxiHarmonic.frequency
+      ~MagneticProblemAxiHarmonic.omega
+      ~MagneticProblemAxiHarmonic.problem_identifier
+   
+   

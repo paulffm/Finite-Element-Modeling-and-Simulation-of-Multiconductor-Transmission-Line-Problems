@@ -1,0 +1,40 @@
+﻿BCDirichlet
+===========
+
+.. currentmodule:: pyrit.bdrycond
+
+.. autoclass:: BCDirichlet
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~BCDirichlet.compute_args
+      ~BCDirichlet.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BCDirichlet.positional_args
+      ~BCDirichlet.keyword_args
+      ~BCDirichlet.ID
+      ~BCDirichlet.inverse_value
+      ~BCDirichlet.is_constant
+      ~BCDirichlet.is_homogeneous
+      ~BCDirichlet.is_linear
+      ~BCDirichlet.is_time_dependent
+      ~BCDirichlet.value
+   
+   

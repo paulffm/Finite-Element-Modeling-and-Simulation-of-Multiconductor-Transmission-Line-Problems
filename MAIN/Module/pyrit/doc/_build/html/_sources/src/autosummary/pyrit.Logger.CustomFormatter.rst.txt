@@ -1,0 +1,38 @@
+pyrit.Logger.CustomFormatter
+============================
+
+.. currentmodule:: pyrit.Logger
+
+.. autoclass:: CustomFormatter
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~CustomFormatter.converter
+      ~CustomFormatter.format
+      ~CustomFormatter.formatException
+      ~CustomFormatter.formatMessage
+      ~CustomFormatter.formatStack
+      ~CustomFormatter.formatTime
+      ~CustomFormatter.usesTime
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CustomFormatter.default_msec_format
+      ~CustomFormatter.default_time_format
+   
+   

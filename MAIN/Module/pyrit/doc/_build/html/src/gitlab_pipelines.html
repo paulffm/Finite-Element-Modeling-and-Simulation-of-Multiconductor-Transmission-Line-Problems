@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gitlab pipelines &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorials for developers" href="tutorials%20for%20developers.html" />
+    <link rel="prev" title="Information for developers" href="information%20for%20developers.html" />
+<link rel="stylesheet" type="text/css"
+     href="../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage%20and%20workflow.html">Usage and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Pyrit</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="information%20for%20developers.html">Information for developers</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gitlab pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gitlab-runners">Gitlab Runners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#on-gitlab">On Gitlab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="information%20for%20developers.html">Information for developers</a> &raquo;</li>
+      <li>Gitlab pipelines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/gitlab_pipelines.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gitlab-pipelines">
+<span id="id1"></span><h1>Gitlab pipelines<a class="headerlink" href="#gitlab-pipelines" title="Permalink to this heading"></a></h1>
+<p>Pipelines are the top-level component of continuous integration, delivery, and deployment.
+They are used to test and lint the code and to generate the guidelines.
+Here it is explained what steps have to be done to get the pipelines running.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>A pipeline is defined in the <cite>.gitlab-ci.yml</cite> file and consists of a number of jobs.
+A Job, in turn, consists of a number of statements to execute.
+Jobs are executed by Runners.
+An overview can also be found <a class="reference external" href="https://docs.gitlab.com/ee/ci/">in the Gitlab Docs</a>.</p>
+</section>
+<section id="gitlab-runners">
+<h2>Gitlab Runners<a class="headerlink" href="#gitlab-runners" title="Permalink to this heading"></a></h2>
+<p>We begin with the Gitlab runners. They do execute the single jobs. Here, we show how to set them up.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Gitlab runners can be installed on a server. However, here it is shown for a normal computer.</p>
+</div>
+<p>The installation of Gitlab runners can be found <a class="reference external" href="https://docs.gitlab.com/runner/install/">here</a>.
+In this tutorial, the executable <cite>gitlab-runner.exe</cite> is downloaded and used to create a service on the computer.
+Also, it is used to add (or register) single runners.
+One can register many different runners, each with its own settings.
+The proceeding is as follows:</p>
+<ol class="arabic">
+<li><dl>
+<dt>Register a runner</dt><dd><ol class="arabic">
+<li><p>Run the command</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gitlab-runner.exe register
+</pre></div>
+</div>
+<p>and insert the URL and the registration token you can find on Gitlab -&gt; Settings -&gt; CI/CD -&gt; Runners. The Executor types used in Pyrit are Shell and Docker</p>
+</li>
+<li><p>In the <cite>config.toml</cite>-file, the runner can be further configured. The runner with the Docker executor should have the setting <cite>privileged = true</cite>. Also, here, we used the setting <cite>pull_policy = [“if-not-present”]</cite> to use the local docker image.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Start the service</dt><dd><p>Run the command</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gitlab-runner.exe start
+</pre></div>
+</div>
+<p>If the service already runs, you can restart it. Alternatively, you can execute the command</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gitlab-runner.exe --debug run
+</pre></div>
+</div>
+<p>that will give you additional information about the runners while the service is running (It shows when checking for new jobs for example)</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>The current status of the service can be checked with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gitlab-runner.exe status
+<span class="go">Runtime platform                                    arch=amd64 os=windows pid=8356 revision=2ebc4dc4 version=13.9.0</span>
+<span class="go">gitlab-runner: Service is running!</span>
+</pre></div>
+</div>
+<p>and of the runners with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gitlab-runner.exe verify
+<span class="go">Verifying runner... is alive                        runner=fnuZb1tw</span>
+<span class="go">Verifying runner... is alive                        runner=PDbYZjvu</span>
+<span class="go">Verifying runner... is alive                        runner=A7RX82z6</span>
+</pre></div>
+</div>
+<p>Here is an exemplary config file <cite>config.toml</cite> for two runners. Note the above mentioned settings for the second runner (with the Docker executor).
+Note also the first two setting. They allow for running multiple jobs (in this case 5) in parallel and specify the interval of checking for new jobs:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">concurrent</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">check_interval</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">[session_server]</span>
+  <span class="n">session_timeout</span> <span class="o">=</span> <span class="mi">1800</span>
+
+<span class="k">[[runners]]</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;shell_runner&quot;</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://git.rwth-aachen.de/&quot;</span>
+  <span class="n">id</span> <span class="o">=</span> <span class="mi">6080</span>
+  <span class="n">token</span> <span class="o">=</span> <span class="s">&quot;MCGMC1YhULSEv8se2Zen&quot;</span>
+  <span class="n">token_obtained_at</span> <span class="o">=</span> <span class="mi">2022-10-27T15:09:19Z</span>
+  <span class="n">token_expires_at</span> <span class="o">=</span> <span class="mi">0001-01-01T00:00:00Z</span>
+  <span class="n">executor</span> <span class="o">=</span> <span class="s">&quot;shell&quot;</span>
+  <span class="n">shell</span> <span class="o">=</span> <span class="s">&quot;powershell&quot;</span>
+  <span class="k">[runners.custom_build_dir]</span>
+  <span class="k">[runners.cache]</span>
+    <span class="k">[runners.cache.s3]</span>
+    <span class="k">[runners.cache.gcs]</span>
+    <span class="k">[runners.cache.azure]</span>
+
+<span class="k">[[runners]]</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;docker_runner&quot;</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://git.rwth-aachen.de/&quot;</span>
+  <span class="n">id</span> <span class="o">=</span> <span class="mi">6081</span>
+  <span class="n">token</span> <span class="o">=</span> <span class="s">&quot;EzJ9LUBhXaskEf53q1wC&quot;</span>
+  <span class="n">token_obtained_at</span> <span class="o">=</span> <span class="mi">2022-10-27T15:10:29Z</span>
+  <span class="n">token_expires_at</span> <span class="o">=</span> <span class="mi">0001-01-01T00:00:00Z</span>
+  <span class="n">executor</span> <span class="o">=</span> <span class="s">&quot;docker&quot;</span>
+  <span class="k">[runners.custom_build_dir]</span>
+  <span class="k">[runners.cache]</span>
+    <span class="k">[runners.cache.s3]</span>
+    <span class="k">[runners.cache.gcs]</span>
+    <span class="k">[runners.cache.azure]</span>
+  <span class="k">[runners.docker]</span>
+    <span class="n">tls_verify</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="s">&quot;python:3.8&quot;</span>
+    <span class="n">privileged</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">disable_entrypoint_overwrite</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">oom_kill_disable</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">disable_cache</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">volumes</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;/cache&quot;</span><span class="p">]</span>
+    <span class="n">shm_size</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">pull_policy</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;if-not-present&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="on-gitlab">
+<h2>On Gitlab<a class="headerlink" href="#on-gitlab" title="Permalink to this heading"></a></h2>
+<p>On Gitlab, the pipeline is defined with the <cite>.gitlab-ci.yml</cite> file.
+In this one, the single jobs are defined with dependencies between them.
+When giving a job a tag (with the <cite>tags</cite> keyword) only a runner with the same tag can take this job.</p>
+<p>In the Settings under CI/CD -&gt; Runners you can see the available runners for the project.
+If you have registered a runner correctly, it should appear on this page.
+You can also change the settings of the runner, pause it (it is not used then even if active) or remove it.
+Furthermore, you can see the status of all runners.</p>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Over time, on the machine where the runners are active a lot of space is used by old and unused containers or images from Docker. This can eventually make the runners not work anymore. In this case run the command</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker system prune
+</pre></div>
+</div>
+<p>It deletes all stopped containers, all networks not used by at least one container, all dangling images and  all build cache. (See <a class="reference external" href="https://docs.docker.com/config/pruning/">https://docs.docker.com/config/pruning/</a>)</p>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="information%20for%20developers.html" class="btn btn-neutral float-left" title="Information for developers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorials%20for%20developers.html" class="btn btn-neutral float-right" title="Tutorials for developers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

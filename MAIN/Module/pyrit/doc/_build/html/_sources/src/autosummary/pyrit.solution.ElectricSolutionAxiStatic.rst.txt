@@ -1,0 +1,37 @@
+﻿ElectricSolutionAxiStatic
+=========================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: ElectricSolutionAxiStatic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ElectricSolutionAxiStatic.absolute_field
+      ~ElectricSolutionAxiStatic.consistency_check
+      ~ElectricSolutionAxiStatic.initialize_attributes
+      ~ElectricSolutionAxiStatic.load
+      ~ElectricSolutionAxiStatic.save
+      ~ElectricSolutionAxiStatic.solution_from_problem
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ElectricSolutionAxiStatic.ignore_for_saving
+      ~ElectricSolutionAxiStatic.solution_identifier
+   
+   

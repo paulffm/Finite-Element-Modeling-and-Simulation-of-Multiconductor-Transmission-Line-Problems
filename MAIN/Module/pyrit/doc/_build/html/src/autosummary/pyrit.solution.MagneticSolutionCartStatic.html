@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MagneticSolutionCartStatic &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MagneticSolutionCartHarmonic" href="pyrit.solution.MagneticSolutionCartHarmonic.html" />
+    <link rel="prev" title="ElectricSolutionAxiStatic" href="pyrit.solution.ElectricSolutionAxiStatic.html" />
+<link rel="stylesheet" type="text/css"
+     href="../../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage%20and%20workflow.html">Usage and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">Pyrit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bdrycond.html">Boundary conditions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.bdrycond</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../excitation.html">Excitations (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.excitation</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometry.html">Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../material.html">Material (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.material</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mesh.html">Mesh (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.mesh</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem.html">Problem (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.problem</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../region.html">Region (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.region</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shapefunction.html">Shape function (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.shapefunction</span></code>)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#electric-solutions">Electric solutions</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../solution.html#magnetic-solutions">Magnetic solutions</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">MagneticSolutionCartStatic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.MagneticSolutionCartHarmonic.html">MagneticSolutionCartHarmonic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.MagneticSolutionCartTransient.html">MagneticSolutionCartTransient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.MagneticSolutionAxiStatic.html">MagneticSolutionAxiStatic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.MagneticSolutionAxiHarmonic.html">MagneticSolutionAxiHarmonic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.MagneticSolutionAxiTransient.html">MagneticSolutionAxiTransient</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#thermal-solutions">Thermal solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#current-flow-solutions">Current flow solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#abstract-solution-classes">Abstract solution classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#field-plotter">Field plotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../toolbox.html">Toolbox (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.toolbox</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../api.html">Pyrit</a> &raquo;</li>
+          <li><a href="../solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a> &raquo;</li>
+      <li>MagneticSolutionCartStatic</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/autosummary/pyrit.solution.MagneticSolutionCartStatic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="magneticsolutioncartstatic">
+<h1>MagneticSolutionCartStatic<a class="headerlink" href="#magneticsolutioncartstatic" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrit.solution.</span></span><span class="sig-name descname"><span class="pre">MagneticSolutionCartStatic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_potential</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.mesh.TriMesh.html#pyrit.mesh.TriMesh" title="pyrit.mesh.TriMesh"><span class="pre">mesh.TriMesh</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_cart_edge_shape_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">shapefunction.TriCartesianEdgeShapeFunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.region.Regions.html#pyrit.region.Regions" title="pyrit.region.Regions.Regions"><span class="pre">Regions</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">materials</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.material.Materials.html#pyrit.material.Materials" title="pyrit.material.Materials.Materials"><span class="pre">Materials</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">excitations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.excitation.Excitations.html#pyrit.excitation.Excitations" title="pyrit.excitation.Excitations.Excitations"><span class="pre">Excitations</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyrit.solution.StaticSolution.html#pyrit.solution.StaticSolution" title="pyrit.solution.Solution.StaticSolution"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaticSolution</span></code></a></p>
+<p>Solution of a static, two-dimensional magnetic problem in Cartesian coordinates.</p>
+<p>The corresponding problem class is <code class="xref py py-class docutils literal notranslate"><span class="pre">MagneticProblemCartStatic</span></code>.</p>
+<p>Constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Description of the solution.</p></li>
+<li><p><strong>vector_potential</strong> (<em>np.ndarray</em>) – An array that represents the potential.</p></li>
+<li><p><strong>tri_mesh</strong> (<a class="reference internal" href="pyrit.mesh.TriMesh.html#pyrit.mesh.TriMesh" title="pyrit.mesh.TriMesh"><em>mesh.TriMesh</em></a>) – The mesh object.</p></li>
+<li><p><strong>tri_cart_edge_shape_function</strong> (<em>shapefunction.TriCartesianEdgeShapeFunction</em>) – The shape function object.</p></li>
+<li><p><strong>regions</strong> (<a class="reference internal" href="pyrit.region.Regions.html#pyrit.region.Regions" title="pyrit.region.Regions"><em>region.Regions</em></a>) – The regions object.</p></li>
+<li><p><strong>materials</strong> (<a class="reference internal" href="pyrit.material.Materials.html#pyrit.material.Materials" title="pyrit.material.Materials"><em>material.Materials</em></a>) – The materials object.</p></li>
+<li><p><strong>excitations</strong> (<em>excitations.Excitations</em>) – The excitations object.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.absolute_field" title="pyrit.solution.MagneticSolutionCartStatic.absolute_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">absolute_field</span></code></a></p></td>
+<td><p>Computes the absolute field.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.consistency_check" title="pyrit.solution.MagneticSolutionCartStatic.consistency_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">consistency_check</span></code></a></p></td>
+<td><p>Check if the solution is consistent.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.energy_in_regions" title="pyrit.solution.MagneticSolutionCartStatic.energy_in_regions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_in_regions</span></code></a></p></td>
+<td><p>Compute the energy in certain regions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.initialize_attributes" title="pyrit.solution.MagneticSolutionCartStatic.initialize_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_attributes</span></code></a></p></td>
+<td><p>Initialize the protected attributes needed for the properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.load" title="pyrit.solution.MagneticSolutionCartStatic.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a></p></td>
+<td><p>Load a solution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.plot_b_field" title="pyrit.solution.MagneticSolutionCartStatic.plot_b_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_b_field</span></code></a></p></td>
+<td><p>Plot the magnetic flux density.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.plot_current_density" title="pyrit.solution.MagneticSolutionCartStatic.plot_current_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_current_density</span></code></a></p></td>
+<td><p>Plot the current density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.plot_energy_density" title="pyrit.solution.MagneticSolutionCartStatic.plot_energy_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_energy_density</span></code></a></p></td>
+<td><p>Plot the energy density.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.plot_equilines" title="pyrit.solution.MagneticSolutionCartStatic.plot_equilines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_equilines</span></code></a></p></td>
+<td><p>Plot the equilines of the vector potential.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.plot_h_field" title="pyrit.solution.MagneticSolutionCartStatic.plot_h_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_h_field</span></code></a></p></td>
+<td><p>Plot the magnetic field strength.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.plot_load_vector" title="pyrit.solution.MagneticSolutionCartStatic.plot_load_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_load_vector</span></code></a></p></td>
+<td><p>Plot the load vector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.plot_vector_potential" title="pyrit.solution.MagneticSolutionCartStatic.plot_vector_potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_vector_potential</span></code></a></p></td>
+<td><p>Plot the vector potential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.save" title="pyrit.solution.MagneticSolutionCartStatic.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a></p></td>
+<td><p>Saves the solution instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.solution_from_problem" title="pyrit.solution.MagneticSolutionCartStatic.solution_from_problem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solution_from_problem</span></code></a></p></td>
+<td><p>Create a static solution from a static problem.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.b_field" title="pyrit.solution.MagneticSolutionCartStatic.b_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">b_field</span></code></a></p></td>
+<td><p>Magnetic flux density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.curlcurl_matrix" title="pyrit.solution.MagneticSolutionCartStatic.curlcurl_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">curlcurl_matrix</span></code></a></p></td>
+<td><p>The curl-curl-matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.current_density" title="pyrit.solution.MagneticSolutionCartStatic.current_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_density</span></code></a></p></td>
+<td><p>The current density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.energy" title="pyrit.solution.MagneticSolutionCartStatic.energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy</span></code></a></p></td>
+<td><p>The energy in the whole domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.energy_density" title="pyrit.solution.MagneticSolutionCartStatic.energy_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">energy_density</span></code></a></p></td>
+<td><p>The energy density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.h_field" title="pyrit.solution.MagneticSolutionCartStatic.h_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h_field</span></code></a></p></td>
+<td><p>Magnetic field strength.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.ignore_for_saving" title="pyrit.solution.MagneticSolutionCartStatic.ignore_for_saving"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_for_saving</span></code></a></p></td>
+<td><p>List of attributes that are not saved</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.length" title="pyrit.solution.MagneticSolutionCartStatic.length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">length</span></code></a></p></td>
+<td><p>The length of the domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.load_vector" title="pyrit.solution.MagneticSolutionCartStatic.load_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_vector</span></code></a></p></td>
+<td><p>The load vector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.mass_one" title="pyrit.solution.MagneticSolutionCartStatic.mass_one"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_one</span></code></a></p></td>
+<td><p>The identity mass matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.solution_identifier" title="pyrit.solution.MagneticSolutionCartStatic.solution_identifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solution_identifier</span></code></a></p></td>
+<td><p>Identifier for the __repr__ method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.vector_potential" title="pyrit.solution.MagneticSolutionCartStatic.vector_potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector_potential</span></code></a></p></td>
+<td><p>The vector potential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.vector_potential_field_values" title="pyrit.solution.MagneticSolutionCartStatic.vector_potential_field_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector_potential_field_values</span></code></a></p></td>
+<td><p>The field values of the vector potential.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.solution_identifier">
+<span class="sig-name descname"><span class="pre">solution_identifier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Solution</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">static,</span> <span class="pre">tow-dimensional</span> <span class="pre">magnetostatic</span> <span class="pre">problem</span> <span class="pre">in</span> <span class="pre">Cartesian</span> <span class="pre">coordinates'</span></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.solution_identifier" title="Permalink to this definition"></a></dt>
+<dd><p>Identifier for the __repr__ method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.ignore_for_saving">
+<span class="sig-name descname"><span class="pre">ignore_for_saving</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['_b_field',</span> <span class="pre">'_h_field',</span> <span class="pre">'_curlcurl_matrix',</span> <span class="pre">'_mass_one',</span> <span class="pre">'_load_vector']</span></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.ignore_for_saving" title="Permalink to this definition"></a></dt>
+<dd><p>List of attributes that are not saved</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.consistency_check">
+<span class="sig-name descname"><span class="pre">consistency_check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.consistency_check" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the solution is consistent.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.length">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.length" title="Permalink to this definition"></a></dt>
+<dd><p>The length of the domain.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.vector_potential">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vector_potential</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.vector_potential" title="Permalink to this definition"></a></dt>
+<dd><p>The vector potential. These are the coefficients for the basis functions.</p>
+<p>Note that this vector does not represent the values of <span class="math notranslate nohighlight">\(\vec{A}\)</span>. See the property
+vector_potential_field_values.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.vector_potential_field_values">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vector_potential_field_values</span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.vector_potential_field_values" title="Permalink to this definition"></a></dt>
+<dd><p>The field values of the vector potential.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.b_field">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">b_field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.b_field" title="Permalink to this definition"></a></dt>
+<dd><p>Magnetic flux density. Array with two values (x- and y-component) per mesh element.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.h_field">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">h_field</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.h_field" title="Permalink to this definition"></a></dt>
+<dd><p>Magnetic field strength. Array with two values (x- and y-component) per mesh element.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.curlcurl_matrix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">curlcurl_matrix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.9.3)"><span class="pre">coo_matrix</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.curlcurl_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>The curl-curl-matrix.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.load_vector">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_vector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.load_vector" title="Permalink to this definition"></a></dt>
+<dd><p>The load vector. Array with one value per mesh node.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.mass_one">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mass_one</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.9.3)"><span class="pre">coo_matrix</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.mass_one" title="Permalink to this definition"></a></dt>
+<dd><p>The identity mass matrix.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.current_density">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_density</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.current_density" title="Permalink to this definition"></a></dt>
+<dd><p>The current density.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.energy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.energy" title="Permalink to this definition"></a></dt>
+<dd><p>The energy in the whole domain.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.energy_density">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">energy_density</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></em><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.energy_density" title="Permalink to this definition"></a></dt>
+<dd><p>The energy density. Array with one value per mesh node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.energy_in_regions">
+<span class="sig-name descname"><span class="pre">energy_in_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">region_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.energy_in_regions" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the energy in certain regions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>region_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Region IDs of the regions to compute the energy in.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>energy</strong> – The energy</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></p>
+</dd>
+</dl>
+<p>:raises ValueError : When the region of one ID is not two-dimensional.:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.plot_vector_potential">
+<span class="sig-name descname"><span class="pre">plot_vector_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.plot_vector_potential" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the vector potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">TriMesh.plot_scalar_field()</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – A figure object.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – A axes object.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.plot_b_field">
+<span class="sig-name descname"><span class="pre">plot_b_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'arrows'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.plot_b_field" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the magnetic flux density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The plot_type of the plot. See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_vector_field()</span></code></p></li>
+<li><p><strong>kwargs</strong> – Passed to the plot method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – A figure object.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – A axes object.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.plot_h_field">
+<span class="sig-name descname"><span class="pre">plot_h_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'arrows'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.plot_h_field" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the magnetic field strength.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The plot_type of the plot. See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_vector_field()</span></code></p></li>
+<li><p><strong>kwargs</strong> – Passed to the plot method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – A figure object.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – A axes object.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.plot_energy_density">
+<span class="sig-name descname"><span class="pre">plot_energy_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.plot_energy_density" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the energy density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_scalar_field()</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – A figure object.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – A axes object.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.plot_load_vector">
+<span class="sig-name descname"><span class="pre">plot_load_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.plot_load_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the load vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_scalar_field()</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – A figure object.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – A axes object.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.plot_current_density">
+<span class="sig-name descname"><span class="pre">plot_current_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.plot_current_density" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the current density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_scalar_field()</span></code></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – A figure object.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – A axes object.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.plot_equilines">
+<span class="sig-name descname"><span class="pre">plot_equilines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.plot_equilines" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the equilines of the vector potential. This is in direction of the b field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_scalar_field()</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.absolute_field">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">absolute_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.absolute_field" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the absolute field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>field</strong> (<em>np.ndarray</em>) – The field. A (N,2) or a (2,N) array.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>absolute_field</strong> – The absolute value of the field. A (N,) array.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<p>:raises ValueError : When the input array is not of one of ht expected shapes.:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.initialize_attributes">
+<span class="sig-name descname"><span class="pre">initialize_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.initialize_attributes" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the protected attributes needed for the properties.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pyrit.solution.Solution.html#pyrit.solution.Solution" title="pyrit.solution.Solution.Solution"><span class="pre">Solution</span></a></span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.load" title="Permalink to this definition"></a></dt>
+<dd><p>Load a solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Path</em><em>]</em>) – The path. If a string is given, it is converted to a Path object. The file ending can but must not be given.
+In any case it will be a <em>.pkl</em> file. See <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle doc</a> for
+more information.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>solution</strong> – A solution instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyrit.solution.Solution.html#pyrit.solution.Solution" title="pyrit.solution.Solution">Solution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><span class="pre">Path</span></a></span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.save" title="Permalink to this definition"></a></dt>
+<dd><p>Saves the solution instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Path</em><em>]</em>) – <p>The path. If a string is given, it is converted to a Path object. The file ending can but must not be given.
+In any case it will be a <em>.pkl</em> file. See <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle doc</a> for
+more information.
+If the path contains a non-existing folder, this folder will be created.</p>
+</p></li>
+<li><p><strong>ignore_attributes</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – A list of attributes that are not included in the saved file. The default value is
+<a class="reference internal" href="#pyrit.solution.MagneticSolutionCartStatic.ignore_for_saving" title="pyrit.solution.MagneticSolutionCartStatic.ignore_for_saving"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_for_saving</span></code></a> of the object.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>path</strong> – The path that was used for opening the file.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.MagneticSolutionCartStatic.solution_from_problem">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">solution_from_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.problem.StaticProblem.html#pyrit.problem.StaticProblem" title="pyrit.problem.StaticProblem"><span class="pre">StaticProblem</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pyrit.solution.StaticSolution.html#pyrit.solution.StaticSolution" title="pyrit.solution.StaticSolution"><span class="pre">StaticSolution</span></a></span></span><a class="headerlink" href="#pyrit.solution.MagneticSolutionCartStatic.solution_from_problem" title="Permalink to this definition"></a></dt>
+<dd><p>Create a static solution from a static problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Description of the static solution.</p></li>
+<li><p><strong>problem</strong> (<a class="reference internal" href="pyrit.problem.StaticProblem.html#pyrit.problem.StaticProblem" title="pyrit.problem.StaticProblem"><em>StaticProblem</em></a>) – A static problem.</p></li>
+<li><p><strong>solution</strong> (<em>np.ndarray</em>) – The solution of the static problem.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>static_solution</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyrit.solution.StaticSolution.html#pyrit.solution.StaticSolution" title="pyrit.solution.StaticSolution">StaticSolution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyrit.solution.ElectricSolutionAxiStatic.html" class="btn btn-neutral float-left" title="ElectricSolutionAxiStatic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyrit.solution.MagneticSolutionCartHarmonic.html" class="btn btn-neutral float-right" title="MagneticSolutionCartHarmonic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

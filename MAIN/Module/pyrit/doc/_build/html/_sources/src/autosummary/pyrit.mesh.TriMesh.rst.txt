@@ -1,0 +1,61 @@
+﻿TriMesh
+=======
+
+.. currentmodule:: pyrit.mesh
+
+.. autoclass:: TriMesh
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~TriMesh.boundary_elements
+      ~TriMesh.calc_edge2elem
+      ~TriMesh.calc_edge2node
+      ~TriMesh.calc_edge_length
+      ~TriMesh.calc_elem2edge
+      ~TriMesh.calc_face_area
+      ~TriMesh.calc_node2elem
+      ~TriMesh.calc_normal_vector
+      ~TriMesh.calc_tet_volume
+      ~TriMesh.find_elemidx
+      ~TriMesh.find_nodeidx
+      ~TriMesh.plot
+      ~TriMesh.plot_equilines
+      ~TriMesh.plot_scalar_field
+      ~TriMesh.plot_streamlines
+      ~TriMesh.plot_vector_field
+      ~TriMesh.prj_el2nd
+      ~TriMesh.prj_nd2el
+      ~TriMesh.value_per_element
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TriMesh.bound2node
+      ~TriMesh.bound2regi
+      ~TriMesh.edge2elem
+      ~TriMesh.edge2node
+      ~TriMesh.edge_length
+      ~TriMesh.elem2edge
+      ~TriMesh.elem2node
+      ~TriMesh.elem_area
+      ~TriMesh.node
+      ~TriMesh.node2elem
+      ~TriMesh.num_edge
+      ~TriMesh.num_elem
+      ~TriMesh.num_node
+   
+   

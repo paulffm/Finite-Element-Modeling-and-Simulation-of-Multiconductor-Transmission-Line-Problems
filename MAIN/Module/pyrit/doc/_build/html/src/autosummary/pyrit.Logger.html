@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logger &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pyrit.Logger.LEVEL" href="pyrit.Logger.LEVEL.html" />
+    <link rel="prev" title="Pyrit (pyrit)" href="../pyrit.html" />
+<link rel="stylesheet" type="text/css"
+     href="../../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage%20and%20workflow.html">Usage and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-use-this-module">How to use this module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.LEVEL.html">pyrit.Logger.LEVEL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.COLOR_DEBUG.html">pyrit.Logger.COLOR_DEBUG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.COLOR_INFO.html">pyrit.Logger.COLOR_INFO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.COLOR_WARNING.html">pyrit.Logger.COLOR_WARNING</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.COLOR_ERROR.html">pyrit.Logger.COLOR_ERROR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.COLOR_CRITICAL.html">pyrit.Logger.COLOR_CRITICAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.LOG_FORMAT.html">pyrit.Logger.LOG_FORMAT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.disable_colors.html">disable_colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.get_logger.html">get_logger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.reset_colors.html">reset_colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.set_color.html">set_color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.set_format.html">set_format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.set_level.html">set_level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.Logger.CustomFormatter.html">pyrit.Logger.CustomFormatter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyrit.ValueHandler.html">ValueHandler</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Pyrit</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a> &raquo;</li>
+      <li>Logger</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/autosummary/pyrit.Logger.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pyrit.Logger">
+<span id="logger"></span><h1>Logger<a class="headerlink" href="#module-pyrit.Logger" title="Permalink to this heading"></a></h1>
+<p>A specialised logger for <cite>Pyrit</cite>.</p>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> module from the python standard library is used for logging. For general information, see that
+documentation. The colored log-messages are realized with the module <code class="xref py py-mod docutils literal notranslate"><span class="pre">colorama</span></code>. For each type of log-message
+there is an attribute that determines the used color.
+This module provides functions to change single colors, the level for logging and the format string.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to change a default value, this has to be done <strong>bevore</strong> other modules from <cite>Pyrit</cite> are loaded.</p>
+</div>
+<p class="rubric">Example</p>
+<p>Example of changing the default color for log-messages of type INFO</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyrit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyrit</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span><span class="n">colorama</span><span class="o">.</span><span class="n">Fore</span><span class="o">.</span><span class="n">WHITE</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyrit.geometry</span> <span class="kn">import</span> <span class="n">Geometry</span>
+</pre></div>
+</div>
+<section id="how-to-use-this-module">
+<h2>How to use this module<a class="headerlink" href="#how-to-use-this-module" title="Permalink to this heading"></a></h2>
+<p>It is intended to use this module as follows. At the top of a file, a new logger is created. This logger is then used
+for this whole file with the standard methods for logging:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyrit</span> <span class="kn">import</span> <span class="n">get_logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an info log-message&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Module attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyrit.Logger.LEVEL.html#pyrit.Logger.LEVEL" title="pyrit.Logger.LEVEL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEVEL</span></code></a></p></td>
+<td><p>The level for the logging module</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyrit.Logger.COLOR_DEBUG.html#pyrit.Logger.COLOR_DEBUG" title="pyrit.Logger.COLOR_DEBUG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COLOR_DEBUG</span></code></a></p></td>
+<td><p>Color for debug log-messages</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyrit.Logger.COLOR_INFO.html#pyrit.Logger.COLOR_INFO" title="pyrit.Logger.COLOR_INFO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COLOR_INFO</span></code></a></p></td>
+<td><p>Color for info log-messages</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyrit.Logger.COLOR_WARNING.html#pyrit.Logger.COLOR_WARNING" title="pyrit.Logger.COLOR_WARNING"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COLOR_WARNING</span></code></a></p></td>
+<td><p>Color for warning log-messages</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyrit.Logger.COLOR_ERROR.html#pyrit.Logger.COLOR_ERROR" title="pyrit.Logger.COLOR_ERROR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COLOR_ERROR</span></code></a></p></td>
+<td><p>Color for error log-messages</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyrit.Logger.COLOR_CRITICAL.html#pyrit.Logger.COLOR_CRITICAL" title="pyrit.Logger.COLOR_CRITICAL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COLOR_CRITICAL</span></code></a></p></td>
+<td><p>Color for critical log-messages</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyrit.Logger.LOG_FORMAT.html#pyrit.Logger.LOG_FORMAT" title="pyrit.Logger.LOG_FORMAT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LOG_FORMAT</span></code></a></p></td>
+<td><p>The format string for log-messages</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyrit.Logger.disable_colors.html#pyrit.Logger.disable_colors" title="pyrit.Logger.disable_colors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable_colors</span></code></a></p></td>
+<td><p>Disable colored output</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyrit.Logger.get_logger.html#pyrit.Logger.get_logger" title="pyrit.Logger.get_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_logger</span></code></a></p></td>
+<td><p>Get a logger object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyrit.Logger.reset_colors.html#pyrit.Logger.reset_colors" title="pyrit.Logger.reset_colors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_colors</span></code></a></p></td>
+<td><p>Reset all colors to the default values</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyrit.Logger.set_color.html#pyrit.Logger.set_color" title="pyrit.Logger.set_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_color</span></code></a></p></td>
+<td><p>Set a color for the given level.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyrit.Logger.set_format.html#pyrit.Logger.set_format" title="pyrit.Logger.set_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_format</span></code></a></p></td>
+<td><p>Set the format string for log-messages.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyrit.Logger.set_level.html#pyrit.Logger.set_level" title="pyrit.Logger.set_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_level</span></code></a></p></td>
+<td><p>Set the level for the logging output.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyrit.Logger.CustomFormatter.html#pyrit.Logger.CustomFormatter" title="pyrit.Logger.CustomFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CustomFormatter</span></code></a></p></td>
+<td><p>A custom formatter that uses the colored output.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../pyrit.html" class="btn btn-neutral float-left" title="Pyrit (pyrit)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyrit.Logger.LEVEL.html" class="btn btn-neutral float-right" title="pyrit.Logger.LEVEL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

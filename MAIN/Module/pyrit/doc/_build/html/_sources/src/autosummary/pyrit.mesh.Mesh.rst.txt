@@ -1,0 +1,43 @@
+﻿Mesh
+====
+
+.. currentmodule:: pyrit.mesh
+
+.. autoclass:: Mesh
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Mesh.boundary_elements
+      ~Mesh.calc_edge_length
+      ~Mesh.calc_face_area
+      ~Mesh.calc_node2elem
+      ~Mesh.calc_tet_volume
+      ~Mesh.find_elemidx
+      ~Mesh.find_nodeidx
+      ~Mesh.value_per_element
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Mesh.bound2node
+      ~Mesh.bound2regi
+      ~Mesh.elem2node
+      ~Mesh.node
+      ~Mesh.num_elem
+      ~Mesh.num_node
+   
+   

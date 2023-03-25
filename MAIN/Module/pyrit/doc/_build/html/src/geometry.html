@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geometry (pyrit.geometry) &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Geometry" href="autosummary/pyrit.geometry.Geometry.html" />
+    <link rel="prev" title="FieldCircuitCoupling" href="autosummary/pyrit.excitation.FieldCircuitCoupling.html" />
+<link rel="stylesheet" type="text/css"
+     href="../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage%20and%20workflow.html">Usage and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">Pyrit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bdrycond.html">Boundary conditions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.bdrycond</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="excitation.html">Excitations (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.excitation</span></code>)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-classes">Main classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Geometry.html">Geometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.PhysicalGroup.html">PhysicalGroup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#classes-for-geometrical-entities">Classes for geometrical entities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Point.html">Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Curve.html">Curve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Line.html">Line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Circle.html">Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.CircleArc.html">CircleArc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Ellipse.html">Ellipse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.EllipseArc.html">EllipseArc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Surface.html">Surface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Rectangle.html">Rectangle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#abstract-classes">Abstract classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.PrimitiveGeo.html">PrimitiveGeo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.Geo.html">Geo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="autosummary/pyrit.geometry.BasicAnchor.html">BasicAnchor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="material.html">Material (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.material</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mesh.html">Mesh (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.mesh</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem.html">Problem (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.problem</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="region.html">Region (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.region</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapefunction.html">Shape function (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.shapefunction</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html">Toolbox (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.toolbox</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api.html">Pyrit</a> &raquo;</li>
+      <li>Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code>)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/geometry.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="module-pyrit.geometry"></span><section id="geometry-pyrit-geometry">
+<h1>Geometry (<a class="reference internal" href="#module-pyrit.geometry" title="pyrit.geometry"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code></a>)<a class="headerlink" href="#geometry-pyrit-geometry" title="Permalink to this heading"></a></h1>
+<p>The main part of the <em>Geometry</em> module is the class <a class="reference internal" href="autosummary/pyrit.geometry.Geometry.html#pyrit.geometry.Geometry" title="pyrit.geometry.Geometry"><code class="xref py py-class docutils literal notranslate"><span class="pre">Geometry</span></code></a>. It is responsible for the connection between
+<strong>Pyrit</strong> and <em>Gmsh</em>.</p>
+<section id="main-classes">
+<h2>Main classes<a class="headerlink" href="#main-classes" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Geometry.html#pyrit.geometry.Geometry" title="pyrit.geometry.Geometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Geometry</span></code></a>(model_name[, mesh_version, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.PhysicalGroup.html#pyrit.geometry.PhysicalGroup" title="pyrit.geometry.PhysicalGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PhysicalGroup</span></code></a>(tag, dim[, name])</p></td>
+<td><p>Class for physical group object that can be added directly to GMSH.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes-for-geometrical-entities">
+<h2>Classes for geometrical entities<a class="headerlink" href="#classes-for-geometrical-entities" title="Permalink to this heading"></a></h2>
+<p><strong>0 Dimensional</strong></p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Point.html#pyrit.geometry.Point" title="pyrit.geometry.Point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Point</span></code></a>(x, y, z[, mesh_size, physical_tag])</p></td>
+<td><p>A class representing a point.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>1 Dimensional</strong></p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Curve.html#pyrit.geometry.Curve" title="pyrit.geometry.Curve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Curve</span></code></a>(*points[, physical_tag])</p></td>
+<td><p>A class representing a curve.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Line.html#pyrit.geometry.Line" title="pyrit.geometry.Line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Line</span></code></a>(point1, point2[, physical_tag])</p></td>
+<td><p>A class representing a Line.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Circle.html#pyrit.geometry.Circle" title="pyrit.geometry.Circle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Circle</span></code></a>(center_x, center_y, center_z, radius)</p></td>
+<td><p>Class representing a circle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.CircleArc.html#pyrit.geometry.CircleArc" title="pyrit.geometry.CircleArc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CircleArc</span></code></a>(start_point, end_point, center_point)</p></td>
+<td><p>A class representing a CircleArc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Ellipse.html#pyrit.geometry.Ellipse" title="pyrit.geometry.Ellipse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ellipse</span></code></a>(center_x, center_y, center_z, ...[, ...])</p></td>
+<td><p>A class representing an Ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.EllipseArc.html#pyrit.geometry.EllipseArc" title="pyrit.geometry.EllipseArc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EllipseArc</span></code></a>(start_point, end_point, ...[, ...])</p></td>
+<td><p>Class representing an ellipse</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2 Dimensional</strong></p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Surface.html#pyrit.geometry.Surface" title="pyrit.geometry.Surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surface</span></code></a>(ext_curves, *int_curves[, physical_tag])</p></td>
+<td><p>A class representing a surface.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Rectangle.html#pyrit.geometry.Rectangle" title="pyrit.geometry.Rectangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rectangle</span></code></a>(origin_x, origin_y, origin_z, dx, dy)</p></td>
+<td><p>Class representing a surface.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>3 Dimensional</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not implemented yet.</p>
+</div>
+</section>
+<section id="abstract-classes">
+<h2>Abstract classes<a class="headerlink" href="#abstract-classes" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.PrimitiveGeo.html#pyrit.geometry.PrimitiveGeo" title="pyrit.geometry.PrimitiveGeo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PrimitiveGeo</span></code></a>(dim, physical_tag[, tag])</p></td>
+<td><p>Abstract class for primitive geometry object that can be added directly to GMSH.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.Geo.html#pyrit.geometry.Geo" title="pyrit.geometry.Geo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Geo</span></code></a>(name[, origin_x, origin_y, origin_z, anchor])</p></td>
+<td><p>Abstract class Geo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/pyrit.geometry.BasicAnchor.html#pyrit.geometry.BasicAnchor" title="pyrit.geometry.BasicAnchor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BasicAnchor</span></code></a>(value)</p></td>
+<td><p>Basic anchors for Geo.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="autosummary/pyrit.excitation.FieldCircuitCoupling.html" class="btn btn-neutral float-left" title="FieldCircuitCoupling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="autosummary/pyrit.geometry.Geometry.html" class="btn btn-neutral float-right" title="Geometry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

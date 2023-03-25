@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShapeFunction &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="NodalShapeFunction" href="pyrit.shapefunction.NodalShapeFunction.html" />
+    <link rel="prev" title="TetCartesianNodalShapeFunction" href="pyrit.shapefunction.TetCartesianNodalShapeFunction.html" />
+<link rel="stylesheet" type="text/css"
+     href="../../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage%20and%20workflow.html">Usage and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">Pyrit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bdrycond.html">Boundary conditions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.bdrycond</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../excitation.html">Excitations (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.excitation</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometry.html">Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../material.html">Material (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.material</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mesh.html">Mesh (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.mesh</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem.html">Problem (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.problem</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../region.html">Region (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.region</span></code>)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../shapefunction.html">Shape function (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.shapefunction</span></code>)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../shapefunction.html#actual-shape-function-classes">Actual shape function classes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../shapefunction.html#abstract-class">Abstract class</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ShapeFunction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.shapefunction.NodalShapeFunction.html">NodalShapeFunction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.shapefunction.EdgeShapeFunction.html">EdgeShapeFunction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../toolbox.html">Toolbox (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.toolbox</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../api.html">Pyrit</a> &raquo;</li>
+          <li><a href="../shapefunction.html">Shape function (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.shapefunction</span></code>)</a> &raquo;</li>
+      <li>ShapeFunction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/autosummary/pyrit.shapefunction.ShapeFunction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="shapefunction">
+<h1>ShapeFunction<a class="headerlink" href="#shapefunction" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyrit.shapefunction.ShapeFunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrit.shapefunction.</span></span><span class="sig-name descname"><span class="pre">ShapeFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.mesh.Mesh.html#pyrit.mesh.Mesh" title="pyrit.mesh.Mesh"><span class="pre">Mesh</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">allocation_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.shapefunction.ShapeFunction" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract class for shape function (sft) object.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="../mesh.html#module-pyrit.mesh" title="pyrit.mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyrit.mesh</span></code></a></dt><dd><p>Abstract underlying Mesh object on whose entities the SFT parameters are computed.</p>
+</dd>
+</dl>
+</div>
+<p>Constructor for the abstract class ShapeFunction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<em>Mesh object</em>) – Representing the underlying geometry on which the SFTs are defined.</p></li>
+<li><p><strong>dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Dimensionality of the shape function.</p></li>
+<li><p><strong>allocation_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Size used for vector allocation in matrix creation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">inflate</span></code></p></td>
+<td><p>Inflates a solution.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">shrink</span></code></p></td>
+<td><p>Shrink the system of equations of a problem.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></p></td>
+<td><p>Return the dimension.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mesh</span></code></p></td>
+<td><p>Returns the mesh.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.shapefunction.ShapeFunction.mesh">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mesh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyrit.mesh.Mesh.html#pyrit.mesh.Mesh" title="pyrit.mesh.Mesh"><span class="pre">Mesh</span></a></em><a class="headerlink" href="#pyrit.shapefunction.ShapeFunction.mesh" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the mesh.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.shapefunction.ShapeFunction.dim">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#pyrit.shapefunction.ShapeFunction.dim" title="Permalink to this definition"></a></dt>
+<dd><p>Return the dimension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.shapefunction.ShapeFunction.shrink">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shrink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.9.3)"><span class="pre">coo_matrix</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.9.3)"><span class="pre">coo_matrix</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ShrinkInflateProblemShapeFunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integration_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.9.3)"><span class="pre">coo_matrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix" title="(in SciPy v1.9.3)"><span class="pre">coo_matrix</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.shapefunction.ShapeFunction.shrink" title="Permalink to this definition"></a></dt>
+<dd><p>Shrink the system of equations of a problem.</p>
+<p>Shrinks the system of equations where <cite>matrix</cite> is the matrix and <cite>rhs</cite> is the right-hand-side. Additionally,
+there is returned side information that can be used for further computations with the system or for inflating.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matrix</strong> (<em>coo_matrix</em>) – The matrix of the system of equations.</p></li>
+<li><p><strong>rhs</strong> (<em>coo_matrix</em>) – The right-hand-side of the system of equations.</p></li>
+<li><p><strong>problem</strong> (<em>ShrinkInflateProblemShapeFunction</em>) – A problem containing additional data structures. See <code class="xref py py-class docutils literal notranslate"><span class="pre">ShrinkInflateProblem</span></code>.</p></li>
+<li><p><strong>integration_order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The integration order used by specific shrink methods. Default is 1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>matrix_shrink</strong> (<em>coo_matrix</em>) – The shrunk matrix of the system.</p></li>
+<li><p><strong>rhs_shrink</strong> (<em>coo_matrix</em>) – The shrunk right-hand-side of the system.</p></li>
+<li><p><strong>indices_not_dof</strong> (<em>ndarray</em>) – An array containing these lines of the original matrix that are no longer in the resulting matrix.</p></li>
+<li><p><strong>num_new_dof</strong> (<em>int</em>) – The number of newly introduced degrees of freedom</p></li>
+<li><p><strong>support_data</strong> (<em>Dict[str,Any]</em>) – A dict containing additional data that is needed for inflating the problem.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Suppose the original matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is of dimension <span class="math notranslate nohighlight">\(N\times N\)</span> and the length of
+<cite>indices_not_dof</cite> is <span class="math notranslate nohighlight">\(M\)</span>. Then, the dimension of the returned matrix is <span class="math notranslate nohighlight">\(N_{out}\times N_{out}\)</span> with</p>
+<div class="math notranslate nohighlight">
+\[N_{out} = N - M + \text{num\_new\_dof}\,.\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.shapefunction.ShapeFunction.inflate">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inflate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ShrinkInflateProblemShapeFunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">support_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#pyrit.shapefunction.ShapeFunction.inflate" title="Permalink to this definition"></a></dt>
+<dd><p>Inflates a solution.</p>
+<p>After the system of equations of a problem was shrunk and solved, its solution can be inflated with this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>solution</strong> (<em>ndarray</em>) – The solution of the shrunk system of equations.</p></li>
+<li><p><strong>problem</strong> (<em>ShrinkInflateProblemShapeFunction</em>) – A problem containing additional data structures. See <code class="xref py py-class docutils literal notranslate"><span class="pre">ShrinkInflateProblem</span></code>.</p></li>
+<li><p><strong>support_data</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>,</em><em>Any</em><em>]</em><em>, </em><em>optional</em>) – A dictionary with data needed for the inflation process. It is provided by the shrink method. If not given,
+these data is computed inside the function. By passing the data provided by the shrink method, this time
+can be saved. Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>solution_inflated</strong> – The solution of the original system of equations.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyrit.shapefunction.TetCartesianNodalShapeFunction.html" class="btn btn-neutral float-left" title="TetCartesianNodalShapeFunction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyrit.shapefunction.NodalShapeFunction.html" class="btn btn-neutral float-right" title="NodalShapeFunction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

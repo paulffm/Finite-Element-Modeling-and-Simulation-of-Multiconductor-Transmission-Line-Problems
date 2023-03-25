@@ -1,0 +1,38 @@
+﻿CurrentFlowProblemAxiHarmonic
+=============================
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: CurrentFlowProblemAxiHarmonic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~CurrentFlowProblemAxiHarmonic.consistency_check
+      ~CurrentFlowProblemAxiHarmonic.load
+      ~CurrentFlowProblemAxiHarmonic.save
+      ~CurrentFlowProblemAxiHarmonic.solve
+      ~CurrentFlowProblemAxiHarmonic.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CurrentFlowProblemAxiHarmonic.angular_frequency
+      ~CurrentFlowProblemAxiHarmonic.frequency
+      ~CurrentFlowProblemAxiHarmonic.omega
+      ~CurrentFlowProblemAxiHarmonic.problem_identifier
+   
+   

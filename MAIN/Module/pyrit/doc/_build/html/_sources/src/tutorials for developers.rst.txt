@@ -1,0 +1,16 @@
+========================
+Tutorials for developers
+========================
+
+The tutorials in this section are for developers of pyrit.
+They explain some design principles used in the implementation of classes.
+
+.. toctree::
+
+    problem classes
+    solution classes
+
+    writing a problem class
+    writing a solution class
+
+    writing a shape function class

@@ -1,0 +1,36 @@
+﻿CurrentFlowProblemAxiStatic
+===========================
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: CurrentFlowProblemAxiStatic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~CurrentFlowProblemAxiStatic.consistency_check
+      ~CurrentFlowProblemAxiStatic.load
+      ~CurrentFlowProblemAxiStatic.save
+      ~CurrentFlowProblemAxiStatic.solve
+      ~CurrentFlowProblemAxiStatic.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CurrentFlowProblemAxiStatic.is_temperature_dependent
+      ~CurrentFlowProblemAxiStatic.problem_identifier
+   
+   

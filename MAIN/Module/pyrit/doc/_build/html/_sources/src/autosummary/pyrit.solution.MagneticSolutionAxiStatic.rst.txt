@@ -1,0 +1,59 @@
+﻿MagneticSolutionAxiStatic
+=========================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: MagneticSolutionAxiStatic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~MagneticSolutionAxiStatic.absolute_field
+      ~MagneticSolutionAxiStatic.consistency_check
+      ~MagneticSolutionAxiStatic.energy_in_regions
+      ~MagneticSolutionAxiStatic.field_vector
+      ~MagneticSolutionAxiStatic.initialize_attributes
+      ~MagneticSolutionAxiStatic.load
+      ~MagneticSolutionAxiStatic.plot_b_field
+      ~MagneticSolutionAxiStatic.plot_current_density
+      ~MagneticSolutionAxiStatic.plot_energy_density
+      ~MagneticSolutionAxiStatic.plot_equilines
+      ~MagneticSolutionAxiStatic.plot_h_field
+      ~MagneticSolutionAxiStatic.plot_load_vector
+      ~MagneticSolutionAxiStatic.plot_vector_potential
+      ~MagneticSolutionAxiStatic.project_to_c_vector
+      ~MagneticSolutionAxiStatic.save
+      ~MagneticSolutionAxiStatic.solution_from_problem
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MagneticSolutionAxiStatic.b_field
+      ~MagneticSolutionAxiStatic.curlcurl_matrix
+      ~MagneticSolutionAxiStatic.current_density
+      ~MagneticSolutionAxiStatic.energy
+      ~MagneticSolutionAxiStatic.energy_density
+      ~MagneticSolutionAxiStatic.h_field
+      ~MagneticSolutionAxiStatic.ignore_for_saving
+      ~MagneticSolutionAxiStatic.load_vector
+      ~MagneticSolutionAxiStatic.mass
+      ~MagneticSolutionAxiStatic.mass_one
+      ~MagneticSolutionAxiStatic.nodes_not_on_axis
+      ~MagneticSolutionAxiStatic.solution_identifier
+      ~MagneticSolutionAxiStatic.vector_potential
+      ~MagneticSolutionAxiStatic.vector_potential_field_values
+   
+   

@@ -1,0 +1,52 @@
+﻿Circle
+======
+
+.. currentmodule:: pyrit.geometry
+
+.. autoclass:: Circle
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Circle.add_to_gmsh
+      ~Circle.remove
+      ~Circle.reset_tag
+      ~Circle.rotate
+      ~Circle.translate
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Circle.center_x
+      ~Circle.center_y
+      ~Circle.center_z
+      ~Circle.angle1
+      ~Circle.angle2
+      ~Circle.angle_x
+      ~Circle.angle_y
+      ~Circle.angle_z
+      ~Circle.added
+      ~Circle.dim
+      ~Circle.end_point
+      ~Circle.num_points
+      ~Circle.physical_tag
+      ~Circle.points
+      ~Circle.radius
+      ~Circle.reversed
+      ~Circle.start_point
+      ~Circle.tag
+   
+   

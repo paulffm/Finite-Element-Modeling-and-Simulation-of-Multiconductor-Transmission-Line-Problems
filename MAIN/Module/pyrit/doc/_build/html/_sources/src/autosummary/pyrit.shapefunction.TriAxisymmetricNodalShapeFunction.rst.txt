@@ -1,0 +1,48 @@
+﻿TriAxisymmetricNodalShapeFunction
+=================================
+
+.. currentmodule:: pyrit.shapefunction
+
+.. autoclass:: TriAxisymmetricNodalShapeFunction
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~TriAxisymmetricNodalShapeFunction.compute_support_data
+      ~TriAxisymmetricNodalShapeFunction.divgrad_operator
+      ~TriAxisymmetricNodalShapeFunction.gradient
+      ~TriAxisymmetricNodalShapeFunction.inflate
+      ~TriAxisymmetricNodalShapeFunction.inflate_binary
+      ~TriAxisymmetricNodalShapeFunction.inflate_dirichlet
+      ~TriAxisymmetricNodalShapeFunction.inflate_floating
+      ~TriAxisymmetricNodalShapeFunction.load_vector
+      ~TriAxisymmetricNodalShapeFunction.mass_matrix
+      ~TriAxisymmetricNodalShapeFunction.neumann_term
+      ~TriAxisymmetricNodalShapeFunction.robin_terms
+      ~TriAxisymmetricNodalShapeFunction.shrink
+      ~TriAxisymmetricNodalShapeFunction.shrink_binary
+      ~TriAxisymmetricNodalShapeFunction.shrink_dirichlet
+      ~TriAxisymmetricNodalShapeFunction.shrink_floating
+      ~TriAxisymmetricNodalShapeFunction.shrink_neumann
+      ~TriAxisymmetricNodalShapeFunction.shrink_robin
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TriAxisymmetricNodalShapeFunction.dim
+      ~TriAxisymmetricNodalShapeFunction.mesh
+   
+   

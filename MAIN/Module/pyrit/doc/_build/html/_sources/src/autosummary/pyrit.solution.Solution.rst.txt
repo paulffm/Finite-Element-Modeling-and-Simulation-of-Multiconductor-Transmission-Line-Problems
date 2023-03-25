@@ -1,0 +1,35 @@
+﻿Solution
+========
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: Solution
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Solution.consistency_check
+      ~Solution.initialize_attributes
+      ~Solution.load
+      ~Solution.save
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Solution.ignore_for_saving
+      ~Solution.solution_identifier
+   
+   

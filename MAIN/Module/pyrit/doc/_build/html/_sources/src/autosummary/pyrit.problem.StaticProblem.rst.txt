@@ -1,0 +1,35 @@
+﻿StaticProblem
+=============
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: StaticProblem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~StaticProblem.consistency_check
+      ~StaticProblem.load
+      ~StaticProblem.save
+      ~StaticProblem.solve
+      ~StaticProblem.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~StaticProblem.problem_identifier
+   
+   

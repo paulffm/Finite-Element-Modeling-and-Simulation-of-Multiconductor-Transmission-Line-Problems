@@ -1,0 +1,248 @@
+.. _Writing a specific solution class:
+
+=================================
+Writing a specific solution class
+=================================
+
+In this section, it is explained how to write a solution class for a specific type of solution (for example a harmonic, magnetic solution on an two-dimensional domain)
+
+See also :ref:`Writing a specific problem class`.
+
+All specific solution classes are located in :py:mod:`pyrit.solution`.
+There should be one file for every type, where the static, harmonic and transient class are in one file.
+The currently most complete type is for magnetic solution on axisymmetric domains. So this type may be the best to look something up.
+
+In general, the static and harmonic solution classes are relatively similar. The solution is in both cases an one-dimensional array.
+In contrast to that, the solution of transient problems is one one-dimensional array per time step, i.e. a teo-dimensional array.
+Because of this difference, the main concept of static/harmonic and transient solutions differs as well.
+
+Static and harmonic solutions
+=============================
+
+Because this two cases are so similar, it is advantageous to have for both the same superclass. The following steps can be implemented in this superclass.
+
+1. Type annotation
+    Even if the constructor does not differ from the constructor of the superclass, you should rewrite it and add the type annotations in the code and in the docstring. For example:
+
+    .. code-block:: python
+
+        def __init__(self, description: str,
+                     vector_potential: np.ndarray,
+                     axi_mesh: 'AxiMesh',
+                     tri_axi_edge_shape_function: 'TriAxisymmetricEdgeShapeFunction',
+                     regions: 'Regions',
+                     materials: 'Materials',
+                     excitations: 'Excitations'):
+            super().__init__(description, vector_potential, None, None,
+                             regions, materials, excitations)
+            self.mesh: 'AxiMesh' = axi_mesh
+            self.shape_function: 'TriAxisymmetricEdgeShapeFunction' = tri_axi_edge_shape_function
+            self.plotter = None
+
+    Notes:
+        - The mesh and shape function parameter are correctly annotated (``'AxiMesh'`` instead of ``'Mesh'``).
+        - The mesh and shape function parameter have here a more descriptive name (``axi_mesh`` instead of ``mesh``).
+        - The mesh and shape function parameter are **not** passed to the constructor of the superclass.
+          Instead, they are set locally with an annotation. So the type is known inside the class.
+
+2. Properties
+    All results from the post-processing should be accessible through properties.
+    So, it is only computed if needed and only once, if it is requested several times.
+    Example of the B-field of an magnetic solution:
+
+    .. code-block:: python
+
+        @property
+        def b_field(self) -> np.ndarray:
+            if self._b_field is None:
+                self._b_field = self.shape_function.curl(self.vector_potential)
+            return self._b_field
+
+        @b_field.setter
+        def b_field(self, b_field: np.ndarray):
+            self._b_field = b_field
+
+    In order for this to work even after a solution was loaded from the disk, the protected parameters (here ``_b_field``) have to be initialized properly.
+    For this reason, add all the names of the protected parameters to ``_property_attributes`` .
+
+3. FieldPlotter
+    In order to be able to have the plotting methods also in the superclass, a :py:class:`~pyrit.solution.FieldPlotter` is used. In the superclass, you only have to decide if you want to plot a scalar or vector field or equilines.
+    For example:
+
+    .. code-block:: python
+
+        def plot_energy_density(self, **kwargs):
+            default_kwargs = {'plot_3d': False, 'x_label': 'x axis',
+                              'y_label': 'y axis', 'title': 'Energy density'}
+            default_kwargs.update(kwargs)
+            return self.plotter.plot_scalar_field(self.energy_density, **default_kwargs)
+
+    In the static solution class, ``self.plotter`` has be set to a :py:class:`~pyrit.solution.StaticFieldPlotter` and in harmonic solutions to :py:class:`~pyrit.solution.HarmonicFieldPlotter`.
+    The signature of the plot functions is the same for these two classes.
+
+If there are any post-processing results that cannot be implemented in the superclass, implement them with the same scheme in the subclass
+
+
+Transient solutions
+===================
+
+The design principles of transient solution classes differ from static or harmonic ones.
+Because of the time-dependency, properties cannot be used for the results of the post-processing or for accessing the matrices. For all methods that return or set something that depends on time, there are the keyword arguments ``, *, time=None, index=None``. For example:
+
+.. code-block:: python
+
+    def b_field(self, *, time=None, index=None):
+        ...
+
+So it can be given a ``time`` or an ``index`` of the time steps to determine what is returned or what is set. If neither ``time`` nor ``index`` is given, the whole parameter is returned or set.
+Use the method :py:meth:`~pyrit.solution.TransientSolution.get_index` to get the index for time steps.
+
+There are six main things you should do in a specific transient solution class:
+
+1. Annotation
+    Even if the constructor does not differ from the constructor of the superclass, you should rewrite it and add the type annotations in the code and in the docstring. For example:
+
+    .. code-block:: python
+
+        def __init__(self, description: str,
+                     vector_potential: np.ndarray,
+                     axi_mesh: 'AxiMesh',
+                     tri_axi_edge_shape_function: 'TriAxisymmetricEdgeShapeFunction',
+                     regions: 'Regions',
+                     materials: 'Materials',
+                     excitations: 'Excitations',
+                     time_steps: np.ndarray,
+                     monitor_solutions: Dict[str, Tuple[np.ndarray, np.ndarray]]):
+            super().__init__(description, vector_potential, None, None, regions,
+                             materials, excitations, time_steps, monitor_solutions)
+            self.mesh: 'AxiMesh' = axi_mesh
+            self.shape_function: 'TriAxisymmetricEdgeShapeFunction' = tri_axi_edge_shape_function
+
+            self.plotter = TransientFieldPlotter(axi_mesh)
+
+            self.consistency_check()
+
+    Notes:
+        - The mesh and shape function parameter are correctly annotated (``'AxiMesh'`` instead of ``'Mesh'``).
+        - The mesh and shape function parameter have here a more descriptive name (``axi_mesh`` instead of ``mesh``).
+        - The mesh and shape function parameter are **not** passed to the constructor of the superclass.
+          Instead, they are set locally with an annotation. So the type is known inside the class.
+
+2. Access to the solution
+    The solution itself should be accessed differently than all the derived values (see next point).
+    They should use the methods ``_get_solution`` and ``_set_solution`` from the superclass. For example:
+
+    .. code-block:: python
+
+        def vector_potential(self, *, time=None, index=None) -> np.ndarray:
+            return self._get_solution(time=time, index=index)
+
+        def set_vector_potential(self, vector_potential: np.ndarray, *, time=None, index=None):
+            self._set_solution(vector_potential, time=time, index=index)
+
+
+3. Derived values
+    For the derived values, i.e. the results from post-processing, there exist two decorators in :py:mod:`pyrit.solution.Solution`, namely ``get_field`` and ``set_field``.
+    These should be used for getting or setting these values. For example:
+
+    .. code-block:: python
+
+        @get_field('_b_field', 'magnetic flux density', 'ndarray')
+        def b_field(self, *, time=None, index=None) -> Union[np.ndarray, Dict[int, np.ndarray]]:
+            return self.shape_function.curl(self.vector_potential(index=index))
+
+        @set_field('_b_field', 'magnetic flux density', 'ndarray')
+        def set_b_field(self, b_field: Union[np.ndarray, Dict[int, np.ndarray]], *, time=None, index=None):
+            self._check_set_types(b_field, np.ndarray)
+
+    For convenience, the "get\_" at the beginning of the getter methods is omitted.
+
+    In the getter methods, one needs to return the respective field, assuming that the index is given (the decorator makes sure that it is)
+
+    In the setter methods, only the method ``_check_set_types`` has to be called. The rest is done in the decorator.
+
+    The decorators do also generate the docstring for the methods.
+
+
+4. Access matrices and vectors
+    Accessing the matrices or a vector is internal different handled as the derived values.
+    This is due to tha fact, that they can depend on the solution or time.
+    So this information has to be passed to the generating routines.
+    The usage is the same, though.
+
+    There are also two decorators in :py:mod:`pyrit.solution.Solution`, namely ``get_matrix`` and ``set_matrix``, that generalise the getting and setting process. They also set the docstring.
+
+    For the getter method an example is:
+
+    .. code-block:: python
+
+        @get_matrix('_curlcurl_matrix', 'curl-curl matrix')
+        def curlcurl_matrix(self, *, time=None, index=None) -> Union[Dict[int, sparse.coo_matrix], sparse.coo_matrix]:
+            lin = self.materials.is_linear(material.Reluctivity)
+            time_dependent = self.materials.is_time_dependent(material.Reluctivity)
+
+            if not lin:
+                static_solution = self.get_static_solution(index=index)
+                self.materials.update('solution', static_solution, prop_class=material.Reluctivity)
+            if time_dependent:
+                self.materials.update('time', self.time_steps[index], prop_class=material.Reluctivity)
+
+            return lin and not time_dependent, lambda: self.shape_function.curlcurl_operator(self.regions, self.materials, material.Reluctivity)
+
+    This method has to check if the used :py:class:`~pyrit.material.MatProperty` (in the example it is ``material.Reluctivity``) is linear or time dependent.
+    Depending on that if has to update the solution or the time in the materials.
+    It can be assumed that the index is present (the property ensures this).
+    The method then has to return a tuple, with a boolean and a simple function.
+    The boolean indicates if the :py:class:`~pyrit.material.MatProperty` depends on time (directly or indirectly) and the function return the respective matrix.
+
+    For the setter method an example is:
+
+    .. code-block:: python
+
+        @set_matrix('_curlcurl_matrix', 'curl-curl matrix')
+        def set_curlcurl_matrix(self, curlcurl_matrix: sparse.coo_matrix, *, time=None, index=None):
+            pass
+
+    Here, all the content of the method can be handled in the decorator.
+    So it can just ``pass``.
+
+5. Plotting
+    The plotting is very similar to static or harmonic solutions.
+    It is also done with a :py:class:`~pyrit.solution.FieldPlotter`.
+    The :py:class:`~pyrit.solution.TransientFieldPlotter` is used.
+    An example is:
+
+    .. code-block:: python
+
+        def plot_energy_density(self, *, time=None, index=None, **kwargs):
+            index = self.get_index(time, index)
+
+            default_kwargs = {'plot_3d': False, 'x_label': 'x axis',
+                              'y_label': 'y axis', 'title': 'Energy density'}
+            for key, value in default_kwargs.items():
+                kwargs.setdefault(key, value)
+            return self.plotter.plot_scalar_field(self.energy_density(index=index),
+                                                  self.time_steps[index], **kwargs)
+
+
+6. Animating
+    The animation is very similar to plotting.
+    It is also done with the :py:class:`~pyrit.solution.TransientFieldPlotter`.
+    An example is:
+
+    .. code-block:: python
+
+        def animate_energy_density(self, *, times: Iterable[float] = None,
+                                   indices: Union[Iterable[int], int] = None, **kwargs):
+            indices = self.get_animation_indices(times, indices)
+
+            default_kwargs = {'x_label': 'x axis', 'y_label': 'y axis', 'title': r"Magnetic energy density"}
+            for key, value in default_kwargs.items():
+                kwargs.setdefault(key, value)
+            self.plotter.animate_scalar_field((self.energy_density(index=i) for i in indices), **kwargs)
+
+    There is a method ``get_animation_indices`` to get the right indices.
+    Then, the default kwargs can be set and the appropriate animation function must be called.
+    They have the same name as the plt methods, where "plot" is replaced by "animate".
+
+

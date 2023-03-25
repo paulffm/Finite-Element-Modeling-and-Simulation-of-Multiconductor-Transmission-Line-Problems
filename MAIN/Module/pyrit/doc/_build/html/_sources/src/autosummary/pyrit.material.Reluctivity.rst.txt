@@ -1,0 +1,43 @@
+﻿Reluctivity
+===========
+
+.. currentmodule:: pyrit.material
+
+.. autoclass:: Reluctivity
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Reluctivity.compute_args
+      ~Reluctivity.import_from_table
+      ~Reluctivity.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Reluctivity.name
+      ~Reluctivity.inverse_value
+      ~Reluctivity.is_constant
+      ~Reluctivity.is_homogeneous
+      ~Reluctivity.is_hysteretic
+      ~Reluctivity.is_isotrop
+      ~Reluctivity.is_linear
+      ~Reluctivity.is_time_dependent
+      ~Reluctivity.keyword_args
+      ~Reluctivity.positional_args
+      ~Reluctivity.value
+   
+   

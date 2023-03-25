@@ -1,0 +1,48 @@
+﻿TriCartesianNodalShapeFunction
+==============================
+
+.. currentmodule:: pyrit.shapefunction
+
+.. autoclass:: TriCartesianNodalShapeFunction
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~TriCartesianNodalShapeFunction.compute_support_data
+      ~TriCartesianNodalShapeFunction.divgrad_operator
+      ~TriCartesianNodalShapeFunction.gradient
+      ~TriCartesianNodalShapeFunction.inflate
+      ~TriCartesianNodalShapeFunction.inflate_binary
+      ~TriCartesianNodalShapeFunction.inflate_dirichlet
+      ~TriCartesianNodalShapeFunction.inflate_floating
+      ~TriCartesianNodalShapeFunction.load_vector
+      ~TriCartesianNodalShapeFunction.mass_matrix
+      ~TriCartesianNodalShapeFunction.neumann_term
+      ~TriCartesianNodalShapeFunction.robin_terms
+      ~TriCartesianNodalShapeFunction.shrink
+      ~TriCartesianNodalShapeFunction.shrink_binary
+      ~TriCartesianNodalShapeFunction.shrink_dirichlet
+      ~TriCartesianNodalShapeFunction.shrink_floating
+      ~TriCartesianNodalShapeFunction.shrink_neumann
+      ~TriCartesianNodalShapeFunction.shrink_robin
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TriCartesianNodalShapeFunction.dim
+      ~TriCartesianNodalShapeFunction.mesh
+   
+   

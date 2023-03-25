@@ -1,0 +1,6 @@
+pyrit.Logger.LEVEL
+==================
+
+.. currentmodule:: pyrit.Logger
+
+.. autodata:: LEVEL

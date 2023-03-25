@@ -1,0 +1,55 @@
+﻿CurrentFlowSolutionAxiStatic
+============================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: CurrentFlowSolutionAxiStatic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~CurrentFlowSolutionAxiStatic.absolute_field
+      ~CurrentFlowSolutionAxiStatic.consistency_check
+      ~CurrentFlowSolutionAxiStatic.ensure_consistency_potential
+      ~CurrentFlowSolutionAxiStatic.initialize_attributes
+      ~CurrentFlowSolutionAxiStatic.joule_loss_power_in_regions
+      ~CurrentFlowSolutionAxiStatic.load
+      ~CurrentFlowSolutionAxiStatic.plot_current_density
+      ~CurrentFlowSolutionAxiStatic.plot_e_field
+      ~CurrentFlowSolutionAxiStatic.plot_joule_loss_power_density
+      ~CurrentFlowSolutionAxiStatic.plot_potential
+      ~CurrentFlowSolutionAxiStatic.save
+      ~CurrentFlowSolutionAxiStatic.solution_from_problem
+      ~CurrentFlowSolutionAxiStatic.update_material_electric
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CurrentFlowSolutionAxiStatic.conductivity_per_element
+      ~CurrentFlowSolutionAxiStatic.current_density
+      ~CurrentFlowSolutionAxiStatic.current_density_abs
+      ~CurrentFlowSolutionAxiStatic.divgrad_matrix_sigma
+      ~CurrentFlowSolutionAxiStatic.divgrad_matrix_sigmad
+      ~CurrentFlowSolutionAxiStatic.e_field
+      ~CurrentFlowSolutionAxiStatic.e_field_abs
+      ~CurrentFlowSolutionAxiStatic.ignore_for_saving
+      ~CurrentFlowSolutionAxiStatic.joule_loss_power
+      ~CurrentFlowSolutionAxiStatic.joule_loss_power_density
+      ~CurrentFlowSolutionAxiStatic.load_vector_electric
+      ~CurrentFlowSolutionAxiStatic.potential
+      ~CurrentFlowSolutionAxiStatic.solution_identifier
+   
+   

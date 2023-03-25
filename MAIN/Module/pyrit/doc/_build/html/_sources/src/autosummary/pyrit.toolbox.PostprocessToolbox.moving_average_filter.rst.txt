@@ -1,0 +1,6 @@
+moving\_average\_filter
+=======================
+
+.. currentmodule:: pyrit.toolbox.PostprocessToolbox
+
+.. autofunction:: moving_average_filter

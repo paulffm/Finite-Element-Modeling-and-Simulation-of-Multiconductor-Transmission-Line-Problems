@@ -1,0 +1,149 @@
+.. _Gitlab pipelines:
+
+================
+Gitlab pipelines
+================
+.. sectionauthor:: Bundschuh
+
+Pipelines are the top-level component of continuous integration, delivery, and deployment.
+They are used to test and lint the code and to generate the guidelines.
+Here it is explained what steps have to be done to get the pipelines running.
+
+Overview
+========
+
+A pipeline is defined in the `.gitlab-ci.yml` file and consists of a number of jobs.
+A Job, in turn, consists of a number of statements to execute.
+Jobs are executed by Runners.
+An overview can also be found `in the Gitlab Docs <https://docs.gitlab.com/ee/ci/>`_.
+
+Gitlab Runners
+==============
+
+We begin with the Gitlab runners. They do execute the single jobs. Here, we show how to set them up.
+
+.. note::
+    The Gitlab runners can be installed on a server. However, here it is shown for a normal computer.
+
+The installation of Gitlab runners can be found `here <https://docs.gitlab.com/runner/install/>`_.
+In this tutorial, the executable `gitlab-runner.exe` is downloaded and used to create a service on the computer.
+Also, it is used to add (or register) single runners.
+One can register many different runners, each with its own settings.
+The proceeding is as follows:
+
+#. Register a runner
+    #.
+        Run the command
+
+        .. code-block:: console
+
+            $ gitlab-runner.exe register
+
+        and insert the URL and the registration token you can find on Gitlab -> Settings -> CI/CD -> Runners. The Executor types used in Pyrit are Shell and Docker
+
+    #. In the `config.toml`-file, the runner can be further configured. The runner with the Docker executor should have the setting `privileged = true`. Also, here, we used the setting `pull_policy = ["if-not-present"]` to use the local docker image.
+#. Start the service
+    Run the command
+
+    .. code-block:: console
+
+        $ gitlab-runner.exe start
+
+    If the service already runs, you can restart it. Alternatively, you can execute the command
+
+    .. code-block:: console
+
+        $ gitlab-runner.exe --debug run
+
+    that will give you additional information about the runners while the service is running (It shows when checking for new jobs for example)
+
+The current status of the service can be checked with
+
+.. code-block:: console
+
+    $ gitlab-runner.exe status
+    Runtime platform                                    arch=amd64 os=windows pid=8356 revision=2ebc4dc4 version=13.9.0
+    gitlab-runner: Service is running!
+
+and of the runners with
+
+.. code-block:: console
+
+    $ gitlab-runner.exe verify
+    Verifying runner... is alive                        runner=fnuZb1tw
+    Verifying runner... is alive                        runner=PDbYZjvu
+    Verifying runner... is alive                        runner=A7RX82z6
+
+Here is an exemplary config file `config.toml` for two runners. Note the above mentioned settings for the second runner (with the Docker executor).
+Note also the first two setting. They allow for running multiple jobs (in this case 5) in parallel and specify the interval of checking for new jobs:
+
+.. code-block:: toml
+
+    concurrent = 5
+    check_interval = 10
+
+    [session_server]
+      session_timeout = 1800
+
+    [[runners]]
+      name = "shell_runner"
+      url = "https://git.rwth-aachen.de/"
+      id = 6080
+      token = "MCGMC1YhULSEv8se2Zen"
+      token_obtained_at = 2022-10-27T15:09:19Z
+      token_expires_at = 0001-01-01T00:00:00Z
+      executor = "shell"
+      shell = "powershell"
+      [runners.custom_build_dir]
+      [runners.cache]
+        [runners.cache.s3]
+        [runners.cache.gcs]
+        [runners.cache.azure]
+
+    [[runners]]
+      name = "docker_runner"
+      url = "https://git.rwth-aachen.de/"
+      id = 6081
+      token = "EzJ9LUBhXaskEf53q1wC"
+      token_obtained_at = 2022-10-27T15:10:29Z
+      token_expires_at = 0001-01-01T00:00:00Z
+      executor = "docker"
+      [runners.custom_build_dir]
+      [runners.cache]
+        [runners.cache.s3]
+        [runners.cache.gcs]
+        [runners.cache.azure]
+      [runners.docker]
+        tls_verify = false
+        image = "python:3.8"
+        privileged = true
+        disable_entrypoint_overwrite = false
+        oom_kill_disable = false
+        disable_cache = false
+        volumes = ["/cache"]
+        shm_size = 0
+        pull_policy = ["if-not-present"]
+
+
+On Gitlab
+=========
+
+On Gitlab, the pipeline is defined with the `.gitlab-ci.yml` file.
+In this one, the single jobs are defined with dependencies between them.
+When giving a job a tag (with the `tags` keyword) only a runner with the same tag can take this job.
+
+In the Settings under CI/CD -> Runners you can see the available runners for the project.
+If you have registered a runner correctly, it should appear on this page.
+You can also change the settings of the runner, pause it (it is not used then even if active) or remove it.
+Furthermore, you can see the status of all runners.
+
+Miscellaneous
+=============
+
+- Over time, on the machine where the runners are active a lot of space is used by old and unused containers or images from Docker. This can eventually make the runners not work anymore. In this case run the command
+
+  .. code-block:: console
+
+      $ docker system prune
+
+  It deletes all stopped containers, all networks not used by at least one container, all dangling images and  all build cache. (See `https://docs.docker.com/config/pruning/ <https://docs.docker.com/config/pruning/>`_)

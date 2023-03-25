@@ -1,0 +1,33 @@
+﻿ShapeFunction
+=============
+
+.. currentmodule:: pyrit.shapefunction
+
+.. autoclass:: ShapeFunction
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ShapeFunction.inflate
+      ~ShapeFunction.shrink
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ShapeFunction.dim
+      ~ShapeFunction.mesh
+   
+   

@@ -1,0 +1,39 @@
+﻿MagneticProblemCartTransient
+============================
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: MagneticProblemCartTransient
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~MagneticProblemCartTransient.consistency_check
+      ~MagneticProblemCartTransient.load
+      ~MagneticProblemCartTransient.save
+      ~MagneticProblemCartTransient.solve
+      ~MagneticProblemCartTransient.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MagneticProblemCartTransient.available_monitors
+      ~MagneticProblemCartTransient.end_time
+      ~MagneticProblemCartTransient.problem_identifier
+      ~MagneticProblemCartTransient.start_time
+      ~MagneticProblemCartTransient.time_span
+   
+   

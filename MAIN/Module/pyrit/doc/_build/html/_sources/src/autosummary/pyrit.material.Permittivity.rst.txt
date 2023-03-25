@@ -1,0 +1,43 @@
+﻿Permittivity
+============
+
+.. currentmodule:: pyrit.material
+
+.. autoclass:: Permittivity
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Permittivity.compute_args
+      ~Permittivity.import_from_table
+      ~Permittivity.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Permittivity.name
+      ~Permittivity.inverse_value
+      ~Permittivity.is_constant
+      ~Permittivity.is_homogeneous
+      ~Permittivity.is_hysteretic
+      ~Permittivity.is_isotrop
+      ~Permittivity.is_linear
+      ~Permittivity.is_time_dependent
+      ~Permittivity.keyword_args
+      ~Permittivity.positional_args
+      ~Permittivity.value
+   
+   

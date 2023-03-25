@@ -1,0 +1,61 @@
+﻿SolidConductor
+==============
+
+.. currentmodule:: pyrit.excitation
+
+.. autoclass:: SolidConductor
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~SolidConductor.activate_current_mode
+      ~SolidConductor.activate_voltage_mode
+      ~SolidConductor.cleanup
+      ~SolidConductor.compute_args
+      ~SolidConductor.compute_coupling_matrix
+      ~SolidConductor.compute_coupling_value
+      ~SolidConductor.compute_coupling_values
+      ~SolidConductor.compute_voltage_distribution_function
+      ~SolidConductor.get_coupling_values
+      ~SolidConductor.get_fccs
+      ~SolidConductor.inductance
+      ~SolidConductor.inflate
+      ~SolidConductor.iter_fcc
+      ~SolidConductor.set_solution
+      ~SolidConductor.shrink
+      ~SolidConductor.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SolidConductor.positional_args
+      ~SolidConductor.keyword_args
+      ~SolidConductor.ID
+      ~SolidConductor.additional_equations
+      ~SolidConductor.current
+      ~SolidConductor.current_mode
+      ~SolidConductor.impedance
+      ~SolidConductor.inverse_value
+      ~SolidConductor.is_constant
+      ~SolidConductor.is_homogeneous
+      ~SolidConductor.is_linear
+      ~SolidConductor.is_time_dependent
+      ~SolidConductor.resistance
+      ~SolidConductor.value
+      ~SolidConductor.voltage
+      ~SolidConductor.voltage_mode
+   
+   

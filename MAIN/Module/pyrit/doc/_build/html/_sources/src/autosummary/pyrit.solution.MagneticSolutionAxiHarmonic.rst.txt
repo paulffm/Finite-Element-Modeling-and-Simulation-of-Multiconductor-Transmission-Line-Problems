@@ -1,0 +1,67 @@
+﻿MagneticSolutionAxiHarmonic
+===========================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: MagneticSolutionAxiHarmonic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~MagneticSolutionAxiHarmonic.absolute_field
+      ~MagneticSolutionAxiHarmonic.consistency_check
+      ~MagneticSolutionAxiHarmonic.energy
+      ~MagneticSolutionAxiHarmonic.energy_density
+      ~MagneticSolutionAxiHarmonic.energy_in_regions
+      ~MagneticSolutionAxiHarmonic.field_vector
+      ~MagneticSolutionAxiHarmonic.get_field_at_phase
+      ~MagneticSolutionAxiHarmonic.initialize_attributes
+      ~MagneticSolutionAxiHarmonic.load
+      ~MagneticSolutionAxiHarmonic.plot_b_field
+      ~MagneticSolutionAxiHarmonic.plot_current_density
+      ~MagneticSolutionAxiHarmonic.plot_eddy_current_density
+      ~MagneticSolutionAxiHarmonic.plot_energy_density
+      ~MagneticSolutionAxiHarmonic.plot_equilines
+      ~MagneticSolutionAxiHarmonic.plot_h_field
+      ~MagneticSolutionAxiHarmonic.plot_load_vector
+      ~MagneticSolutionAxiHarmonic.plot_source_current_density
+      ~MagneticSolutionAxiHarmonic.plot_vector_potential
+      ~MagneticSolutionAxiHarmonic.project_to_c_vector
+      ~MagneticSolutionAxiHarmonic.save
+      ~MagneticSolutionAxiHarmonic.solution_from_problem
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MagneticSolutionAxiHarmonic.angular_frequency
+      ~MagneticSolutionAxiHarmonic.b_field
+      ~MagneticSolutionAxiHarmonic.curlcurl_matrix
+      ~MagneticSolutionAxiHarmonic.current_density
+      ~MagneticSolutionAxiHarmonic.eddy_current_density
+      ~MagneticSolutionAxiHarmonic.frequency
+      ~MagneticSolutionAxiHarmonic.h_field
+      ~MagneticSolutionAxiHarmonic.ignore_for_saving
+      ~MagneticSolutionAxiHarmonic.load_vector
+      ~MagneticSolutionAxiHarmonic.mass
+      ~MagneticSolutionAxiHarmonic.mass_one
+      ~MagneticSolutionAxiHarmonic.nodes_not_on_axis
+      ~MagneticSolutionAxiHarmonic.omega
+      ~MagneticSolutionAxiHarmonic.solution_identifier
+      ~MagneticSolutionAxiHarmonic.source_current_density
+      ~MagneticSolutionAxiHarmonic.vector_potential
+      ~MagneticSolutionAxiHarmonic.vector_potential_field_values
+   
+   

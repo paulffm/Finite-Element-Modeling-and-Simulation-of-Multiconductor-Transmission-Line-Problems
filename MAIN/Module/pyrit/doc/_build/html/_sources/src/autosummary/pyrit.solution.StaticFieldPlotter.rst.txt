@@ -1,0 +1,27 @@
+﻿StaticFieldPlotter
+==================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: StaticFieldPlotter
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~StaticFieldPlotter.plot_equilines
+      ~StaticFieldPlotter.plot_scalar_field
+      ~StaticFieldPlotter.plot_vector_field
+   
+   
+
+   
+   
+   

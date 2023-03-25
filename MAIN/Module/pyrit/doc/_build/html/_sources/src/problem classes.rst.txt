@@ -1,0 +1,52 @@
+.. _Problem classes:
+
+===============
+Problem classes
+===============
+
+In this section, the structure of problem classes is explained and the purpose of each class is sketched.
+
+There are three types of problems:
+
+1. Static problems (class :py:class:`~pyrit.problem.StaticProblem`)
+2. Harmonic problems (class :py:class:`~pyrit.problem.HarmonicProblem`)
+3. Transient problems (class :py:class:`~pyrit.problem.TransientProblem`)
+
+All these problem classes inherit from the class :py:class:`~pyrit.problem.Problem`.
+Note that :py:class:`~pyrit.problem.Problem` itself is not abstract, while the other problem classes are.
+The purpose of :py:class:`~pyrit.problem.Problem` is to store and manage all data structures needed for any kind of a problem.
+Furthermore, it implements methods for saving and loading a problem and some basic consistency checks.
+What it does not implement, is a routine to solve itself.
+The solution approach of problems is determined by its type. Hence, the respective solve routines are (as abstract methods) introduced in the classes :py:class:`~pyrit.problem.StaticProblem`, :py:class:`~pyrit.problem.HarmonicProblem` and :py:class:`~pyrit.problem.TransientProblem`.
+Thus, these classes are abstract.
+
+The problem specific classes do not distinguish between properties of materials (as linear/nonlinear or isotropic/anisotropic), boundary conditions or excitations.
+All that must be handled in the solve routines.
+The solution of a linear system should be done with :py:meth:`~pyrit.problem.Problem.solve_linear_system`.
+In the following, 'value' describes the value of a material, a boundary condition or an excitation.
+
+
+StaticProblem
+-------------
+
+In static problems, no value depends on time. The values should be real numbers.
+For linear values, the solution to the problem can be determined by the solution of one linear system.
+For nonlinear values though, some kind of iteration is necessary in the solve routine.
+
+
+HarmonicProblem
+---------------
+
+In harmonic problems, it is assumed that all fields are excited by the same frequency.
+The class extends the general problem class by the frequency.
+Due to the ansatz, only linear values are allowed.
+The solution is a phasor, i.e. complex valued, and can be determined by the solution of one (complex) linear system.
+
+
+TransientProblem
+----------------
+
+In transient problems, all values can depend on time.
+The class extends the general problem class by an array of time steps that are used for the simulation.
+The solution of a transient problem consists of a vector for every time step.
+In every time step, at least ons liner system of equations has to be solved.

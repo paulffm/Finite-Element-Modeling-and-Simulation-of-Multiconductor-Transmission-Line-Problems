@@ -1,0 +1,15 @@
+Pyrit
+=====
+
+.. toctree::
+
+    src/bdrycond
+    src/excitation
+    src/geometry
+    src/material
+    src/mesh
+    src/problem
+    src/region
+    src/shapefunction
+    src/solution
+    src/toolbox

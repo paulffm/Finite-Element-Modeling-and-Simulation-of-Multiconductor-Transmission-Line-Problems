@@ -1,0 +1,6 @@
+set\_level
+==========
+
+.. currentmodule:: pyrit.Logger
+
+.. autofunction:: set_level

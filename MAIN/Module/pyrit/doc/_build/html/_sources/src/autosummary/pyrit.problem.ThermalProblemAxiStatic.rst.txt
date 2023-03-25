@@ -1,0 +1,35 @@
+﻿ThermalProblemAxiStatic
+=======================
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: ThermalProblemAxiStatic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ThermalProblemAxiStatic.consistency_check
+      ~ThermalProblemAxiStatic.load
+      ~ThermalProblemAxiStatic.save
+      ~ThermalProblemAxiStatic.solve
+      ~ThermalProblemAxiStatic.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ThermalProblemAxiStatic.problem_identifier
+   
+   

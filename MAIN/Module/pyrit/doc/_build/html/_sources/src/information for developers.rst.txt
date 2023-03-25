@@ -1,0 +1,9 @@
+==========================
+Information for developers
+==========================
+
+In this section, useful information that is important for setting up the environment for developing is collected.
+
+.. toctree::
+
+    gitlab_pipelines

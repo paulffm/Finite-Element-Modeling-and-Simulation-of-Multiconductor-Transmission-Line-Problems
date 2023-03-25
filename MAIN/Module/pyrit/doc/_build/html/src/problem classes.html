@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem classes &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solution classes" href="solution%20classes.html" />
+    <link rel="prev" title="Usage and Workflow" href="usage%20and%20workflow.html" />
+<link rel="stylesheet" type="text/css"
+     href="../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="usage%20and%20workflow.html">Usage and Workflow</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="usage%20and%20workflow.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage%20and%20workflow.html#workflow">Workflow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="usage%20and%20workflow.html#problem-and-solution-classes">Problem and solution classes</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Problem classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#staticproblem">StaticProblem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#harmonicproblem">HarmonicProblem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transientproblem">TransientProblem</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="solution%20classes.html">Solution classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Pyrit</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="usage%20and%20workflow.html">Usage and Workflow</a> &raquo;</li>
+      <li>Problem classes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/problem classes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="problem-classes">
+<span id="id1"></span><h1>Problem classes<a class="headerlink" href="#problem-classes" title="Permalink to this heading"></a></h1>
+<p>In this section, the structure of problem classes is explained and the purpose of each class is sketched.</p>
+<p>There are three types of problems:</p>
+<ol class="arabic simple">
+<li><p>Static problems (class <a class="reference internal" href="autosummary/pyrit.problem.StaticProblem.html#pyrit.problem.StaticProblem" title="pyrit.problem.StaticProblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaticProblem</span></code></a>)</p></li>
+<li><p>Harmonic problems (class <a class="reference internal" href="autosummary/pyrit.problem.HarmonicProblem.html#pyrit.problem.HarmonicProblem" title="pyrit.problem.HarmonicProblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HarmonicProblem</span></code></a>)</p></li>
+<li><p>Transient problems (class <a class="reference internal" href="autosummary/pyrit.problem.TransientProblem.html#pyrit.problem.TransientProblem" title="pyrit.problem.TransientProblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransientProblem</span></code></a>)</p></li>
+</ol>
+<p>All these problem classes inherit from the class <a class="reference internal" href="autosummary/pyrit.problem.Problem.html#pyrit.problem.Problem" title="pyrit.problem.Problem"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problem</span></code></a>.
+Note that <a class="reference internal" href="autosummary/pyrit.problem.Problem.html#pyrit.problem.Problem" title="pyrit.problem.Problem"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problem</span></code></a> itself is not abstract, while the other problem classes are.
+The purpose of <a class="reference internal" href="autosummary/pyrit.problem.Problem.html#pyrit.problem.Problem" title="pyrit.problem.Problem"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problem</span></code></a> is to store and manage all data structures needed for any kind of a problem.
+Furthermore, it implements methods for saving and loading a problem and some basic consistency checks.
+What it does not implement, is a routine to solve itself.
+The solution approach of problems is determined by its type. Hence, the respective solve routines are (as abstract methods) introduced in the classes <a class="reference internal" href="autosummary/pyrit.problem.StaticProblem.html#pyrit.problem.StaticProblem" title="pyrit.problem.StaticProblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaticProblem</span></code></a>, <a class="reference internal" href="autosummary/pyrit.problem.HarmonicProblem.html#pyrit.problem.HarmonicProblem" title="pyrit.problem.HarmonicProblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">HarmonicProblem</span></code></a> and <a class="reference internal" href="autosummary/pyrit.problem.TransientProblem.html#pyrit.problem.TransientProblem" title="pyrit.problem.TransientProblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransientProblem</span></code></a>.
+Thus, these classes are abstract.</p>
+<p>The problem specific classes do not distinguish between properties of materials (as linear/nonlinear or isotropic/anisotropic), boundary conditions or excitations.
+All that must be handled in the solve routines.
+The solution of a linear system should be done with <a class="reference internal" href="autosummary/pyrit.problem.Problem.html#pyrit.problem.Problem.solve_linear_system" title="pyrit.problem.Problem.solve_linear_system"><code class="xref py py-meth docutils literal notranslate"><span class="pre">solve_linear_system()</span></code></a>.
+In the following, ‘value’ describes the value of a material, a boundary condition or an excitation.</p>
+<section id="staticproblem">
+<h2>StaticProblem<a class="headerlink" href="#staticproblem" title="Permalink to this heading"></a></h2>
+<p>In static problems, no value depends on time. The values should be real numbers.
+For linear values, the solution to the problem can be determined by the solution of one linear system.
+For nonlinear values though, some kind of iteration is necessary in the solve routine.</p>
+</section>
+<section id="harmonicproblem">
+<h2>HarmonicProblem<a class="headerlink" href="#harmonicproblem" title="Permalink to this heading"></a></h2>
+<p>In harmonic problems, it is assumed that all fields are excited by the same frequency.
+The class extends the general problem class by the frequency.
+Due to the ansatz, only linear values are allowed.
+The solution is a phasor, i.e. complex valued, and can be determined by the solution of one (complex) linear system.</p>
+</section>
+<section id="transientproblem">
+<h2>TransientProblem<a class="headerlink" href="#transientproblem" title="Permalink to this heading"></a></h2>
+<p>In transient problems, all values can depend on time.
+The class extends the general problem class by an array of time steps that are used for the simulation.
+The solution of a transient problem consists of a vector for every time step.
+In every time step, at least ons liner system of equations has to be solved.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage%20and%20workflow.html" class="btn btn-neutral float-left" title="Usage and Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="solution%20classes.html" class="btn btn-neutral float-right" title="Solution classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

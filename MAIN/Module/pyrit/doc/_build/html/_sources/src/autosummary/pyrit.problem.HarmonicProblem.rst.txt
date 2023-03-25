@@ -1,0 +1,38 @@
+﻿HarmonicProblem
+===============
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: HarmonicProblem
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~HarmonicProblem.consistency_check
+      ~HarmonicProblem.load
+      ~HarmonicProblem.save
+      ~HarmonicProblem.solve
+      ~HarmonicProblem.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~HarmonicProblem.angular_frequency
+      ~HarmonicProblem.frequency
+      ~HarmonicProblem.omega
+      ~HarmonicProblem.problem_identifier
+   
+   

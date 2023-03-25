@@ -1,0 +1,62 @@
+FoilWindingWithSurrounding
+==========================
+
+.. currentmodule:: pyrit.toolbox.geolibrary
+
+.. autoclass:: FoilWindingWithSurrounding
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~FoilWindingWithSurrounding.add_to_gmsh
+      ~FoilWindingWithSurrounding.determine_coordinates
+      ~FoilWindingWithSurrounding.get_origin
+      ~FoilWindingWithSurrounding.scale
+      ~FoilWindingWithSurrounding.scale_x
+      ~FoilWindingWithSurrounding.scale_y
+      ~FoilWindingWithSurrounding.set_origin
+      ~FoilWindingWithSurrounding.translate
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~FoilWindingWithSurrounding.center
+      ~FoilWindingWithSurrounding.curves
+      ~FoilWindingWithSurrounding.east
+      ~FoilWindingWithSurrounding.factor
+      ~FoilWindingWithSurrounding.factor_bottom
+      ~FoilWindingWithSurrounding.factor_right
+      ~FoilWindingWithSurrounding.factor_top
+      ~FoilWindingWithSurrounding.height
+      ~FoilWindingWithSurrounding.name
+      ~FoilWindingWithSurrounding.north
+      ~FoilWindingWithSurrounding.north_east
+      ~FoilWindingWithSurrounding.north_west
+      ~FoilWindingWithSurrounding.outer_curve_bottom
+      ~FoilWindingWithSurrounding.outer_curve_right
+      ~FoilWindingWithSurrounding.outer_curve_top
+      ~FoilWindingWithSurrounding.outer_curves
+      ~FoilWindingWithSurrounding.radius
+      ~FoilWindingWithSurrounding.radius_factor
+      ~FoilWindingWithSurrounding.south
+      ~FoilWindingWithSurrounding.south_east
+      ~FoilWindingWithSurrounding.south_west
+      ~FoilWindingWithSurrounding.surrounding
+      ~FoilWindingWithSurrounding.west
+      ~FoilWindingWithSurrounding.width
+      ~FoilWindingWithSurrounding.foil_winding
+   
+   

@@ -1,0 +1,30 @@
+﻿VectorConverter
+===============
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: VectorConverter
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~VectorConverter.c_to_f_vector
+      ~VectorConverter.c_to_r_vector
+      ~VectorConverter.f_to_c_vector
+      ~VectorConverter.f_to_r_vector
+      ~VectorConverter.r_to_c_vector
+      ~VectorConverter.r_to_f_vector
+   
+   
+
+   
+   
+   

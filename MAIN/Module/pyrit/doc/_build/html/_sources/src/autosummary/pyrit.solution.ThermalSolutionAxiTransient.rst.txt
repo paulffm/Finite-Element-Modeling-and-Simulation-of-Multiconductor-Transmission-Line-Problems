@@ -1,0 +1,76 @@
+﻿ThermalSolutionAxiTransient
+===========================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: ThermalSolutionAxiTransient
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ThermalSolutionAxiTransient.absolute_field
+      ~ThermalSolutionAxiTransient.animate_equilines_temperature
+      ~ThermalSolutionAxiTransient.animate_heat_flux_density
+      ~ThermalSolutionAxiTransient.animate_load_vector_thermal
+      ~ThermalSolutionAxiTransient.animate_temperature
+      ~ThermalSolutionAxiTransient.animate_temperature_gradient
+      ~ThermalSolutionAxiTransient.animate_thermal_loss_power_density
+      ~ThermalSolutionAxiTransient.consistency_check
+      ~ThermalSolutionAxiTransient.divgrad_matrix_lambda
+      ~ThermalSolutionAxiTransient.get_animation_indices
+      ~ThermalSolutionAxiTransient.get_index
+      ~ThermalSolutionAxiTransient.get_indices
+      ~ThermalSolutionAxiTransient.get_interpolation
+      ~ThermalSolutionAxiTransient.get_static_solution
+      ~ThermalSolutionAxiTransient.heat_flux_density
+      ~ThermalSolutionAxiTransient.initialize_attributes
+      ~ThermalSolutionAxiTransient.load
+      ~ThermalSolutionAxiTransient.load_vector_thermal
+      ~ThermalSolutionAxiTransient.mass_matrix_s
+      ~ThermalSolutionAxiTransient.plot_equilines_temperature
+      ~ThermalSolutionAxiTransient.plot_heat_flux_density
+      ~ThermalSolutionAxiTransient.plot_load_vector_thermal
+      ~ThermalSolutionAxiTransient.plot_monitor_solution
+      ~ThermalSolutionAxiTransient.plot_temperature
+      ~ThermalSolutionAxiTransient.plot_temperature_gradient
+      ~ThermalSolutionAxiTransient.plot_thermal_loss_power_density
+      ~ThermalSolutionAxiTransient.save
+      ~ThermalSolutionAxiTransient.set_divgrad_matrix_lambda
+      ~ThermalSolutionAxiTransient.set_heat_flux_density
+      ~ThermalSolutionAxiTransient.set_load_vector_thermal
+      ~ThermalSolutionAxiTransient.set_mass_matrix_s
+      ~ThermalSolutionAxiTransient.set_temperature
+      ~ThermalSolutionAxiTransient.set_temperature_gradient
+      ~ThermalSolutionAxiTransient.set_thermal_loss_power
+      ~ThermalSolutionAxiTransient.set_thermal_loss_power_density
+      ~ThermalSolutionAxiTransient.solution_from_problem
+      ~ThermalSolutionAxiTransient.temperature
+      ~ThermalSolutionAxiTransient.temperature_gradient
+      ~ThermalSolutionAxiTransient.thermal_loss_power
+      ~ThermalSolutionAxiTransient.thermal_loss_power_density
+      ~ThermalSolutionAxiTransient.thermal_loss_power_in_regions
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ThermalSolutionAxiTransient.end_time
+      ~ThermalSolutionAxiTransient.ignore_for_saving
+      ~ThermalSolutionAxiTransient.nodes_not_on_axis
+      ~ThermalSolutionAxiTransient.solution_identifier
+      ~ThermalSolutionAxiTransient.start_time
+      ~ThermalSolutionAxiTransient.time_span
+   
+   

@@ -1,0 +1,46 @@
+﻿CurrentFlowSolutionCartTransient
+================================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: CurrentFlowSolutionCartTransient
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~CurrentFlowSolutionCartTransient.absolute_field
+      ~CurrentFlowSolutionCartTransient.consistency_check
+      ~CurrentFlowSolutionCartTransient.get_animation_indices
+      ~CurrentFlowSolutionCartTransient.get_index
+      ~CurrentFlowSolutionCartTransient.get_indices
+      ~CurrentFlowSolutionCartTransient.get_interpolation
+      ~CurrentFlowSolutionCartTransient.get_static_solution
+      ~CurrentFlowSolutionCartTransient.initialize_attributes
+      ~CurrentFlowSolutionCartTransient.load
+      ~CurrentFlowSolutionCartTransient.plot_monitor_solution
+      ~CurrentFlowSolutionCartTransient.save
+      ~CurrentFlowSolutionCartTransient.solution_from_problem
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CurrentFlowSolutionCartTransient.end_time
+      ~CurrentFlowSolutionCartTransient.ignore_for_saving
+      ~CurrentFlowSolutionCartTransient.solution_identifier
+      ~CurrentFlowSolutionCartTransient.start_time
+      ~CurrentFlowSolutionCartTransient.time_span
+   
+   

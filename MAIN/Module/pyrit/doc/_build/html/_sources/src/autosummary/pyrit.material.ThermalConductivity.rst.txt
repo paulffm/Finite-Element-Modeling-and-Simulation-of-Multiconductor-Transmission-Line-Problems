@@ -1,0 +1,43 @@
+﻿ThermalConductivity
+===================
+
+.. currentmodule:: pyrit.material
+
+.. autoclass:: ThermalConductivity
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ThermalConductivity.compute_args
+      ~ThermalConductivity.import_from_table
+      ~ThermalConductivity.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ThermalConductivity.name
+      ~ThermalConductivity.inverse_value
+      ~ThermalConductivity.is_constant
+      ~ThermalConductivity.is_homogeneous
+      ~ThermalConductivity.is_hysteretic
+      ~ThermalConductivity.is_isotrop
+      ~ThermalConductivity.is_linear
+      ~ThermalConductivity.is_time_dependent
+      ~ThermalConductivity.keyword_args
+      ~ThermalConductivity.positional_args
+      ~ThermalConductivity.value
+   
+   

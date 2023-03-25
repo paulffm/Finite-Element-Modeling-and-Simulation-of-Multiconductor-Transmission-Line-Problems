@@ -1,0 +1,40 @@
+﻿BCFloating
+==========
+
+.. currentmodule:: pyrit.bdrycond
+
+.. autoclass:: BCFloating
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~BCFloating.compute_args
+      ~BCFloating.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BCFloating.positional_args
+      ~BCFloating.keyword_args
+      ~BCFloating.ID
+      ~BCFloating.inverse_value
+      ~BCFloating.is_constant
+      ~BCFloating.is_homogeneous
+      ~BCFloating.is_linear
+      ~BCFloating.is_time_dependent
+      ~BCFloating.value
+   
+   

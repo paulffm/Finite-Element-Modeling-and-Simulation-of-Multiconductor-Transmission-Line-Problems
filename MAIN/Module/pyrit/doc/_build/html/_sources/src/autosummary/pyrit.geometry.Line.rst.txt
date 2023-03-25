@@ -1,0 +1,41 @@
+﻿Line
+====
+
+.. currentmodule:: pyrit.geometry
+
+.. autoclass:: Line
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Line.add_to_gmsh
+      ~Line.remove
+      ~Line.reset_tag
+      ~Line.rotate
+      ~Line.translate
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Line.added
+      ~Line.dim
+      ~Line.num_points
+      ~Line.physical_tag
+      ~Line.points
+      ~Line.reversed
+      ~Line.tag
+   
+   

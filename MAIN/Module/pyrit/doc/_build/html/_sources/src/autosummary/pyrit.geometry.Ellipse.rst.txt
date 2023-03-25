@@ -1,0 +1,50 @@
+﻿Ellipse
+=======
+
+.. currentmodule:: pyrit.geometry
+
+.. autoclass:: Ellipse
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Ellipse.add_to_gmsh
+      ~Ellipse.remove
+      ~Ellipse.reset_tag
+      ~Ellipse.rotate
+      ~Ellipse.translate
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Ellipse.center_x
+      ~Ellipse.center_y
+      ~Ellipse.center_z
+      ~Ellipse.angle1
+      ~Ellipse.angle2
+      ~Ellipse.added
+      ~Ellipse.dim
+      ~Ellipse.end_point
+      ~Ellipse.num_points
+      ~Ellipse.physical_tag
+      ~Ellipse.points
+      ~Ellipse.radius_x
+      ~Ellipse.radius_y
+      ~Ellipse.reversed
+      ~Ellipse.start_point
+      ~Ellipse.tag
+   
+   

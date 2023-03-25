@@ -1,0 +1,62 @@
+﻿DistributedSolidConductor
+=========================
+
+.. currentmodule:: pyrit.excitation
+
+.. autoclass:: DistributedSolidConductor
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~DistributedSolidConductor.activate_current_mode
+      ~DistributedSolidConductor.activate_voltage_mode
+      ~DistributedSolidConductor.cleanup
+      ~DistributedSolidConductor.compute_args
+      ~DistributedSolidConductor.get_coupling_values
+      ~DistributedSolidConductor.get_fccs
+      ~DistributedSolidConductor.inductance
+      ~DistributedSolidConductor.inflate
+      ~DistributedSolidConductor.iter_fcc
+      ~DistributedSolidConductor.set_solution
+      ~DistributedSolidConductor.shrink
+      ~DistributedSolidConductor.single_currents
+      ~DistributedSolidConductor.single_impedances
+      ~DistributedSolidConductor.single_inductances
+      ~DistributedSolidConductor.single_resistances
+      ~DistributedSolidConductor.single_voltages
+      ~DistributedSolidConductor.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DistributedSolidConductor.positional_args
+      ~DistributedSolidConductor.keyword_args
+      ~DistributedSolidConductor.ID
+      ~DistributedSolidConductor.additional_equations
+      ~DistributedSolidConductor.current
+      ~DistributedSolidConductor.current_mode
+      ~DistributedSolidConductor.impedance
+      ~DistributedSolidConductor.inverse_value
+      ~DistributedSolidConductor.is_constant
+      ~DistributedSolidConductor.is_homogeneous
+      ~DistributedSolidConductor.is_linear
+      ~DistributedSolidConductor.is_time_dependent
+      ~DistributedSolidConductor.resistance
+      ~DistributedSolidConductor.value
+      ~DistributedSolidConductor.voltage
+      ~DistributedSolidConductor.voltage_mode
+   
+   

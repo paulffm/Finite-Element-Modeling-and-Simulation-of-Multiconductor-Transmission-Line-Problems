@@ -1,0 +1,36 @@
+﻿MagneticProblemCartStatic
+=========================
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: MagneticProblemCartStatic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~MagneticProblemCartStatic.consistency_check
+      ~MagneticProblemCartStatic.load
+      ~MagneticProblemCartStatic.save
+      ~MagneticProblemCartStatic.solve
+      ~MagneticProblemCartStatic.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MagneticProblemCartStatic.length
+      ~MagneticProblemCartStatic.problem_identifier
+   
+   

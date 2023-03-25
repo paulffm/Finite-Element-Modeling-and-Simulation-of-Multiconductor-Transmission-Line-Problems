@@ -1,0 +1,6 @@
+disable\_colors
+===============
+
+.. currentmodule:: pyrit.Logger
+
+.. autofunction:: disable_colors

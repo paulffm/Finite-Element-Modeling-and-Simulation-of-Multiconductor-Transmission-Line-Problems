@@ -1,0 +1,35 @@
+﻿MagneticProblemAxiStatic
+========================
+
+.. currentmodule:: pyrit.problem
+
+.. autoclass:: MagneticProblemAxiStatic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~MagneticProblemAxiStatic.consistency_check
+      ~MagneticProblemAxiStatic.load
+      ~MagneticProblemAxiStatic.save
+      ~MagneticProblemAxiStatic.solve
+      ~MagneticProblemAxiStatic.solve_linear_system
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MagneticProblemAxiStatic.problem_identifier
+   
+   

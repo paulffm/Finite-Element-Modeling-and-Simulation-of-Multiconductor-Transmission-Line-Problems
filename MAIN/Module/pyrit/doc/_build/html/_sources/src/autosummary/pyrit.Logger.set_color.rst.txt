@@ -1,0 +1,6 @@
+set\_color
+==========
+
+.. currentmodule:: pyrit.Logger
+
+.. autofunction:: set_color

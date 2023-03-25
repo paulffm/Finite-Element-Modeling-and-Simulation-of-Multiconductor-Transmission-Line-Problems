@@ -1,0 +1,34 @@
+﻿TransientFieldPlotter
+=====================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: TransientFieldPlotter
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~TransientFieldPlotter.animate_equilines
+      ~TransientFieldPlotter.animate_scalar_field
+      ~TransientFieldPlotter.animate_vector_field
+      ~TransientFieldPlotter.plot_equilines
+      ~TransientFieldPlotter.plot_over_time
+      ~TransientFieldPlotter.plot_over_time_scalar
+      ~TransientFieldPlotter.plot_over_time_vector
+      ~TransientFieldPlotter.plot_scalar_field
+      ~TransientFieldPlotter.plot_vector_field
+      ~TransientFieldPlotter.update_title
+   
+   
+
+   
+   
+   

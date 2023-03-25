@@ -1,0 +1,6 @@
+pyrit.Logger.LOG\_FORMAT
+========================
+
+.. currentmodule:: pyrit.Logger
+
+.. autodata:: LOG_FORMAT

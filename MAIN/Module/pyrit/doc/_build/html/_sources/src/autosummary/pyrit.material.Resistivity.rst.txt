@@ -1,0 +1,43 @@
+﻿Resistivity
+===========
+
+.. currentmodule:: pyrit.material
+
+.. autoclass:: Resistivity
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Resistivity.compute_args
+      ~Resistivity.import_from_table
+      ~Resistivity.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Resistivity.name
+      ~Resistivity.inverse_value
+      ~Resistivity.is_constant
+      ~Resistivity.is_homogeneous
+      ~Resistivity.is_hysteretic
+      ~Resistivity.is_isotrop
+      ~Resistivity.is_linear
+      ~Resistivity.is_time_dependent
+      ~Resistivity.keyword_args
+      ~Resistivity.positional_args
+      ~Resistivity.value
+   
+   

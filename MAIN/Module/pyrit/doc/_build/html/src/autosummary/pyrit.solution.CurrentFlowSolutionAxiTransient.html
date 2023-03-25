@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CurrentFlowSolutionAxiTransient &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Solution" href="pyrit.solution.Solution.html" />
+    <link rel="prev" title="CurrentFlowSolutionAxiHarmonic" href="pyrit.solution.CurrentFlowSolutionAxiHarmonic.html" />
+<link rel="stylesheet" type="text/css"
+     href="../../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage%20and%20workflow.html">Usage and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">Pyrit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bdrycond.html">Boundary conditions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.bdrycond</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../excitation.html">Excitations (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.excitation</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometry.html">Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../material.html">Material (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.material</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mesh.html">Mesh (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.mesh</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem.html">Problem (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.problem</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../region.html">Region (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.region</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shapefunction.html">Shape function (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.shapefunction</span></code>)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#electric-solutions">Electric solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#magnetic-solutions">Magnetic solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#thermal-solutions">Thermal solutions</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../solution.html#current-flow-solutions">Current flow solutions</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.CurrentFlowSolutionCartStatic.html">CurrentFlowSolutionCartStatic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.CurrentFlowSolutionCartHarmonic.html">CurrentFlowSolutionCartHarmonic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.CurrentFlowSolutionCartTransient.html">CurrentFlowSolutionCartTransient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.CurrentFlowSolutionAxiStatic.html">CurrentFlowSolutionAxiStatic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.CurrentFlowSolutionAxiHarmonic.html">CurrentFlowSolutionAxiHarmonic</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CurrentFlowSolutionAxiTransient</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#abstract-solution-classes">Abstract solution classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#field-plotter">Field plotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../toolbox.html">Toolbox (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.toolbox</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../api.html">Pyrit</a> &raquo;</li>
+          <li><a href="../solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a> &raquo;</li>
+      <li>CurrentFlowSolutionAxiTransient</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/autosummary/pyrit.solution.CurrentFlowSolutionAxiTransient.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="currentflowsolutionaxitransient">
+<h1>CurrentFlowSolutionAxiTransient<a class="headerlink" href="#currentflowsolutionaxitransient" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrit.solution.</span></span><span class="sig-name descname"><span class="pre">CurrentFlowSolutionAxiTransient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.mesh.AxiMesh.html#pyrit.mesh.AxiMesh" title="pyrit.mesh.AxiMesh"><span class="pre">mesh.AxiMesh</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri_axi_nodal_shape_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.shapefunction.TriAxisymmetricNodalShapeFunction.html#pyrit.shapefunction.TriAxisymmetricNodalShapeFunction" title="pyrit.shapefunction.TriAxisymmetricNodalShapeFunction"><span class="pre">shapefunction.TriAxisymmetricNodalShapeFunction</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.region.Regions.html#pyrit.region.Regions" title="pyrit.region.Regions.Regions"><span class="pre">Regions</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">materials</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.material.Materials.html#pyrit.material.Materials" title="pyrit.material.Materials.Materials"><span class="pre">Materials</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">excitations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.excitation.Excitations.html#pyrit.excitation.Excitations" title="pyrit.excitation.Excitations.Excitations"><span class="pre">Excitations</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitor_solutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyrit.solution.TransientSolution.html#pyrit.solution.TransientSolution" title="pyrit.solution.Solution.TransientSolution"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransientSolution</span></code></a></p>
+<p>The solution of a transient electroquasistatic problem in axisymmetric coordinates.</p>
+<p>The corresponding problem class is <code class="xref py py-class docutils literal notranslate"><span class="pre">CurrentFlowProblemAxiTransient</span></code>.</p>
+<p>Constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> – </p></li>
+<li><p><strong>vector_potential</strong> – </p></li>
+<li><p><strong>axi_mesh</strong> – </p></li>
+<li><p><strong>tri_axi_nodal_shape_function</strong> – </p></li>
+<li><p><strong>regions</strong> – </p></li>
+<li><p><strong>materials</strong> – </p></li>
+<li><p><strong>excitations</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.absolute_field" title="pyrit.solution.CurrentFlowSolutionAxiTransient.absolute_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">absolute_field</span></code></a></p></td>
+<td><p>Computes the absolute field.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_current_density" title="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_current_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate_current_density</span></code></a></p></td>
+<td><p>Animate the current density.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_e_field" title="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_e_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate_e_field</span></code></a></p></td>
+<td><p>Animate the electric field.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_equilines_potential" title="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_equilines_potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate_equilines_potential</span></code></a></p></td>
+<td><p>Animate the equilines of the potential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_joule_loss_power_density" title="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_joule_loss_power_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate_joule_loss_power_density</span></code></a></p></td>
+<td><p>Animate the energy_density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_load_vector_eqs" title="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_load_vector_eqs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate_load_vector_eqs</span></code></a></p></td>
+<td><p>Animate the load vector.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_potential" title="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate_potential</span></code></a></p></td>
+<td><p>Animate the potential.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.consistency_check" title="pyrit.solution.CurrentFlowSolutionAxiTransient.consistency_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">consistency_check</span></code></a></p></td>
+<td><p>Check if the solution is consistent.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.current_density" title="pyrit.solution.CurrentFlowSolutionAxiTransient.current_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_density</span></code></a></p></td>
+<td><p>The current density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_eps" title="pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_eps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">divgrad_matrix_eps</span></code></a></p></td>
+<td><p>The divgrad_matrix (Permittivity).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_epsd" title="pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_epsd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">divgrad_matrix_epsd</span></code></a></p></td>
+<td><p>The divgrad_matrix (DifferentialPermittivity).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_sigma" title="pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_sigma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">divgrad_matrix_sigma</span></code></a></p></td>
+<td><p>The divgrad_matrix (Conductivity).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_sigmad" title="pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_sigmad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">divgrad_matrix_sigmad</span></code></a></p></td>
+<td><p>The divgrad_matrix (DifferentialConductivity).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.e_field" title="pyrit.solution.CurrentFlowSolutionAxiTransient.e_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">e_field</span></code></a></p></td>
+<td><p>The electric field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_animation_indices</span></code></a></p></td>
+<td><p>Return indices used for the animation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_index" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_index</span></code></a></p></td>
+<td><p>Returns the appropriate index of time_steps.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_indices</span></code></a></p></td>
+<td><p>Return a list of corresponding indices according to times and indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_interpolation" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_interpolation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interpolation</span></code></a></p></td>
+<td><p>Get indices and weights for a linear interpolation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_static_solution" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_static_solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_static_solution</span></code></a></p></td>
+<td><p>Return an instance of static solution at the specified time instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.initialize_attributes" title="pyrit.solution.CurrentFlowSolutionAxiTransient.initialize_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize_attributes</span></code></a></p></td>
+<td><p>Initialize the protected attributes needed for the properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power" title="pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joule_loss_power</span></code></a></p></td>
+<td><p>The loss power.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power_density" title="pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joule_loss_power_density</span></code></a></p></td>
+<td><p>The loss power density.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power_in_regions" title="pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power_in_regions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">joule_loss_power_in_regions</span></code></a></p></td>
+<td><p>Compute the loss power in certain regions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.load" title="pyrit.solution.CurrentFlowSolutionAxiTransient.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a></p></td>
+<td><p>Load a solution.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.load_vector_eqs" title="pyrit.solution.CurrentFlowSolutionAxiTransient.load_vector_eqs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_vector_eqs</span></code></a></p></td>
+<td><p>The load vector (EQS).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_current_density" title="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_current_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_current_density</span></code></a></p></td>
+<td><p>Plot the current density.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_e_field" title="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_e_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_e_field</span></code></a></p></td>
+<td><p>Plot the electric field.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_equilines_potential" title="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_equilines_potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_equilines_potential</span></code></a></p></td>
+<td><p>Plot the equilines of the potential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_joule_loss_power_density" title="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_joule_loss_power_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_joule_loss_power_density</span></code></a></p></td>
+<td><p>Plot the energy density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_load_vector_eqs" title="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_load_vector_eqs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_load_vector_eqs</span></code></a></p></td>
+<td><p>Plot the load vector.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_monitor_solution" title="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_monitor_solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_monitor_solution</span></code></a></p></td>
+<td><p>Plot a monitor solution over time.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_potential" title="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_potential</span></code></a></p></td>
+<td><p>Plot the potential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.potential" title="pyrit.solution.CurrentFlowSolutionAxiTransient.potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">potential</span></code></a></p></td>
+<td><p>The scalar potential.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.save" title="pyrit.solution.CurrentFlowSolutionAxiTransient.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a></p></td>
+<td><p>Saves the solution instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_current_density" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_current_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_current_density</span></code></a></p></td>
+<td><p>Set the current density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_eps" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_eps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_divgrad_matrix_eps</span></code></a></p></td>
+<td><p>Set the divgrad matrix (Permittivity).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_epsd" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_epsd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_divgrad_matrix_epsd</span></code></a></p></td>
+<td><p>Set the divgrad matrix (DifferentialPermittivity).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_sigma" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_sigma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_divgrad_matrix_sigma</span></code></a></p></td>
+<td><p>Set the divgrad matrix (Conductivity).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_sigmad" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_sigmad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_divgrad_matrix_sigmad</span></code></a></p></td>
+<td><p>Set the divgrad matrix (DifferentialConductivity).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_e_field" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_e_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_e_field</span></code></a></p></td>
+<td><p>Set the electric field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_joule_loss_power" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_joule_loss_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joule_loss_power</span></code></a></p></td>
+<td><p>Set the loss power.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_joule_loss_power_density" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_joule_loss_power_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joule_loss_power_density</span></code></a></p></td>
+<td><p>Set the loss power density.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_load_vector_eqs" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_load_vector_eqs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_load_vector_eqs</span></code></a></p></td>
+<td><p>Set the load vector (EQS).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_potential" title="pyrit.solution.CurrentFlowSolutionAxiTransient.set_potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_potential</span></code></a></p></td>
+<td><p>Set the potential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.solution_from_problem" title="pyrit.solution.CurrentFlowSolutionAxiTransient.solution_from_problem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solution_from_problem</span></code></a></p></td>
+<td><p>Create a transient solution from a transient problem.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.end_time" title="pyrit.solution.CurrentFlowSolutionAxiTransient.end_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">end_time</span></code></a></p></td>
+<td><p>The end time of the problem.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.ignore_for_saving" title="pyrit.solution.CurrentFlowSolutionAxiTransient.ignore_for_saving"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ignore_for_saving</span></code></a></p></td>
+<td><p>List of attributes that are not saved</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.nodes_not_on_axis" title="pyrit.solution.CurrentFlowSolutionAxiTransient.nodes_not_on_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_not_on_axis</span></code></a></p></td>
+<td><p>An array with the node indices that are not on the z-axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.solution_identifier" title="pyrit.solution.CurrentFlowSolutionAxiTransient.solution_identifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solution_identifier</span></code></a></p></td>
+<td><p>Identifier for the __repr__ method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.start_time" title="pyrit.solution.CurrentFlowSolutionAxiTransient.start_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_time</span></code></a></p></td>
+<td><p>The start time of the problem.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.time_span" title="pyrit.solution.CurrentFlowSolutionAxiTransient.time_span"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_span</span></code></a></p></td>
+<td><p>The time span of the problem.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.related_static_solution">
+<span class="sig-name descname"><span class="pre">related_static_solution</span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.related_static_solution" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">CurrentFlowSolutionAxiIntermediate</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.ignore_for_saving">
+<span class="sig-name descname"><span class="pre">ignore_for_saving</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['_nodes_not_on_axis',</span> <span class="pre">'_mass_one',</span> <span class="pre">'_e_field',</span> <span class="pre">'_current_density',</span> <span class="pre">'_joule_loss_power',</span> <span class="pre">'_joule_loss_power_density',</span> <span class="pre">'_joule_loss_power_in_regions',</span> <span class="pre">'_divgrad_matrix_sigma',</span> <span class="pre">'_divgrad_matrix_sigmad',</span> <span class="pre">'_divgrad_matrix_eps',</span> <span class="pre">'_divgrad_matrix_epsd',</span> <span class="pre">'_load_vector_eqs']</span></em><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.ignore_for_saving" title="Permalink to this definition"></a></dt>
+<dd><p>List of attributes that are not saved</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.consistency_check">
+<span class="sig-name descname"><span class="pre">consistency_check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.consistency_check" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the solution is consistent.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.nodes_not_on_axis">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nodes_not_on_axis</span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.nodes_not_on_axis" title="Permalink to this definition"></a></dt>
+<dd><p>An array with the node indices that are not on the z-axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.potential">
+<span class="sig-name descname"><span class="pre">potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.potential" title="Permalink to this definition"></a></dt>
+<dd><p>The scalar potential. These are the coefficients for the basis functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>potential</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_potential">
+<span class="sig-name descname"><span class="pre">set_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">potential</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_potential" title="Permalink to this definition"></a></dt>
+<dd><p>Set the potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>potential</strong> (<em>np.ndarray</em>) – The potential to set</p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.e_field">
+<span class="sig-name descname"><span class="pre">e_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.e_field" title="Permalink to this definition"></a></dt>
+<dd><p>The electric field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the electric field at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the electric field at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[ndarray}, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, ndarray]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_e_field">
+<span class="sig-name descname"><span class="pre">set_e_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_e_field" title="Permalink to this definition"></a></dt>
+<dd><p>Set the electric field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>e_field</strong> (<em>Union</em><em>[</em><em>ndarray}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>ndarray</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.current_density">
+<span class="sig-name descname"><span class="pre">current_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.current_density" title="Permalink to this definition"></a></dt>
+<dd><p>The current density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the current density at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the current density at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[ndarray}, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, ndarray]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_current_density">
+<span class="sig-name descname"><span class="pre">set_current_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_current_density" title="Permalink to this definition"></a></dt>
+<dd><p>Set the current density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_density</strong> (<em>Union</em><em>[</em><em>ndarray}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>ndarray</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power">
+<span class="sig-name descname"><span class="pre">joule_loss_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power" title="Permalink to this definition"></a></dt>
+<dd><p>The loss power.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the loss power at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the loss power at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[float}, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_joule_loss_power">
+<span class="sig-name descname"><span class="pre">set_joule_loss_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_joule_loss_power" title="Permalink to this definition"></a></dt>
+<dd><p>Set the loss power.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>joule_loss_power</strong> (<em>Union</em><em>[</em><em>float}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power_density">
+<span class="sig-name descname"><span class="pre">joule_loss_power_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power_density" title="Permalink to this definition"></a></dt>
+<dd><p>The loss power density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the loss power density at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the loss power density at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[ndarray}, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, ndarray]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_joule_loss_power_density">
+<span class="sig-name descname"><span class="pre">set_joule_loss_power_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_joule_loss_power_density" title="Permalink to this definition"></a></dt>
+<dd><p>Set the loss power density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>joule_loss_power_density</strong> (<em>Union</em><em>[</em><em>ndarray}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>ndarray</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power_in_regions">
+<span class="sig-name descname"><span class="pre">joule_loss_power_in_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">region_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.joule_loss_power_in_regions" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the loss power in certain regions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region_ids</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Region IDs of the regions to compute the energy in.</p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>energy</strong> – The energy</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></p>
+</dd>
+</dl>
+<p>:raises ValueError : When the region of one ID is not two-dimensional.:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_sigma">
+<span class="sig-name descname"><span class="pre">divgrad_matrix_sigma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_sigma" title="Permalink to this definition"></a></dt>
+<dd><p>The divgrad_matrix (Conductivity).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the divgrad_matrix (Conductivity) at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the divgrad_matrix (Conductivity) at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[sparse.coo_matrix, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, sparse.coo_matrix]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_sigma">
+<span class="sig-name descname"><span class="pre">set_divgrad_matrix_sigma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_sigma" title="Permalink to this definition"></a></dt>
+<dd><p>Set the divgrad matrix (Conductivity).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>divgrad_matrix_sigma</strong> (<em>Union</em><em>[</em><em>sparse.coo_matrix}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>sparse.coo_matrix</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_sigmad">
+<span class="sig-name descname"><span class="pre">divgrad_matrix_sigmad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_sigmad" title="Permalink to this definition"></a></dt>
+<dd><p>The divgrad_matrix (DifferentialConductivity).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the divgrad_matrix (DifferentialConductivity) at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the divgrad_matrix (DifferentialConductivity) at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[sparse.coo_matrix, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, sparse.coo_matrix]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_sigmad">
+<span class="sig-name descname"><span class="pre">set_divgrad_matrix_sigmad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_sigmad" title="Permalink to this definition"></a></dt>
+<dd><p>Set the divgrad matrix (DifferentialConductivity).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>divgrad_matrix_sigmad</strong> (<em>Union</em><em>[</em><em>sparse.coo_matrix}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>sparse.coo_matrix</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_eps">
+<span class="sig-name descname"><span class="pre">divgrad_matrix_eps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_eps" title="Permalink to this definition"></a></dt>
+<dd><p>The divgrad_matrix (Permittivity).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the divgrad_matrix (Permittivity) at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the divgrad_matrix (Permittivity) at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[sparse.coo_matrix, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, sparse.coo_matrix]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_eps">
+<span class="sig-name descname"><span class="pre">set_divgrad_matrix_eps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_eps" title="Permalink to this definition"></a></dt>
+<dd><p>Set the divgrad matrix (Permittivity).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>divgrad_matrix_eps</strong> (<em>Union</em><em>[</em><em>sparse.coo_matrix}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>sparse.coo_matrix</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_epsd">
+<span class="sig-name descname"><span class="pre">divgrad_matrix_epsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.divgrad_matrix_epsd" title="Permalink to this definition"></a></dt>
+<dd><p>The divgrad_matrix (DifferentialPermittivity).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the divgrad_matrix (DifferentialPermittivity) at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the divgrad_matrix (DifferentialPermittivity) at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[sparse.coo_matrix, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, sparse.coo_matrix]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_epsd">
+<span class="sig-name descname"><span class="pre">set_divgrad_matrix_epsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_divgrad_matrix_epsd" title="Permalink to this definition"></a></dt>
+<dd><p>Set the divgrad matrix (DifferentialPermittivity).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>divgrad_matrix_epsd</strong> (<em>Union</em><em>[</em><em>sparse.coo_matrix}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>sparse.coo_matrix</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.absolute_field">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">absolute_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.absolute_field" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the absolute field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>field</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>Dict</em><em>[</em><em>Any</em><em>, </em><em>np.ndarray</em><em>]</em><em>]</em>) – Either a field or a dictionary with the values being fields.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>absolute_field</strong> – The absolute value of the fields.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[np.ndarray, Dict[Any, np.ndarray]]</p>
+</dd>
+</dl>
+<p>:raises ValueError : When the input array is not of one of ht expected shapes.:</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.end_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">end_time</span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.end_time" title="Permalink to this definition"></a></dt>
+<dd><p>The end time of the problem.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices">
+<span class="sig-name descname"><span class="pre">get_animation_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="Permalink to this definition"></a></dt>
+<dd><p>Return indices used for the animation.</p>
+<p>If indices is an integer n, return an array with every n-th index, ensuring that the last index is contained.
+If times and indices is None, return an array on all indices.
+If only one of both is not None, return an array of the appropriate indices.
+If both are not None, an Exception is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – An iterable with time instances.</p></li>
+<li><p><strong>indices</strong> (<em>Union</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – An iterable with indices.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>indices</strong> – An array of the indices.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.get_index">
+<span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_index" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the appropriate index of time_steps.</p>
+<p>If time and index are None, returns None. If only one of both is not None, returns the appropriate index. If
+both are not None, raises a ValueError.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – An index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>index</strong> – The appropriate index.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> – When time and index are both not None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.get_indices">
+<span class="sig-name descname"><span class="pre">get_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_indices" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of corresponding indices according to times and indices.</p>
+<p>If times and indices are None, returns None. If only one of both is not None, returns the appropriate list. If
+both are not None, raises a ValueError.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – An iterable with time instances.</p></li>
+<li><p><strong>indices</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – An iterable with indices.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>indices</strong> – A list of appropriate indices.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>]</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> – When times and indices are both not None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.get_interpolation">
+<span class="sig-name descname"><span class="pre">get_interpolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_interpolation" title="Permalink to this definition"></a></dt>
+<dd><p>Get indices and weights for a linear interpolation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – A time instance.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>indices</strong> (<em>List[int]</em>) – The indices of the time steps that has to be taken for the interpolation.</p></li>
+<li><p><strong>weights</strong> (<em>Lsit[float]</em>) – The weights for the indices that has to be taken for the interpolation.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.get_static_solution">
+<span class="sig-name descname"><span class="pre">get_static_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pyrit.solution.StaticSolution.html#pyrit.solution.StaticSolution" title="pyrit.solution.Solution.StaticSolution"><span class="pre">StaticSolution</span></a></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_static_solution" title="Permalink to this definition"></a></dt>
+<dd><p>Return an instance of static solution at the specified time instance.</p>
+<p>If not time instance is given, take the last time step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – An index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>static_solution</strong> – Related static solution at the specified time instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyrit.solution.StaticSolution.html#pyrit.solution.StaticSolution" title="pyrit.solution.StaticSolution">StaticSolution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.initialize_attributes">
+<span class="sig-name descname"><span class="pre">initialize_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.initialize_attributes" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize the protected attributes needed for the properties.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pyrit.solution.Solution.html#pyrit.solution.Solution" title="pyrit.solution.Solution.Solution"><span class="pre">Solution</span></a></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.load" title="Permalink to this definition"></a></dt>
+<dd><p>Load a solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Path</em><em>]</em>) – The path. If a string is given, it is converted to a Path object. The file ending can but must not be given.
+In any case it will be a <em>.pkl</em> file. See <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle doc</a> for
+more information.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>solution</strong> – A solution instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyrit.solution.Solution.html#pyrit.solution.Solution" title="pyrit.solution.Solution">Solution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.load_vector_eqs">
+<span class="sig-name descname"><span class="pre">load_vector_eqs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.load_vector_eqs" title="Permalink to this definition"></a></dt>
+<dd><p>The load vector (EQS).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – Time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>result</strong> – If either time or index given, the load vector (EQS) at the corresponding time instance. Otherwise, a
+dictionary with all already computed values of the load vector (EQS) at time instances.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[sparse.coo_matrix, Dict[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a>, sparse.coo_matrix]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.11)"><span class="pre">Path</span></a></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.save" title="Permalink to this definition"></a></dt>
+<dd><p>Saves the solution instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Path</em><em>]</em>) – <p>The path. If a string is given, it is converted to a Path object. The file ending can but must not be given.
+In any case it will be a <em>.pkl</em> file. See <a class="reference external" href="https://docs.python.org/3/library/pickle.html">pickle doc</a> for
+more information.
+If the path contains a non-existing folder, this folder will be created.</p>
+</p></li>
+<li><p><strong>ignore_attributes</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – A list of attributes that are not included in the saved file. The default value is
+<a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.ignore_for_saving" title="pyrit.solution.CurrentFlowSolutionAxiTransient.ignore_for_saving"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_for_saving</span></code></a> of the object.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>path</strong> – The path that was used for opening the file.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.solution_from_problem">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">solution_from_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.problem.TransientProblem.html#pyrit.problem.TransientProblem" title="pyrit.problem.TransientProblem"><span class="pre">TransientProblem</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitor_solutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pyrit.solution.TransientSolution.html#pyrit.solution.TransientSolution" title="pyrit.solution.TransientSolution"><span class="pre">TransientSolution</span></a></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.solution_from_problem" title="Permalink to this definition"></a></dt>
+<dd><p>Create a transient solution from a transient problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Description of the transient solution.</p></li>
+<li><p><strong>problem</strong> (<a class="reference internal" href="pyrit.problem.TransientProblem.html#pyrit.problem.TransientProblem" title="pyrit.problem.TransientProblem"><em>TransientProblem</em></a>) – A transient problem.</p></li>
+<li><p><strong>solution</strong> (<em>np.ndarray</em>) – The solution of the transient problem.</p></li>
+<li><p><strong>monitor_solutions</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Tuple</em><em>[</em><em>np.ndarray</em><em>, </em><em>np.ndarray</em><em>]</em><em>]</em><em>, </em><em>optional</em>) – The monitor solutions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>transient_solution</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="pyrit.solution.TransientSolution.html#pyrit.solution.TransientSolution" title="pyrit.solution.TransientSolution">TransientSolution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.solution_identifier">
+<span class="sig-name descname"><span class="pre">solution_identifier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'General</span> <span class="pre">transient</span> <span class="pre">solution'</span></em><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.solution_identifier" title="Permalink to this definition"></a></dt>
+<dd><p>Identifier for the __repr__ method.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.start_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_time</span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.start_time" title="Permalink to this definition"></a></dt>
+<dd><p>The start time of the problem.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.time_span">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time_span</span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.time_span" title="Permalink to this definition"></a></dt>
+<dd><p>The time span of the problem.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.set_load_vector_eqs">
+<span class="sig-name descname"><span class="pre">set_load_vector_eqs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.set_load_vector_eqs" title="Permalink to this definition"></a></dt>
+<dd><p>Set the load vector (EQS).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>load_vector_eqs</strong> (<em>Union</em><em>[</em><em>sparse.coo_matrix}</em><em>, </em><em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>sparse.coo_matrix</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_potential">
+<span class="sig-name descname"><span class="pre">plot_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_potential" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+<li><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">TriMesh.plot_scalar_field()</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.plot_scalar_field" title="pyrit.solution.TransientFieldPlotter.plot_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_scalar_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_potential">
+<span class="sig-name descname"><span class="pre">animate_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_potential" title="Permalink to this definition"></a></dt>
+<dd><p>Animate the potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – An iterable with time instances. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>indices</strong> (<em>Union</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – An iterable with indices. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments passed to <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_scalar_field" title="pyrit.solution.TransientFieldPlotter.animate_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_scalar_field()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_scalar_field" title="pyrit.solution.TransientFieldPlotter.animate_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_scalar_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_e_field">
+<span class="sig-name descname"><span class="pre">plot_e_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'arrows'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_e_field" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the electric field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The plot_type of the plot. See <code class="xref py py-func docutils literal notranslate"><span class="pre">plot_field()</span></code></p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+<li><p><strong>kwargs</strong> – Passed to the plot method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.plot_vector_field" title="pyrit.solution.TransientFieldPlotter.plot_vector_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_vector_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_e_field">
+<span class="sig-name descname"><span class="pre">animate_e_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'arrows'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_e_field" title="Permalink to this definition"></a></dt>
+<dd><p>Animate the electric field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The plot_type of the vector plot. See <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_vector_field" title="pyrit.solution.TransientFieldPlotter.animate_vector_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_vector_field()</span></code></a>.</p></li>
+<li><p><strong>times</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – An iterable with time instances. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>indices</strong> (<em>Union</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – An iterable with indices. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments passed to <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_vector_field" title="pyrit.solution.TransientFieldPlotter.animate_vector_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_vector_field()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_vector_field" title="pyrit.solution.TransientFieldPlotter.animate_vector_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_vector_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_current_density">
+<span class="sig-name descname"><span class="pre">plot_current_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'arrows'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_current_density" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the current density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The plot_type of the plot. See <code class="xref py py-func docutils literal notranslate"><span class="pre">plot_field()</span></code></p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+<li><p><strong>kwargs</strong> – Passed to the plot method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.plot_vector_field" title="pyrit.solution.TransientFieldPlotter.plot_vector_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_vector_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_current_density">
+<span class="sig-name descname"><span class="pre">animate_current_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'arrows'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_current_density" title="Permalink to this definition"></a></dt>
+<dd><p>Animate the current density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The plot_type of the vector plot. See <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_vector_field" title="pyrit.solution.TransientFieldPlotter.animate_vector_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_vector_field()</span></code></a>.</p></li>
+<li><p><strong>times</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – An iterable with time instances. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>indices</strong> (<em>Union</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – An iterable with indices. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments passed to <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_vector_field" title="pyrit.solution.TransientFieldPlotter.animate_vector_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_vector_field()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_vector_field" title="pyrit.solution.TransientFieldPlotter.animate_vector_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_vector_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_joule_loss_power_density">
+<span class="sig-name descname"><span class="pre">plot_joule_loss_power_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_joule_loss_power_density" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the energy density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+<li><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">TriMesh.plot_scalar_field()</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.plot_scalar_field" title="pyrit.solution.TransientFieldPlotter.plot_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_scalar_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_joule_loss_power_density">
+<span class="sig-name descname"><span class="pre">animate_joule_loss_power_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_joule_loss_power_density" title="Permalink to this definition"></a></dt>
+<dd><p>Animate the energy_density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – An iterable with time instances. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>indices</strong> (<em>Union</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – An iterable with indices. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments passed to <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_scalar_field" title="pyrit.solution.TransientFieldPlotter.animate_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_scalar_field()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_scalar_field" title="pyrit.solution.TransientFieldPlotter.animate_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_scalar_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_load_vector_eqs">
+<span class="sig-name descname"><span class="pre">plot_load_vector_eqs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_load_vector_eqs" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the load vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+<li><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">TriMesh.plot_scalar_field()</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.plot_scalar_field" title="pyrit.solution.TransientFieldPlotter.plot_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_scalar_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_load_vector_eqs">
+<span class="sig-name descname"><span class="pre">animate_load_vector_eqs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_load_vector_eqs" title="Permalink to this definition"></a></dt>
+<dd><p>Animate the load vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – An iterable with time instances. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>indices</strong> (<em>Union</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – An iterable with indices. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments passed to <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_scalar_field" title="pyrit.solution.TransientFieldPlotter.animate_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_scalar_field()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_scalar_field" title="pyrit.solution.TransientFieldPlotter.animate_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_scalar_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_equilines_potential">
+<span class="sig-name descname"><span class="pre">plot_equilines_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_equilines_potential" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the equilines of the potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – A time instance.</p></li>
+<li><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – The index of a time instance.</p></li>
+<li><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">TriMesh.plot_scalar_field()</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.plot_equilines" title="pyrit.solution.TransientFieldPlotter.plot_equilines"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_equilines()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.animate_equilines_potential">
+<span class="sig-name descname"><span class="pre">animate_equilines_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.animate_equilines_potential" title="Permalink to this definition"></a></dt>
+<dd><p>Animate the equilines of the potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> (<em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – An iterable with time instances. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>indices</strong> (<em>Union</em><em>[</em><em>Iterable</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – An iterable with indices. See <a class="reference internal" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices" title="pyrit.solution.CurrentFlowSolutionAxiTransient.get_animation_indices"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_animation_indices()</span></code></a>.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments passed to <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_scalar_field" title="pyrit.solution.TransientFieldPlotter.animate_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_scalar_field()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Return of <a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html#pyrit.solution.TransientFieldPlotter.animate_scalar_field" title="pyrit.solution.TransientFieldPlotter.animate_scalar_field"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TransientFieldPlotter.animate_scalar_field()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.CurrentFlowSolutionAxiTransient.plot_monitor_solution">
+<span class="sig-name descname"><span class="pre">plot_monitor_solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.CurrentFlowSolutionAxiTransient.plot_monitor_solution" title="Permalink to this definition"></a></dt>
+<dd><p>Plot a monitor solution over time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Name of the monitor solution. This is the key of the monitor solutions dictionary.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments passed to the plot method</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – An object of matplotlib.figure.Figure.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – An object of matplotlib.axes.Axes</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyrit.solution.CurrentFlowSolutionAxiHarmonic.html" class="btn btn-neutral float-left" title="CurrentFlowSolutionAxiHarmonic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyrit.solution.Solution.html" class="btn btn-neutral float-right" title="Solution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿FieldPlotter
+============
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: FieldPlotter
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~FieldPlotter.plot_equilines
+      ~FieldPlotter.plot_scalar_field
+      ~FieldPlotter.plot_vector_field
+   
+   
+
+   
+   
+   

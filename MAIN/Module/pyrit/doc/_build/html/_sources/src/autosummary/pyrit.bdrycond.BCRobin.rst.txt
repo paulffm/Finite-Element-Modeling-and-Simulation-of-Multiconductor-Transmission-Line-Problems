@@ -1,0 +1,51 @@
+﻿BCRobin
+=======
+
+.. currentmodule:: pyrit.bdrycond
+
+.. autoclass:: BCRobin
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~BCRobin.compute_args
+      ~BCRobin.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BCRobin.positional_args
+      ~BCRobin.keyword_args
+      ~BCRobin.ID
+      ~BCRobin.coefficient_dirichlet
+      ~BCRobin.coefficient_neumann
+      ~BCRobin.inverse_value
+      ~BCRobin.is_constant
+      ~BCRobin.is_homogeneous
+      ~BCRobin.is_homogeneous_neumann
+      ~BCRobin.is_homogeneous_value
+      ~BCRobin.is_homogenous_dirichlet
+      ~BCRobin.is_linear
+      ~BCRobin.is_linear_dirichlet
+      ~BCRobin.is_linear_neumann
+      ~BCRobin.is_linear_value
+      ~BCRobin.is_time_dependent
+      ~BCRobin.is_time_dependent_dirichlet
+      ~BCRobin.is_time_dependent_neumann
+      ~BCRobin.is_time_dependent_value
+      ~BCRobin.value
+   
+   

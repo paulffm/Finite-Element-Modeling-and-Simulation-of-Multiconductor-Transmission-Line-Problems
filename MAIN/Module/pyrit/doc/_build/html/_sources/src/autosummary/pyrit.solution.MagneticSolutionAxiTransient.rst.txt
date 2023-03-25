@@ -1,0 +1,91 @@
+﻿MagneticSolutionAxiTransient
+============================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: MagneticSolutionAxiTransient
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~MagneticSolutionAxiTransient.absolute_field
+      ~MagneticSolutionAxiTransient.animate_b_field
+      ~MagneticSolutionAxiTransient.animate_current_density
+      ~MagneticSolutionAxiTransient.animate_eddy_current_density
+      ~MagneticSolutionAxiTransient.animate_energy_density
+      ~MagneticSolutionAxiTransient.animate_equilines
+      ~MagneticSolutionAxiTransient.animate_h_field
+      ~MagneticSolutionAxiTransient.animate_load_vector
+      ~MagneticSolutionAxiTransient.animate_source_current_density
+      ~MagneticSolutionAxiTransient.animate_vector_potential
+      ~MagneticSolutionAxiTransient.b_field
+      ~MagneticSolutionAxiTransient.consistency_check
+      ~MagneticSolutionAxiTransient.curlcurl_matrix
+      ~MagneticSolutionAxiTransient.current_density
+      ~MagneticSolutionAxiTransient.eddy_current_density
+      ~MagneticSolutionAxiTransient.energy
+      ~MagneticSolutionAxiTransient.energy_density
+      ~MagneticSolutionAxiTransient.energy_in_regions
+      ~MagneticSolutionAxiTransient.field_vector
+      ~MagneticSolutionAxiTransient.get_animation_indices
+      ~MagneticSolutionAxiTransient.get_index
+      ~MagneticSolutionAxiTransient.get_indices
+      ~MagneticSolutionAxiTransient.get_interpolation
+      ~MagneticSolutionAxiTransient.get_static_solution
+      ~MagneticSolutionAxiTransient.h_field
+      ~MagneticSolutionAxiTransient.initialize_attributes
+      ~MagneticSolutionAxiTransient.load
+      ~MagneticSolutionAxiTransient.load_vector
+      ~MagneticSolutionAxiTransient.mass_matrix
+      ~MagneticSolutionAxiTransient.plot_b_field
+      ~MagneticSolutionAxiTransient.plot_current_density
+      ~MagneticSolutionAxiTransient.plot_eddy_current_density
+      ~MagneticSolutionAxiTransient.plot_energy_density
+      ~MagneticSolutionAxiTransient.plot_equilines
+      ~MagneticSolutionAxiTransient.plot_h_field
+      ~MagneticSolutionAxiTransient.plot_load_vector
+      ~MagneticSolutionAxiTransient.plot_monitor_solution
+      ~MagneticSolutionAxiTransient.plot_source_current_density
+      ~MagneticSolutionAxiTransient.plot_vector_potential
+      ~MagneticSolutionAxiTransient.project_to_c_vector
+      ~MagneticSolutionAxiTransient.save
+      ~MagneticSolutionAxiTransient.set_b_field
+      ~MagneticSolutionAxiTransient.set_curlcurl_matrix
+      ~MagneticSolutionAxiTransient.set_eddy_current_density
+      ~MagneticSolutionAxiTransient.set_energy
+      ~MagneticSolutionAxiTransient.set_energy_density
+      ~MagneticSolutionAxiTransient.set_h_field
+      ~MagneticSolutionAxiTransient.set_load_vector
+      ~MagneticSolutionAxiTransient.set_mass_matrix
+      ~MagneticSolutionAxiTransient.set_vector_potential
+      ~MagneticSolutionAxiTransient.set_vector_potential_field_values
+      ~MagneticSolutionAxiTransient.solution_from_problem
+      ~MagneticSolutionAxiTransient.source_current_density
+      ~MagneticSolutionAxiTransient.vector_potential
+      ~MagneticSolutionAxiTransient.vector_potential_field_values
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MagneticSolutionAxiTransient.end_time
+      ~MagneticSolutionAxiTransient.ignore_for_saving
+      ~MagneticSolutionAxiTransient.mass_one
+      ~MagneticSolutionAxiTransient.nodes_not_on_axis
+      ~MagneticSolutionAxiTransient.solution_identifier
+      ~MagneticSolutionAxiTransient.start_time
+      ~MagneticSolutionAxiTransient.time_span
+   
+   

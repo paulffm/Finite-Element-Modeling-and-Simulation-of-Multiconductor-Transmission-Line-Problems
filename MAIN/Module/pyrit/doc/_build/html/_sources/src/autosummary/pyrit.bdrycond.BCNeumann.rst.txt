@@ -1,0 +1,40 @@
+﻿BCNeumann
+=========
+
+.. currentmodule:: pyrit.bdrycond
+
+.. autoclass:: BCNeumann
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~BCNeumann.compute_args
+      ~BCNeumann.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BCNeumann.positional_args
+      ~BCNeumann.keyword_args
+      ~BCNeumann.ID
+      ~BCNeumann.inverse_value
+      ~BCNeumann.is_constant
+      ~BCNeumann.is_homogeneous
+      ~BCNeumann.is_linear
+      ~BCNeumann.is_time_dependent
+      ~BCNeumann.value
+   
+   

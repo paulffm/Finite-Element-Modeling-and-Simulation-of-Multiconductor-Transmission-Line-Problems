@@ -1,0 +1,41 @@
+﻿Curve
+=====
+
+.. currentmodule:: pyrit.geometry
+
+.. autoclass:: Curve
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Curve.add_to_gmsh
+      ~Curve.remove
+      ~Curve.reset_tag
+      ~Curve.rotate
+      ~Curve.translate
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Curve.added
+      ~Curve.dim
+      ~Curve.num_points
+      ~Curve.physical_tag
+      ~Curve.points
+      ~Curve.reversed
+      ~Curve.tag
+   
+   

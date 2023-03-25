@@ -1,0 +1,36 @@
+﻿Materials
+=========
+
+.. currentmodule:: pyrit.material
+
+.. autoclass:: Materials
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~Materials.add_material
+      ~Materials.delete_material
+      ~Materials.get_ids
+      ~Materials.get_material
+      ~Materials.get_material_from_name
+      ~Materials.get_material_id_from_name
+      ~Materials.is_homogeneous
+      ~Materials.is_hysteretic
+      ~Materials.is_isotropic
+      ~Materials.is_linear
+      ~Materials.is_time_dependent
+      ~Materials.update
+   
+   
+
+   
+   
+   

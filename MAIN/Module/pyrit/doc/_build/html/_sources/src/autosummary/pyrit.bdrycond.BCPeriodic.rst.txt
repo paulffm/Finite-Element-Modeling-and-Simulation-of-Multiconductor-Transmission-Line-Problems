@@ -1,0 +1,44 @@
+﻿BCPeriodic
+==========
+
+.. currentmodule:: pyrit.bdrycond
+
+.. autoclass:: BCPeriodic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~BCPeriodic.compute_args
+      ~BCPeriodic.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~BCPeriodic.positional_args
+      ~BCPeriodic.keyword_args
+      ~BCPeriodic.ID
+      ~BCPeriodic.inverse_value
+      ~BCPeriodic.is_constant
+      ~BCPeriodic.is_homogeneous
+      ~BCPeriodic.is_linear
+      ~BCPeriodic.is_time_dependent
+      ~BCPeriodic.primary_edges
+      ~BCPeriodic.primary_nodes
+      ~BCPeriodic.replica_edges
+      ~BCPeriodic.replica_nodes
+      ~BCPeriodic.value
+   
+   

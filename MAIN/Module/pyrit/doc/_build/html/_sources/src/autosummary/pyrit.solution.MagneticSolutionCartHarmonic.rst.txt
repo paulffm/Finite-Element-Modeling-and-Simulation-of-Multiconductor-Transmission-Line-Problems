@@ -1,0 +1,41 @@
+﻿MagneticSolutionCartHarmonic
+============================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: MagneticSolutionCartHarmonic
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~MagneticSolutionCartHarmonic.absolute_field
+      ~MagneticSolutionCartHarmonic.consistency_check
+      ~MagneticSolutionCartHarmonic.get_field_at_phase
+      ~MagneticSolutionCartHarmonic.initialize_attributes
+      ~MagneticSolutionCartHarmonic.load
+      ~MagneticSolutionCartHarmonic.save
+      ~MagneticSolutionCartHarmonic.solution_from_problem
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MagneticSolutionCartHarmonic.angular_frequency
+      ~MagneticSolutionCartHarmonic.frequency
+      ~MagneticSolutionCartHarmonic.ignore_for_saving
+      ~MagneticSolutionCartHarmonic.omega
+      ~MagneticSolutionCartHarmonic.solution_identifier
+   
+   

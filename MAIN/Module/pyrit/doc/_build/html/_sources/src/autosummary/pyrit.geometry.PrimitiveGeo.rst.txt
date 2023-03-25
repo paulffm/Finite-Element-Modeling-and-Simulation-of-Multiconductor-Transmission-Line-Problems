@@ -1,0 +1,38 @@
+﻿PrimitiveGeo
+============
+
+.. currentmodule:: pyrit.geometry
+
+.. autoclass:: PrimitiveGeo
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~PrimitiveGeo.add_to_gmsh
+      ~PrimitiveGeo.remove
+      ~PrimitiveGeo.reset_tag
+      ~PrimitiveGeo.rotate
+      ~PrimitiveGeo.translate
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~PrimitiveGeo.tag
+      ~PrimitiveGeo.physical_tag
+      ~PrimitiveGeo.added
+      ~PrimitiveGeo.dim
+   
+   

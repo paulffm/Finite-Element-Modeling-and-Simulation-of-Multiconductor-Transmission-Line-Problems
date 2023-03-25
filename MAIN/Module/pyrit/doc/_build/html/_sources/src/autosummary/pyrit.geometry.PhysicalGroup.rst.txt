@@ -1,0 +1,36 @@
+﻿PhysicalGroup
+=============
+
+.. currentmodule:: pyrit.geometry
+
+.. autoclass:: PhysicalGroup
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~PhysicalGroup.add_entity
+      ~PhysicalGroup.add_to_gmsh
+      ~PhysicalGroup.remove_entity
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~PhysicalGroup.name
+      ~PhysicalGroup.entity_tags
+      ~PhysicalGroup.dim
+      ~PhysicalGroup.tag
+   
+   

@@ -1,0 +1,5 @@
+=========
+Tutorials
+=========
+
+Pyrit is enriched by several tutorials, which are provided in the folder *tutorials*.

@@ -1,0 +1,46 @@
+﻿ThermalSolutionCartTransient
+============================
+
+.. currentmodule:: pyrit.solution
+
+.. autoclass:: ThermalSolutionCartTransient
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ThermalSolutionCartTransient.absolute_field
+      ~ThermalSolutionCartTransient.consistency_check
+      ~ThermalSolutionCartTransient.get_animation_indices
+      ~ThermalSolutionCartTransient.get_index
+      ~ThermalSolutionCartTransient.get_indices
+      ~ThermalSolutionCartTransient.get_interpolation
+      ~ThermalSolutionCartTransient.get_static_solution
+      ~ThermalSolutionCartTransient.initialize_attributes
+      ~ThermalSolutionCartTransient.load
+      ~ThermalSolutionCartTransient.plot_monitor_solution
+      ~ThermalSolutionCartTransient.save
+      ~ThermalSolutionCartTransient.solution_from_problem
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ThermalSolutionCartTransient.end_time
+      ~ThermalSolutionCartTransient.ignore_for_saving
+      ~ThermalSolutionCartTransient.solution_identifier
+      ~ThermalSolutionCartTransient.start_time
+      ~ThermalSolutionCartTransient.time_span
+   
+   

@@ -1,0 +1,6 @@
+smooth
+======
+
+.. currentmodule:: pyrit.toolbox.PostprocessToolbox
+
+.. autofunction:: smooth

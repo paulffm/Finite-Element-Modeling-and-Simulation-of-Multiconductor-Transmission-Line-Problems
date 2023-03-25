@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pyrit &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Boundary conditions (pyrit.bdrycond)" href="src/bdrycond.html" />
+    <link rel="prev" title="ValueHandler" href="src/autosummary/pyrit.ValueHandler.html" />
+<link rel="stylesheet" type="text/css"
+     href="_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/usage%20and%20workflow.html">Usage and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pyrit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/bdrycond.html">Boundary conditions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.bdrycond</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/excitation.html">Excitations (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.excitation</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/geometry.html">Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/material.html">Material (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.material</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/mesh.html">Mesh (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.mesh</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/problem.html">Problem (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.problem</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/region.html">Region (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.region</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/shapefunction.html">Shape function (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.shapefunction</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/toolbox.html">Toolbox (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.toolbox</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Pyrit</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyrit">
+<h1>Pyrit<a class="headerlink" href="#pyrit" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/bdrycond.html">Boundary conditions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.bdrycond</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/bdrycond.html#boundary-conditions-and-container-class">Boundary conditions and container class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BdryCond.html">BdryCond</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCAntiPeriodic.html">BCAntiPeriodic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCBinary.html">BCBinary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCDirichlet.html">BCDirichlet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCDummy.html">BCDummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCFloating.html">BCFloating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCNeumann.html">BCNeumann</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCPeriodic.html">BCPeriodic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCRobin.html">BCRobin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/bdrycond.html#abstract-classes">Abstract classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BC.html">BC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.bdrycond.BCUnary.html">BCUnary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/excitation.html">Excitations (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.excitation</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/excitation.html#excitations-and-container-class">Excitations and container class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.excitation.Excitations.html">Excitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.excitation.ChargeDensity.html">ChargeDensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.excitation.CurrentDensity.html">CurrentDensity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.excitation.SolidConductor.html">SolidConductor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.excitation.StrandedConductor.html">StrandedConductor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.excitation.DistributedSolidConductor.html">DistributedSolidConductor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/excitation.html#abstract-classes">Abstract classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.excitation.Exci.html">Exci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.excitation.FieldCircuitCoupling.html">FieldCircuitCoupling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/geometry.html">Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/geometry.html#main-classes">Main classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Geometry.html">Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.PhysicalGroup.html">PhysicalGroup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/geometry.html#classes-for-geometrical-entities">Classes for geometrical entities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Point.html">Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Curve.html">Curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Line.html">Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Circle.html">Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.CircleArc.html">CircleArc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Ellipse.html">Ellipse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.EllipseArc.html">EllipseArc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Surface.html">Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Rectangle.html">Rectangle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/geometry.html#abstract-classes">Abstract classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.PrimitiveGeo.html">PrimitiveGeo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.Geo.html">Geo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.geometry.BasicAnchor.html">BasicAnchor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/material.html">Material (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.material</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/material.html#materials-and-container-class">Materials and container class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.Materials.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.Conductivity.html">Conductivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.Density.html">Density</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.VolumetricHeatCapacity.html">VolumetricHeatCapacity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.Permeability.html">Permeability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.Permittivity.html">Permittivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.Reluctivity.html">Reluctivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.ThermalConductivity.html">ThermalConductivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.Resistivity.html">Resistivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.DifferentialConductivity.html">DifferentialConductivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.DifferentialPermittivity.html">DifferentialPermittivity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/material.html#abstract-classes">Abstract classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.Mat.html">Mat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.MatProperty.html">MatProperty</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/material.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.material.PropertyConversionException.html">pyrit.material.PropertyConversionException</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/mesh.html">Mesh (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.mesh</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/mesh.html#actual-mesh-classes">Actual mesh classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.mesh.TriMesh.html">TriMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.mesh.AxiMesh.html">AxiMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.mesh.TetMesh.html">TetMesh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/mesh.html#abstract-class">Abstract class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.mesh.Mesh.html">Mesh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/problem.html">Problem (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.problem</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/problem.html#predefined-problem-solution-types">Predefined Problem/Solution Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/problem.html#electric-problems">Electric problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ElectricProblemCartStatic.html">ElectricProblemCartStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ElectricProblemAxiStatic.html">ElectricProblemAxiStatic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/problem.html#magnetic-problems">Magnetic problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.MagneticProblemCartStatic.html">MagneticProblemCartStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.MagneticProblemCartHarmonic.html">MagneticProblemCartHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.MagneticProblemCartTransient.html">MagneticProblemCartTransient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.MagneticProblemAxiStatic.html">MagneticProblemAxiStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.MagneticProblemAxiHarmonic.html">MagneticProblemAxiHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.MagneticProblemAxiTransient.html">MagneticProblemAxiTransient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/problem.html#thermal-problems">Thermal problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ThermalProblemCartStatic.html">ThermalProblemCartStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ThermalProblemCartHarmonic.html">ThermalProblemCartHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ThermalProblemCartTransient.html">ThermalProblemCartTransient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ThermalProblemAxiStatic.html">ThermalProblemAxiStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ThermalProblemAxiHarmonic.html">ThermalProblemAxiHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ThermalProblemAxiTransient.html">ThermalProblemAxiTransient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ThermalSolverInfoAxiStatic.html">ThermalSolverInfoAxiStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.ThermalSolverInfoAxiTransient.html">ThermalSolverInfoAxiTransient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/problem.html#current-flow-problems">Current flow problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.CurrentFlowSolverInfoAxiStatic.html">CurrentFlowSolverInfoAxiStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.CurrentFlowSolverInfoAxiTransient.html">CurrentFlowSolverInfoAxiTransient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.CurrentFlowProblemCartStatic.html">CurrentFlowProblemCartStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.CurrentFlowProblemCartHarmonic.html">CurrentFlowProblemCartHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.CurrentFlowProblemCartTransient.html">CurrentFlowProblemCartTransient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.CurrentFlowProblemAxiStatic.html">CurrentFlowProblemAxiStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.CurrentFlowProblemAxiHarmonic.html">CurrentFlowProblemAxiHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.CurrentFlowProblemAxiTransient.html">CurrentFlowProblemAxiTransient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/problem.html#general-problem-classes">General problem classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.Problem.html">Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.StaticProblem.html">StaticProblem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.HarmonicProblem.html">HarmonicProblem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.problem.TransientProblem.html">TransientProblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/region.html">Region (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.region</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/autosummary/pyrit.region.Regi.html">Regi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/autosummary/pyrit.region.Regions.html">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/shapefunction.html">Shape function (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.shapefunction</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/shapefunction.html#actual-shape-function-classes">Actual shape function classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.shapefunction.TriCartesianNodalShapeFunction.html">TriCartesianNodalShapeFunction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.shapefunction.TriAxisymmetricNodalShapeFunction.html">TriAxisymmetricNodalShapeFunction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.shapefunction.TriAxisymmetricEdgeShapeFunction.html">TriAxisymmetricEdgeShapeFunction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.shapefunction.TetCartesianNodalShapeFunction.html">TetCartesianNodalShapeFunction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/shapefunction.html#abstract-class">Abstract class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.shapefunction.ShapeFunction.html">ShapeFunction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.shapefunction.NodalShapeFunction.html">NodalShapeFunction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.shapefunction.EdgeShapeFunction.html">EdgeShapeFunction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/solution.html#electric-solutions">Electric solutions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.ElectricSolutionCartStatic.html">ElectricSolutionCartStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.ElectricSolutionAxiStatic.html">ElectricSolutionAxiStatic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/solution.html#magnetic-solutions">Magnetic solutions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.MagneticSolutionCartStatic.html">MagneticSolutionCartStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.MagneticSolutionCartHarmonic.html">MagneticSolutionCartHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.MagneticSolutionCartTransient.html">MagneticSolutionCartTransient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.MagneticSolutionAxiStatic.html">MagneticSolutionAxiStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.MagneticSolutionAxiHarmonic.html">MagneticSolutionAxiHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.MagneticSolutionAxiTransient.html">MagneticSolutionAxiTransient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/solution.html#thermal-solutions">Thermal solutions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.ThermalSolutionCartStatic.html">ThermalSolutionCartStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.ThermalSolutionCartHarmonic.html">ThermalSolutionCartHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.ThermalSolutionCartTransient.html">ThermalSolutionCartTransient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.ThermalSolutionAxiStatic.html">ThermalSolutionAxiStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.ThermalSolutionAxiHarmonic.html">ThermalSolutionAxiHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.ThermalSolutionAxiTransient.html">ThermalSolutionAxiTransient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/solution.html#current-flow-solutions">Current flow solutions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.CurrentFlowSolutionCartStatic.html">CurrentFlowSolutionCartStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.CurrentFlowSolutionCartHarmonic.html">CurrentFlowSolutionCartHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.CurrentFlowSolutionCartTransient.html">CurrentFlowSolutionCartTransient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.CurrentFlowSolutionAxiStatic.html">CurrentFlowSolutionAxiStatic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.CurrentFlowSolutionAxiHarmonic.html">CurrentFlowSolutionAxiHarmonic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.CurrentFlowSolutionAxiTransient.html">CurrentFlowSolutionAxiTransient</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/solution.html#abstract-solution-classes">Abstract solution classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.Solution.html">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.StaticSolution.html">StaticSolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.HarmonicSolution.html">HarmonicSolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.TransientSolution.html">TransientSolution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/solution.html#field-plotter">Field plotter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.FieldPlotter.html">FieldPlotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.StaticFieldPlotter.html">StaticFieldPlotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.HarmonicFieldPlotter.html">HarmonicFieldPlotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.TransientFieldPlotter.html">TransientFieldPlotter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/solution.html#miscellaneous">Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.solution.VectorConverter.html">VectorConverter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="src/toolbox.html">Toolbox (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.toolbox</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/toolbox.html#toolboxes">Toolboxes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.toolbox.IOToolbox.html">IOToolbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.IOToolbox.load.html">load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.IOToolbox.save.html">save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.IOToolbox.ToLaTeX.html">pyrit.toolbox.IOToolbox.ToLaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.toolbox.MiscellaneousToolbox.html">MiscellaneousToolbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.MiscellaneousToolbox.evaluate_function.html">evaluate_function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.MiscellaneousToolbox.profile.html">profile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.MiscellaneousToolbox.timer_func.html">timer_func</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.toolbox.QuadratureToolbox.html">QuadratureToolbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.QuadratureToolbox.gauss.html">gauss</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.QuadratureToolbox.gauss_tetrahedron.html">gauss_tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.QuadratureToolbox.gauss_triangle.html">gauss_triangle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.toolbox.ImportGmshToolbox.html">ImportGmshToolbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.ImportGmshToolbox.generate_regions.html">generate_regions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.ImportGmshToolbox.geo_to_msh.html">geo_to_msh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.ImportGmshToolbox.read_msh_file.html">read_msh_file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.ImportGmshToolbox.read_physical_groups.html">read_physical_groups</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.toolbox.PostprocessToolbox.html">PostprocessToolbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.PostprocessToolbox.get_field_on_line.html">get_field_on_line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.PostprocessToolbox.moving_average_filter.html">moving_average_filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.PostprocessToolbox.plot_field_on_line.html">plot_field_on_line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.PostprocessToolbox.smooth.html">smooth</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="src/toolbox.html#libraries">Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.toolbox.geolibrary.html">geolibrary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.geolibrary.html#geo-library-pyrit-toolbox-geolibrary">Geo library (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.toolbox.geolibrary</span></code>)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="src/autosummary/pyrit.toolbox.geolibrary.html#primitive-geos">Primitive Geos</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="src/autosummary/autosummary/pyrit.toolbox.geolibrary.FoilWinding.html">FoilWinding</a></li>
+<li class="toctree-l6"><a class="reference internal" href="src/autosummary/autosummary/pyrit.toolbox.geolibrary.Yoke.html">Yoke</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="src/autosummary/pyrit.toolbox.geolibrary.html#complex-geos">Complex Geos</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="src/autosummary/autosummary/pyrit.toolbox.geolibrary.FoilWindingWithSurrounding.html">FoilWindingWithSurrounding</a></li>
+<li class="toctree-l6"><a class="reference internal" href="src/autosummary/autosummary/pyrit.toolbox.geolibrary.PotInductor.html">PotInductor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src/autosummary/pyrit.toolbox.MaterialLibrary.html">MaterialLibrary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.MaterialLibrary.present_materials.html">pyrit.toolbox.MaterialLibrary.present_materials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src/autosummary/pyrit.toolbox.MaterialLibrary.get_material.html">get_material</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="src/autosummary/pyrit.ValueHandler.html" class="btn btn-neutral float-left" title="ValueHandler" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="src/bdrycond.html" class="btn btn-neutral float-right" title="Boundary conditions (pyrit.bdrycond)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

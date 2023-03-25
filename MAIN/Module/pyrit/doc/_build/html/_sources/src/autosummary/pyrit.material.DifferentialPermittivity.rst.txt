@@ -1,0 +1,43 @@
+﻿DifferentialPermittivity
+========================
+
+.. currentmodule:: pyrit.material
+
+.. autoclass:: DifferentialPermittivity
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~DifferentialPermittivity.compute_args
+      ~DifferentialPermittivity.import_from_table
+      ~DifferentialPermittivity.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DifferentialPermittivity.name
+      ~DifferentialPermittivity.inverse_value
+      ~DifferentialPermittivity.is_constant
+      ~DifferentialPermittivity.is_homogeneous
+      ~DifferentialPermittivity.is_hysteretic
+      ~DifferentialPermittivity.is_isotrop
+      ~DifferentialPermittivity.is_linear
+      ~DifferentialPermittivity.is_time_dependent
+      ~DifferentialPermittivity.keyword_args
+      ~DifferentialPermittivity.positional_args
+      ~DifferentialPermittivity.value
+   
+   

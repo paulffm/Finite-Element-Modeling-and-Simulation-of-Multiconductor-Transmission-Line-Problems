@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HarmonicFieldPlotter &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TransientFieldPlotter" href="pyrit.solution.TransientFieldPlotter.html" />
+    <link rel="prev" title="StaticFieldPlotter" href="pyrit.solution.StaticFieldPlotter.html" />
+<link rel="stylesheet" type="text/css"
+     href="../../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage%20and%20workflow.html">Usage and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">Pyrit</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bdrycond.html">Boundary conditions (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.bdrycond</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../excitation.html">Excitations (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.excitation</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../geometry.html">Geometry (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.geometry</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../material.html">Material (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.material</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mesh.html">Mesh (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.mesh</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem.html">Problem (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.problem</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../region.html">Region (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.region</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shapefunction.html">Shape function (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.shapefunction</span></code>)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#electric-solutions">Electric solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#magnetic-solutions">Magnetic solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#thermal-solutions">Thermal solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#current-flow-solutions">Current flow solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#abstract-solution-classes">Abstract solution classes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../solution.html#field-plotter">Field plotter</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.FieldPlotter.html">FieldPlotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.StaticFieldPlotter.html">StaticFieldPlotter</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">HarmonicFieldPlotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyrit.solution.TransientFieldPlotter.html">TransientFieldPlotter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../solution.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../toolbox.html">Toolbox (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.toolbox</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../api.html">Pyrit</a> &raquo;</li>
+          <li><a href="../solution.html">Solution (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit.solution</span></code>)</a> &raquo;</li>
+      <li>HarmonicFieldPlotter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/autosummary/pyrit.solution.HarmonicFieldPlotter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="harmonicfieldplotter">
+<h1>HarmonicFieldPlotter<a class="headerlink" href="#harmonicfieldplotter" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyrit.solution.HarmonicFieldPlotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyrit.solution.</span></span><span class="sig-name descname"><span class="pre">HarmonicFieldPlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyrit.mesh.TriMesh.html#pyrit.mesh.TriMesh" title="pyrit.mesh.TriMesh"><span class="pre">TriMesh</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.HarmonicFieldPlotter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyrit.solution.FieldPlotter.html#pyrit.solution.FieldPlotter" title="pyrit.solution.FieldPlotter.FieldPlotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldPlotter</span></code></a></p>
+<p>A field plotter for harmonic fields.</p>
+<p>The fields given fields are considered as phasors, i.e. should be complex valued.</p>
+<p>The constructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<a class="reference internal" href="pyrit.mesh.TriMesh.html#pyrit.mesh.TriMesh" title="pyrit.mesh.TriMesh"><em>TriMesh</em></a>) – A mesh object that will be used for the plotting.</p></li>
+<li><p><strong>frequency</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – The frequency of the harmonic fields.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.HarmonicFieldPlotter.get_field_at_phase" title="pyrit.solution.HarmonicFieldPlotter.get_field_at_phase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_field_at_phase</span></code></a></p></td>
+<td><p>Evaluate the complex valued field at a certain phase.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.HarmonicFieldPlotter.plot_equilines" title="pyrit.solution.HarmonicFieldPlotter.plot_equilines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_equilines</span></code></a></p></td>
+<td><p>Plot equilines of the field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.HarmonicFieldPlotter.plot_scalar_field" title="pyrit.solution.HarmonicFieldPlotter.plot_scalar_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_scalar_field</span></code></a></p></td>
+<td><p>Plot a scalar field.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.HarmonicFieldPlotter.plot_vector_field" title="pyrit.solution.HarmonicFieldPlotter.plot_vector_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_vector_field</span></code></a></p></td>
+<td><p>Plot a vector field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrit.solution.HarmonicFieldPlotter.process_inputs" title="pyrit.solution.HarmonicFieldPlotter.process_inputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_inputs</span></code></a></p></td>
+<td><p>Process inputs for harmonic filed plotting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrit.solution.HarmonicFieldPlotter.update_title" title="pyrit.solution.HarmonicFieldPlotter.update_title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_title</span></code></a></p></td>
+<td><p>Updates the title.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.HarmonicFieldPlotter.get_field_at_phase">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_field_at_phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.HarmonicFieldPlotter.get_field_at_phase" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the complex valued field at a certain phase.</p>
+<p>Each entry in field is a complex number, representing a phasor. Return the field at a certain phase, or for a
+certain time point. Let <span class="math notranslate nohighlight">\(\varphi\)</span> be the phase and <span class="math notranslate nohighlight">\(\underline{g}\)</span> be a complex value. Then the
+formula is</p>
+<div class="math notranslate nohighlight">
+\[g = \Re\left\{\underline{g} e^{\jmath\varphi}\right\}\,.\]</div>
+<p>If the time <span class="math notranslate nohighlight">\(t\)</span> is given, the phase is determined by <span class="math notranslate nohighlight">\(\varphi = 2\pi f t\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is the
+frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – The frequency of the field.</p></li>
+<li><p><strong>field</strong> (<em>np.ndarray</em>) – The field.</p></li>
+<li><p><strong>phase</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – The phase. Default is 0</p></li>
+<li><p><strong>time</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><em>optional</em>) – The time. Default is None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>field_at_phase</strong> – Field at the specified phase or time.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.HarmonicFieldPlotter.update_title">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.HarmonicFieldPlotter.update_title" title="Permalink to this definition"></a></dt>
+<dd><p>Updates the title. Adds the phase information.</p>
+<p>Searches the keyword ‘title’. If it exists, append the phase information. If not, create it with phase
+information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>phase</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – The phase</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Keyword arguments with ensured ‘title’ that contains the phase.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kwargs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.HarmonicFieldPlotter.process_inputs">
+<span class="sig-name descname"><span class="pre">process_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.HarmonicFieldPlotter.process_inputs" title="Permalink to this definition"></a></dt>
+<dd><p>Process inputs for harmonic filed plotting.</p>
+<p>Determines the field at phase and updates the title.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<em>np.ndarray</em>) – The field</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments. Keys ‘phase’ and ‘time’ are processed here and removed. The rest is passed to the
+plotting methods.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>field_at_phase</strong> (<em>np.ndarray</em>) – The field at the given phase</p></li>
+<li><p><em>kwargs</em> – The processed kwargs.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.HarmonicFieldPlotter.plot_scalar_field">
+<span class="sig-name descname"><span class="pre">plot_scalar_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.HarmonicFieldPlotter.plot_scalar_field" title="Permalink to this definition"></a></dt>
+<dd><p>Plot a scalar field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<em>np.ndarray</em>) – A field to plot.</p></li>
+<li><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">TriMesh.plot_scalar_field()</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – An object of matplotlib.figure.Figure.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – An object of matplotlib.axes.Axes</p></li>
+<li><p><strong>artist</strong> (<em>Artist</em>) – The artist</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.HarmonicFieldPlotter.plot_vector_field">
+<span class="sig-name descname"><span class="pre">plot_vector_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><span class="pre">Figure</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.11)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.6.2)"><span class="pre">Axes</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyrit.solution.HarmonicFieldPlotter.plot_vector_field" title="Permalink to this definition"></a></dt>
+<dd><p>Plot a vector field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<em>np.ndarray</em>) – The field to plot.</p></li>
+<li><p><strong>plot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The plot_type of the plot. One of ‘arrows’, ‘abs’, ‘stream’.</p></li>
+<li><p><strong>kwargs</strong> – Passed to the plot method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – A figure object.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – A axes object.</p></li>
+<li><p><strong>artist</strong> (<em>Artist</em>) – The artist</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyrit.solution.HarmonicFieldPlotter.plot_equilines">
+<span class="sig-name descname"><span class="pre">plot_equilines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyrit.solution.HarmonicFieldPlotter.plot_equilines" title="Permalink to this definition"></a></dt>
+<dd><p>Plot equilines of the field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<em>np.ndarray</em>) – A field to plot.</p></li>
+<li><p><strong>kwargs</strong> – Passed to <code class="xref py py-meth docutils literal notranslate"><span class="pre">TriMesh.plot_equilines()</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>Figure</em>) – A figure object.</p></li>
+<li><p><strong>ax</strong> (<em>Axes</em>) – A axes object.</p></li>
+<li><p><strong>artist</strong> (<em>Artist</em>) – The artist</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyrit.solution.StaticFieldPlotter.html" class="btn btn-neutral float-left" title="StaticFieldPlotter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyrit.solution.TransientFieldPlotter.html" class="btn btn-neutral float-right" title="TransientFieldPlotter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solution classes &mdash; Documentation of Pyrit  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Creating a geometry" href="create_geometry.html" />
+    <link rel="prev" title="Problem classes" href="problem%20classes.html" />
+<link rel="stylesheet" type="text/css"
+     href="../_static/custom.css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Documentation of Pyrit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="usage%20and%20workflow.html">Usage and Workflow</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="usage%20and%20workflow.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage%20and%20workflow.html#workflow">Workflow</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="usage%20and%20workflow.html#problem-and-solution-classes">Problem and solution classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="problem%20classes.html">Problem classes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Solution classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#staticsolution">StaticSolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#harmonicsolution">HarmonicSolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transientsolution">TransientSolution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="create_geometry.html">Creating a geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyrit.html">Pyrit (<code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrit</span></code>)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">Pyrit</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="information%20for%20developers.html">Information for developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials%20for%20developers.html">Tutorials for developers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentation of Pyrit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="usage%20and%20workflow.html">Usage and Workflow</a> &raquo;</li>
+      <li>Solution classes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/solution classes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="solution-classes">
+<span id="id1"></span><h1>Solution classes<a class="headerlink" href="#solution-classes" title="Permalink to this heading"></a></h1>
+<p>In this section, the structure of solution classes is explained and the purpose of each class is sketched.</p>
+<p>For every problem class (see <a class="reference internal" href="problem%20classes.html#problem-classes"><span class="std std-ref">Problem classes</span></a>), there is a solution class.
+There is an abstract class <a class="reference internal" href="autosummary/pyrit.solution.Solution.html#pyrit.solution.Solution" title="pyrit.solution.Solution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solution</span></code></a> that handles the basic features.
+Apart from this, there are three types os solutions:</p>
+<ol class="arabic simple">
+<li><p>Static solutions (class <a class="reference internal" href="autosummary/pyrit.solution.StaticSolution.html#pyrit.solution.StaticSolution" title="pyrit.solution.StaticSolution"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaticSolution</span></code></a>)</p></li>
+<li><p>Harmonic solution (class <a class="reference internal" href="autosummary/pyrit.solution.HarmonicSolution.html#pyrit.solution.HarmonicSolution" title="pyrit.solution.HarmonicSolution"><code class="xref py py-class docutils literal notranslate"><span class="pre">HarmonicSolution</span></code></a>)</p></li>
+<li><p>Transient solutions (class <a class="reference internal" href="autosummary/pyrit.solution.TransientSolution.html#pyrit.solution.TransientSolution" title="pyrit.solution.TransientSolution"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransientSolution</span></code></a>)</p></li>
+</ol>
+<p>Note that all these classes are abstract.</p>
+<p>The purpose of the solution class is to manage the solution of the problem and the data structures that are needed for the post-porocessing. Furthermore, it provides methods for saving and loading. With the class attribute <a class="reference internal" href="autosummary/pyrit.solution.Solution.html#pyrit.solution.Solution.ignore_for_saving" title="pyrit.solution.Solution.ignore_for_saving"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ignore_for_saving</span></code></a> and the method <a class="reference internal" href="autosummary/pyrit.solution.Solution.html#pyrit.solution.Solution.initialize_attributes" title="pyrit.solution.Solution.initialize_attributes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">initialize_attributes</span></code></a> it also provides the functionality that not all attributes have to be saved.
+It may be advantageous to save a minimal amount of information.
+This is the solution of the problem and the data structures of the problem.
+All other fields can be computed from these.
+Because the fields should be implemented as properties, the private arguments of <a class="reference internal" href="autosummary/pyrit.solution.Solution.html#pyrit.solution.Solution" title="pyrit.solution.Solution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solution</span></code></a> need to be initialized after loading.</p>
+<section id="staticsolution">
+<h2>StaticSolution<a class="headerlink" href="#staticsolution" title="Permalink to this heading"></a></h2>
+<p>The purpose of this class is to manage the solutions of static problems.</p>
+</section>
+<section id="harmonicsolution">
+<h2>HarmonicSolution<a class="headerlink" href="#harmonicsolution" title="Permalink to this heading"></a></h2>
+<p>The purpose of this class is to manage the solutions of harmonic problems.
+It extends <a class="reference internal" href="autosummary/pyrit.solution.Solution.html#pyrit.solution.Solution" title="pyrit.solution.Solution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solution</span></code></a> by the handling of the frequency.</p>
+</section>
+<section id="transientsolution">
+<h2>TransientSolution<a class="headerlink" href="#transientsolution" title="Permalink to this heading"></a></h2>
+<p>The purpose fo this class is to manage the solutions of transient problems.
+It extends <a class="reference internal" href="autosummary/pyrit.solution.Solution.html#pyrit.solution.Solution" title="pyrit.solution.Solution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solution</span></code></a> by the handling of time steps.
+Furthermore, it has some routines to get an index or indices of time steps, a routine for animating time dependent fields and one for interpolating solutions.
+This class is the most complex of the three.</p>
+<p>For a generalized way of handling the data of transient solutions, there are also some decorators defined that help writing the derived classes faster.
+The usage of those is strongly recommended.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="problem%20classes.html" class="btn btn-neutral float-left" title="Problem classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="create_geometry.html" class="btn btn-neutral float-right" title="Creating a geometry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

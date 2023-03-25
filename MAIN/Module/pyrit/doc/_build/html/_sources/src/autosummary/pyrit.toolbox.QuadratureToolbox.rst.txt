@@ -1,0 +1,33 @@
+﻿QuadratureToolbox
+=================
+
+.. automodule:: pyrit.toolbox.QuadratureToolbox
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      gauss
+      gauss_tetrahedron
+      gauss_triangle
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

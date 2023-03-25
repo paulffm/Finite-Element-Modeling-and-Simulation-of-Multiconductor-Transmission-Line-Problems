@@ -1,0 +1,6 @@
+get\_material
+=============
+
+.. currentmodule:: pyrit.toolbox.MaterialLibrary
+
+.. autofunction:: get_material

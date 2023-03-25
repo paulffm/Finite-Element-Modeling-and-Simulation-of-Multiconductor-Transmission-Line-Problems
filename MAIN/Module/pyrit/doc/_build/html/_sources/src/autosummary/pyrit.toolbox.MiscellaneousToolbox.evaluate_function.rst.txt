@@ -1,0 +1,6 @@
+evaluate\_function
+==================
+
+.. currentmodule:: pyrit.toolbox.MiscellaneousToolbox
+
+.. autofunction:: evaluate_function

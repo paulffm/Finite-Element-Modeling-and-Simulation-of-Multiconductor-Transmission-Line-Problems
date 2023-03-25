@@ -1,0 +1,6 @@
+load
+====
+
+.. currentmodule:: pyrit.toolbox.IOToolbox
+
+.. autofunction:: load

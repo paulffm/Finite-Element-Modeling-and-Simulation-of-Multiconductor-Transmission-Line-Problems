@@ -1,0 +1,6 @@
+get\_logger
+===========
+
+.. currentmodule:: pyrit.Logger
+
+.. autofunction:: get_logger

@@ -1,0 +1,34 @@
+﻿ImportGmshToolbox
+=================
+
+.. automodule:: pyrit.toolbox.ImportGmshToolbox
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      generate_regions
+      geo_to_msh
+      read_msh_file
+      read_physical_groups
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

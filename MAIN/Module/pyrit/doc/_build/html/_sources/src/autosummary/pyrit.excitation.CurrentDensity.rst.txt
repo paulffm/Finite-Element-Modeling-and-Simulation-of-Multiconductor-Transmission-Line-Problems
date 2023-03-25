@@ -1,0 +1,40 @@
+﻿CurrentDensity
+==============
+
+.. currentmodule:: pyrit.excitation
+
+.. autoclass:: CurrentDensity
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~CurrentDensity.compute_args
+      ~CurrentDensity.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~CurrentDensity.positional_args
+      ~CurrentDensity.keyword_args
+      ~CurrentDensity.ID
+      ~CurrentDensity.inverse_value
+      ~CurrentDensity.is_constant
+      ~CurrentDensity.is_homogeneous
+      ~CurrentDensity.is_linear
+      ~CurrentDensity.is_time_dependent
+      ~CurrentDensity.value
+   
+   

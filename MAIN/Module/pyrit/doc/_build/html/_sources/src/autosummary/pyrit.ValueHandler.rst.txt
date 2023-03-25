@@ -1,0 +1,39 @@
+﻿ValueHandler
+============
+
+.. currentmodule:: pyrit
+
+.. autoclass:: ValueHandler
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ValueHandler.compute_args
+      ~ValueHandler.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ValueHandler.positional_args
+      ~ValueHandler.keyword_args
+      ~ValueHandler.inverse_value
+      ~ValueHandler.is_constant
+      ~ValueHandler.is_homogeneous
+      ~ValueHandler.is_linear
+      ~ValueHandler.is_time_dependent
+      ~ValueHandler.value
+   
+   

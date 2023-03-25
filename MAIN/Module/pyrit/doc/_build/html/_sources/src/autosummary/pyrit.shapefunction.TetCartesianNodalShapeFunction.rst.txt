@@ -1,0 +1,58 @@
+﻿TetCartesianNodalShapeFunction
+==============================
+
+.. currentmodule:: pyrit.shapefunction
+
+.. autoclass:: TetCartesianNodalShapeFunction
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~TetCartesianNodalShapeFunction.base1
+      ~TetCartesianNodalShapeFunction.base2
+      ~TetCartesianNodalShapeFunction.base3
+      ~TetCartesianNodalShapeFunction.base4
+      ~TetCartesianNodalShapeFunction.compute_support_data
+      ~TetCartesianNodalShapeFunction.divgrad_operator
+      ~TetCartesianNodalShapeFunction.gradient
+      ~TetCartesianNodalShapeFunction.inflate
+      ~TetCartesianNodalShapeFunction.inflate_binary
+      ~TetCartesianNodalShapeFunction.inflate_dirichlet
+      ~TetCartesianNodalShapeFunction.inflate_floating
+      ~TetCartesianNodalShapeFunction.issingleint
+      ~TetCartesianNodalShapeFunction.load_vector
+      ~TetCartesianNodalShapeFunction.mass_matrix
+      ~TetCartesianNodalShapeFunction.neumann_term
+      ~TetCartesianNodalShapeFunction.robin_terms
+      ~TetCartesianNodalShapeFunction.shrink
+      ~TetCartesianNodalShapeFunction.shrink_binary
+      ~TetCartesianNodalShapeFunction.shrink_dirichlet
+      ~TetCartesianNodalShapeFunction.shrink_floating
+      ~TetCartesianNodalShapeFunction.shrink_neumann
+      ~TetCartesianNodalShapeFunction.shrink_robin
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TetCartesianNodalShapeFunction.dim
+      ~TetCartesianNodalShapeFunction.dphi1
+      ~TetCartesianNodalShapeFunction.dphi2
+      ~TetCartesianNodalShapeFunction.dphi3
+      ~TetCartesianNodalShapeFunction.dphi4
+      ~TetCartesianNodalShapeFunction.mesh
+      ~TetCartesianNodalShapeFunction.tetrahedral_volume_ref
+   
+   
