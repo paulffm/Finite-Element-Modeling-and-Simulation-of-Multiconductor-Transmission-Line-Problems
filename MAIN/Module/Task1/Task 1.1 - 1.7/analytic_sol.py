@@ -1,5 +1,14 @@
 import numpy as np
 
+# Herleitung L
+'''https://nano-optics.physik.uni-siegen.de/education/teaching/experimentalphysikii/solution-8-de.pdf'''
+# Herleitung C
+'''https://www.ph.tum.de/academics/bsc/break/2012s/fk_PH0002_01_exercisesolution.pdf'''
+'''https://de.universaldenker.org/formeln/721'''
+# Herleitung A, H. B
+'''Notebook Rene und GED Übungsbuch S.111 und Aufgabe S.39 '''
+'''S.4: https://itp.uni-frankfurt.de/~hees/faq-pdf/coax.pdf'''
+
 r_1 = 2e-3                # [m]
 r_2 = 3.5e-3              # [m]
 depth = 300e-3            # [m]

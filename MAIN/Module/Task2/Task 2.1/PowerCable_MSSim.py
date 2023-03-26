@@ -6,7 +6,7 @@ show_plot = True
 Task 2.1 a, b): Simulation von PowerCable in M-Statik zur Berechnung von R und L mit low frequency approach
 '''
 def main():
-
+    '''HDG 2010AC bei f = 1.0 kHz Low Frequency Approx noch gemacht'''
     k = list(np.arange(3))
     X_mag = []
     K_list = []
@@ -15,8 +15,7 @@ def main():
 
     for i in k:
         power_cable = PowerCable_Magn()
-        '''problem, shape_function = power_cable.create_problem(type='magn', exci_type=1,
-                                                             mesh_size_factor=0.2, show_gui=False, k=i)'''
+
         problem, shape_function = power_cable.create_problem(k=i, type='magn', mesh_size_factor=0.2, show_gui=False)
         load = shape_function.load_vector(problem.regions, problem.excitations)
         X = load / power_cable.current

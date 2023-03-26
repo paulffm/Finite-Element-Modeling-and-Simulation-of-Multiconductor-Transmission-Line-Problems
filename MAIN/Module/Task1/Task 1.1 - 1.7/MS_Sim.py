@@ -20,7 +20,7 @@ def Knu_elem(k, shape_function, reluctivity_elems):
 
     # integral(v rot(Wi) * rot(Wj) dV) =>
     # v (Wi dx,
-    # ((b.T * b + c.T * c ) / (4 * area * l_z)) * reluctivity
+    # sum over elements: ((b.T * b + c.T * c ) / (4 * area * l_z)) * reluctivity
     # produces 3x172 * 172x3 = 3x3 output
     _, b, c, S = shape_function.get_coeff()
 
@@ -95,7 +95,7 @@ def main():
     # Task 4: setup the FE shape functions and assemble the stiffness matrix and load vector.
     # construct shape_function
 
-    # Instantiation of Shape function, calculating of a, b, c, S
+    # Instantiation of Shape function, calculating of a, b, c, S: num_elem x 3 , num_elem x 1
     shape_function = ShapeFunction_N(depth)
     shape_function.calc_coeff(msh)
 
@@ -138,7 +138,7 @@ def main():
 
     ##### Task 4: Define load vector j_grid, element-wise current density #####
 
-    # current density in elementen
+    # current density in elementen: num_elem x 1
     j_elems = np.zeros(msh.num_elements)  # [A/m^2]:
 
     # np.sum(shape_function.element_area[elem_in_wire]) surface area vom wire
@@ -193,7 +193,6 @@ def main():
     print('Magnetische Energie (analytisch Az, numerisch Knu)  :', W_magn_test, 'J')
 
     ##### Task 6: setup and solve the magnetostatic problem #####
-
     a = np.zeros((msh.num_node, 1))  # Initialize vector of dofs
 
     # indices of GND are the boundary:

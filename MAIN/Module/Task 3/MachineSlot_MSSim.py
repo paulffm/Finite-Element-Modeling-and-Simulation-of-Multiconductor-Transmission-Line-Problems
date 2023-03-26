@@ -160,7 +160,8 @@ def create_machine_slot_problem(excitations_left: List[Exci], excitations_right:
 
 
 def main():
-    """Simulate the slot as a MQS problem."""
+    ''' HDG 2010AC bei f = 1.0 kHz Low Frequency Approx noch gemacht'''
+    """Simulate the slot as a MS problem."""
 
     frequency = 50  # The frequency of the problem
     omega = 2 * np.pi * frequency  # Angular frequency
@@ -238,8 +239,6 @@ def main():
 
     r_w = 1.1e-3
     sigma = 57.7e6
-    print('X', Xm_arr.shape)
-    print('a', am_arr.shape)
     R = np.eye(n * 2) * (1 / (sigma * np.pi * r_w ** 2))
 
     print('Resistance:', np.diag(R))

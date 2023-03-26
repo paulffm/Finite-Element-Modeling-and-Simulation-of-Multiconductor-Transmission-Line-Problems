@@ -12,7 +12,7 @@ Task 2.1 c): Simulation von PowerCable in E-Statik zur Berechnung von C mit low 
 '''
 
 def main():
-
+    ''' HDG 2010AC bei f = 1.0 kHz Low Frequency Approx noch gemacht s.10'''
     phi_elec = []
     K_lst = []
     Xu_lst = []

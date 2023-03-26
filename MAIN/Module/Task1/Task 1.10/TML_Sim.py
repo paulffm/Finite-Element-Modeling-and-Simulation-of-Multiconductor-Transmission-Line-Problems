@@ -104,12 +104,22 @@ def main():
         plt.loglog(f, Z_abs)
         plt.show()
 
+        # kapazitives verhalten:
+        '''In der Regel wird der Winkel kleiner, da bei höheren Frequenzen der kapazitive Effekt in der 
+        Leitung dominiert. Das bedeutet, dass der Strom vorauseilt und der Phasenwinkel zwischen Strom und 
+        Spannung kleiner wird'''
+
         plt.xlabel('frequency')
         plt.ylabel('angle(Z) in Degrees')
         plt.title('Plot of angle(Z_char) in semilog')
         plt.plot(f, Z_ang)
         plt.xscale('log')
         plt.show()
+        '''Beim induktiven Widerstand wird elektrische Energie der Quelle in Energie des 
+        Magnetfeldes der Spule umgewandelt und umgekehrt. Beim kapazitiven Widerstand 
+        wird elektrische Energie der Quelle in Energie des elektrischen Feldes des Kondensators umgewandelt 
+        und umgekehrt.'''
+
 
         plt.xlabel('frequency')
         plt.ylabel('wave length')

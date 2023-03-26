@@ -1,5 +1,7 @@
 import numpy as np
+# Herleitung L
 
+'''https://nano-optics.physik.uni-siegen.de/education/teaching/experimentalphysikii/solution-8-de.pdf'''
 r_1 = 2e-3                # [m]
 r_2 = 3.5e-3              # [m]
 depth = 300e-3            # [m]
