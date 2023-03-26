@@ -95,7 +95,7 @@ def main():
 
     Z_abs = np.abs(Z_char)
     Z_ang = np.angle(Z_char, deg=True)
-    print(Z_ang)
+
 
     if show_plot:
         plt.xlabel('frequency')

@@ -180,6 +180,10 @@ def main():
         phi_potential = shape_function.inflate(a_shrink, problem, support_data)
         phi_real = np.real(phi_potential)
 
+        '''indices_all_nodes = self._calc_values_for_floating(floating_boundary_conditions, mesh,
+                                                           regions, regions_of_bc)'''
+
+
         K_list.append(np.asarray(matrix.toarray()))
         phi_elec.append(np.asarray(phi_potential).reshape(-1, 1))
         #print('pot', solution.potential.shape)

@@ -6,7 +6,7 @@ depth = 300e-3            # [m]
 model_name = "wire"
 
 I = 16                    # [A]
-J_0 = I/(np.pi*r_1**2)    # [A/m]
+   # [A/m]
 mu_0 = 4*np.pi*1e-7       # [H/m]
 mu_shell = 5*mu_0
 
@@ -18,32 +18,34 @@ def H_phi(r):
     :return:
     '''
 
-
+# J_0 = I/(np.pi*r_1**2)
     def H_phi_i(r):
-        return J_0 / 2 * r
+        return I / (2 * np.pi * r_1**2) * r
 
     def H_phi_a(r):
-        return J_0 / 2 * r_1 ** 2 / r
+        return I / (2 * np.pi * r)
 
     condition = r < r_1
     return condition * H_phi_i(r) + (~condition) * H_phi_a(r)
 
 def B_phi(r):
+
     '''
     :param r:
     :return:
     '''
     def B_phi_i(r):
-        return J_0 * mu_0 / 2 * r
+        return I * mu_0 / (2 * np.pi * r_1**2) * r
 
     def B_phi_a(r):
-        return J_0 * mu_shell / 2 * r_1 ** 2 / r
+        return I * mu_shell / (2 * np.pi * r)
 
     condition = r < r_1
     return condition * B_phi_i(r) + (~condition) * B_phi_a(r)
 
 
 def A_z(r):
+
     '''
     Analytic solution of magnetic vector potential
     :param r:

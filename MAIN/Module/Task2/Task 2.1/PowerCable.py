@@ -279,4 +279,4 @@ class PowerCable_Elec:
             prb = ElectricProblemCartStatic(self.model_name, mesh, shape_function, regions, materials,
                                                  boundary_conditions_elec, excitations)'''
 
-        return prb
+        return prb, shape_function
