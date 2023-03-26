@@ -172,10 +172,17 @@ def main():
     Ti_real = np.real(Ti)
     Ti_imag = np.imag(Ti)
 
+    # moden: wie eigenfrequenzen:
+    # bei der sich Felder ausbreiten können
+    # hier: Tu und Ti * (1, 0, 0) (0, 0, 1) (0, 0, 1):
+    #
+    # sodass in den Spalten: Tu[:, i] Ti[:, i] meine Spannungs und Strommoden
+
     #print('Tu', Tu[:, 0], Tu[:, 1], Tu[:, 2])
     print('Ti', Ti[:, 0], Ti[:, 1], Ti[:, 2])
 
     bcs = []
+    # Zur Berechnung von
 
     for i in range(Ti.shape[0]):
 

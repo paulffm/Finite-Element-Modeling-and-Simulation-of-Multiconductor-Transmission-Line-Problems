@@ -108,9 +108,6 @@ def create_machine_slot_problem(mqs: bool,
     for bc, pg in zip(bcs, pgs_conductor_bound_left + pgs_conductor_bound_right):
         geo.add_boundary_condition_to_physical_group(bc, pg)
 
-    '''for bc, pg in zip(bcs, pgs_conductor_surf_left + pgs_conductor_surf_right):
-        geo.add_boundary_condition_to_physical_group(bc, pg)'''
-
     # Add excitations
     for exci, pg in zip(excitations_left + excitations_right, pgs_conductor_surf_left + pgs_conductor_surf_right):
         geo.add_excitation_to_physical_group(exci, pg)
@@ -192,7 +189,7 @@ def simulate_mqs(f: float, currents: np.ndarray) -> np.ndarray:
                    currents_right]  # List of excitations for the right side in the slot
     bcs = []
 
-    problem = create_machine_slot_problem(True, excis_left, excis_right, bcs, f, show_gui=False, mesh_size_factor=0.03)
+    problem = create_machine_slot_problem(True, excis_left, excis_right, bcs, f, show_gui=True, mesh_size_factor=0.03)
 
     mesh: TriMesh = problem.mesh
     shape_function = TriCartesianEdgeShapeFunction(mesh)
@@ -219,12 +216,13 @@ def simulate_mqs(f: float, currents: np.ndarray) -> np.ndarray:
     # region Post-processing
 
     # b field
-    b_field = shape_function.curl(np.real(vector_potential))
+    # b_field = shape_function.curl(np.real(vector_potential))
     #
-    mesh.plot_scalar_field(np.real(vector_potential))
-    mesh.plot_scalar_field(np.linalg.norm(b_field, axis=1), title="Absolute b field")
-    mesh.plot_equilines(np.real(vector_potential))
-    plt.show()
+    # mesh.plot_scalar_field(np.real(vector_potential))
+    # mesh.plot_scalar_field(np.linalg.norm(b_field, axis=1), title="Absolute b field")
+    # mesh.plot_equilines(np.real(vector_potential))
+    #
+    # plt.show()
     # endregion
     return np.array([e.voltage for e in (excis_left + excis_right)])
 
@@ -246,9 +244,9 @@ def simulate_es(voltages: np.ndarray):
     phi_shrink, _ = type(problem).solve_linear_system(matrix_shrink.tocsr(), rhs_shrink.tocsr())
     phi = shape_function.inflate(phi_shrink, problem, support_data)
 
-    mesh.plot_scalar_field(phi)
-    mesh.plot_equilines(phi)
-    plt.show()
+    # mesh.plot_scalar_field(phi)
+    # mesh.plot_equilines(phi)
+    # plt.show()
     return phi, divgrad
 
 
@@ -274,19 +272,18 @@ def capacitance() -> np.ndarray:
     _, K = simulate_es(voltages(0))
     Xu = np.vstack([simulate_es(voltages(v))[0] for v in range(36)]).T
     return Xu.T @ K @ Xu
-# pip install numba --upgrade 0.56.0
-# pip install numpy --upgrade 1.22.3
+
 
 def main():
-    #f = 50
-    #w = 2 * np.pi * f
-    #Z = impedance(w)
-    #L = Z.imag / w
-    #print(repr(L))
+    # f = 50
+    # w = 2 * np.pi * f
+    # Z = impedance(w)
+    # L = Z.imag / w
+    # print(repr(L))
     C = capacitance()
-    #A = 1e10 * C
+    A = 1e10 * C
     print(repr(C))
-    #print(np.linalg.norm(C))
+    print(np.linalg.norm(C))
 
 
 if __name__ == '__main__':

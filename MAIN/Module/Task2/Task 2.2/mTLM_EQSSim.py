@@ -197,10 +197,10 @@ def main():
         matrix_shrink, rhs_shrink, _, _, support_data = shape_function.shrink(matrix, load, problem, 1)
         a_shrink, _ = type(problem).solve_linear_system(matrix_shrink.tocsr(), rhs_shrink.tocsr())
         phi_potential = shape_function.inflate(a_shrink, problem, support_data)
-        phi_potential = np.real(phi_potential)
+        phi_real = np.real(phi_potential)
 
-        mesh.plot_scalar_field(phi_potential, title='Phi distribution')
-        mesh.plot_equilines(phi_potential, title='Phi Äquipotentiallinien')
+        mesh.plot_scalar_field(phi_real, title='Phi distribution')
+        mesh.plot_equilines(phi_real, title='Phi Äquipotentiallinien')
         #mesh.plot_scalar_field(np.linalg.norm(np.linalg.norm(phi_potential)), title="Absolute d field")
         plt.show()
 

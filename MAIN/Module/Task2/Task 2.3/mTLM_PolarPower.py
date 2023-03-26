@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 from matplotlib.pyplot import cm
 import numpy.linalg as la
 import scipy.linalg as sla
-show_plot = True
+show_plot = False
 '''
 Task 2.2a) Konstanten
 Task 2.2b) Phasor Diagramme von Spannungen und Ströme
@@ -121,7 +121,7 @@ def main():
 
     # A = Qui * Am Qui^-1
     Q = sla.block_diag(Tu, Ti)
-    a = Q @ am @ la.inv(Q)
+    a_1 = Q @ am @ la.inv(Q)
 
     # Shapes
     '''print('Z', Z_z, Z_z.shape)   #3x3
@@ -161,6 +161,7 @@ def main():
             # um im: (1 0 0) (0 1 0) (0 0 1)
             u_i = Tu[:, i]
             i_i = Ti[:, i]
+
             for j in range(u_i.shape[0]):
                 c = next(color)
                 plt.polar([0, np.angle(u_i[j], deg=True)], [0, np.abs(u_i[j])], marker='o', label=f'I{j+1}, U{j+1} Mode {i+1}', c=c)
@@ -174,7 +175,7 @@ def main():
     '''Task 2.3a) Berechnung u0, ul, i0, il und Berechnung von Pin und Pout'''
     l_3 = 2e3
     # Anregung U(0) als Phasor: /np.sqrt(2) und Winkel: cos(wt-phi) => e^-phi
-    u0 = np.array([100, 80 * np.exp(np.pi * (-2j / 3)), 60 * np.exp(np.pi * (- 4j / 3))])
+    u0 = np.array([100, 80 * np.exp(np.pi * (2j / 3)), 60 * np.exp(np.pi * (4j / 3))])
 
     # build System:
     # Bedingungen auf Blatt:
@@ -185,6 +186,7 @@ def main():
     'M22:'
     # U(l) = I(l) => I_3 U(l) - I_3 I(l) = 0_6
 
+    a = propMatrix(Zm_ch, bm, l_3, Tu, Ti)
     zero_33 = np.zeros([3, 3])
     zero_3 = np.array([0, 0, 0])
     # Widerstand R = 1 am Abschluss: Es folgt: U(l) = I(l)
@@ -203,6 +205,10 @@ def main():
     i0 = x[3:6]
     ul = x[6:9]
     il = x[9:12]
+    #print('i0', i0)
+    #print('il', il)
+    #print('ul', ul)
+    print(u0)
 
     p_in = np.real(0.5 * np.sum(u0 * np.conj(i0)))
     p_out = np.real(0.5 * np.sum(ul * np.conj(il)))
@@ -212,9 +218,8 @@ def main():
     '''Task 2.3b) Berechnung von Power out über Frequenz'''
     # same as before: but in functions
     f_lst = np.logspace(1, 6, 200)
+    # l_3 = 1
     p_out_lst = [calc_Power(f, l_3, u0, R, L, G, C) for f in f_lst]
-
-
 
 
     if show_plot:

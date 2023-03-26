@@ -18,7 +18,7 @@ from pyrit.mesh import TriMesh
 from pyrit.shapefunction import TriCartesianEdgeShapeFunction
 from pyrit.problem import MagneticProblemCartStatic
 
-show_plot = True
+show_plot = False
 
 
 def create_machine_slot_problem(excitations_left: List[Exci], excitations_right: List[Exci], **kwargs):
@@ -57,6 +57,7 @@ def create_machine_slot_problem(excitations_left: List[Exci], excitations_right:
 
     pg_outer_bound = geo.create_physical_group(1, 1, "outer_bound")
 
+    # für id
     max_tag = 1
     # Physical groups of the boundaries of the right conductors
     pgs_conductor_bound_right = [geo.create_physical_group(max_tag + 1 + k, 1, f"conductor_bound_right_{k}") for k in
@@ -153,7 +154,7 @@ def create_machine_slot_problem(excitations_left: List[Exci], excitations_right:
     # Setting up the FE problem
     problem = MagneticProblemCartStatic("Machine slot", shape_function, mesh, regions, materials, boundary_conditions, excitations)
 
-    #problem = Problem("Machine slot", mesh, shape_function, regions, materials, boundary_conditions, excitations)
+    #problem = Problem("Machine slot", mesh, None, regions, materials, boundary_conditions, excitations)
 
     return problem
 
@@ -171,14 +172,12 @@ def main():
     current = 1
     n = 18
 
-    i = 0
     for i in range(2):
         for j in range(n):
 
             vals_l = np.zeros(18)
             vals_r = np.zeros(18)
-            print(f'iteration {(j+1)+18*i}')
-
+            print(f'iteration {(j+1)+n*i}')
 
             if i == 0:
                 vals_l[j] = current
@@ -188,9 +187,9 @@ def main():
             if i == 1:
                 vals_r[j] = current
                 excis_left = [CurrentDensity(l_i) for l_i in vals_l]  # List of excitations for the left side in the slot
-                excis_right = [CurrentDensity(l_r) for l_r in
-                               vals_r]  # List of excitations for the right side in the slot
-
+                excis_right = [CurrentDensity(l_r) for l_r in vals_r]  # List of excitations for the right side in the slot
+            print('vals_l', vals_l)
+            print('vals_r', vals_r)
 
             problem = create_machine_slot_problem(excis_left, excis_right, show_gui=False, mesh_size_factor=0.03)
 
@@ -201,52 +200,61 @@ def main():
             # region Build and solve the system
 
             curlcurl = shape_function.curlcurl_operator(problem.regions, problem.materials, Reluctivity)
-            mass = shape_function.mass_matrix(problem.regions, problem.materials, Conductivity)
+            #mass = shape_function.mass_matrix(problem.regions, problem.materials, Conductivity)
 
             #matrix = curlcurl + 1j * omega * mass
             matrix = curlcurl
-
             load = shape_function.load_vector(problem.regions, problem.excitations)
 
             matrix_shrink, rhs_shrink, _, _, support_data = shape_function.shrink(matrix, load, problem, 1)
             a_shrink, _ = type(problem).solve_linear_system(matrix_shrink.tocsr(), rhs_shrink.tocsr())
             vector_potential = shape_function.inflate(a_shrink, problem, support_data)
 
+            vector_potential = np.reshape(vector_potential, (-1, 1))
             X = load / current
             X_mag.append(np.asarray(X.toarray()))
-            K_list.append(np.asarray(matrix))
+            K_list.append(np.asarray(matrix.toarray()))
             a_mag.append(np.asarray(vector_potential).reshape(-1, 1))
 
 
             b_field = shape_function.curl(np.real(vector_potential))
             if show_plot:
-                vector_potential = np.real(vector_potential)
-                mesh.plot_scalar_field(vector_potential, title='Distribution a')
-                mesh.plot_equilines(vector_potential, title='Äquipotentiallinien a')
+                vector_real = np.real(vector_potential)
+                mesh.plot_scalar_field(vector_real, title='Distribution a')
+                mesh.plot_equilines(vector_real, title='Äquipotentiallinien a')
 
                 b_field = np.linalg.norm(b_field, axis=1)
                 mesh.plot_scalar_field(b_field, title="Absolute b field")
-
-
-
                 plt.show()
 
-    Xm_arr = X_mag[0]
-    am_arr = a_mag[0]
+    Xm_arr = X_mag[0].reshape(-1, 1)
+    am_arr = a_mag[0].reshape(-1, 1)
+    print(am_arr.shape)
     for k in range(n * 2 - 1):
-        Xm_arr = np.concatenate((Xm_arr, X_mag[k+1]), axis=1)
-        am_arr = np.concatenate((am_arr, a_mag[k+1]), axis=1)
+        Xm_arr = np.hstack((Xm_arr, X_mag[k+1]))
+        am_arr = np.hstack((am_arr, a_mag[k+1]))
 
+    print(K_list[0].shape)
 
     r_w = 1.1e-3
     sigma = 57.7e6
-
+    print('X', Xm_arr.shape)
+    print('a', am_arr.shape)
     R = np.eye(n * 2) * (1 / (sigma * np.pi * r_w ** 2))
+
     print('Resistance:', np.diag(R))
+    print('L2', am_arr.T @ K_list[0] @ am_arr / (current ** 2))
+
+
+    # cant invert
+    #print('L3', Xm_arr.T @ np.linalg.inv(K_list[0]) @ Xm_arr)
+
+    #np.savetxt('L_MachineSlot.csv', L, delimiter=',')
     L = Xm_arr.T @ am_arr / current
-    np.savetxt('L_MachineSlot.csv', L, delimiter=',')
-    print('Inductivity', np.diag(L), L.shape)
-    print('Z', R + 1j * omega * L)
+    print('L', L)
+    Z = R + 1j * omega * L
+    #np.savetxt('Z_MachineSlot.csv', Z, delimiter=',')
+    print('Z', Z)
 
 
 

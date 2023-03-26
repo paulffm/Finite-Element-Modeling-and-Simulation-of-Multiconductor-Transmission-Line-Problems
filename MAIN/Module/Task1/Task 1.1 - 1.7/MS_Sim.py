@@ -228,7 +228,7 @@ def main():
 
     ##### Task 7: Calculate magnetic flux density #####
 
-    # 172 x 2
+    # 172 x 2 num_elements
     b_field = calc_bfield(a, shape_function, msh)
     # num_elements x 1
     b_field_abs = np.linalg.norm(b_field, axis=1)  # [T]: magnitude of the magnetic flux density

@@ -153,20 +153,20 @@ def create_machine_slot_problem(excitations_left: List[Exci], excitations_right:
     shape_functions = TriCartesianNodalShapeFunction(mesh)
     problem = ElectricProblemCartStatic("Machine slot", mesh, shape_functions, regions, materials, boundary_conditions,
                                         excitations)
+    problem = Problem("Machine slot", mesh, None, regions, materials, boundary_conditions, excitations)
 
     return problem
 
 
 def main():
-    """Simulate the slot as a MQS problem."""
-
+    """Simulate the slot as a MS problem."""
     frequency = 50  # The frequency of the problem
     omega = 2 * np.pi * frequency  # Angular frequency
 
     K_list = []
     phi_elec = []
     v_value = 1
-    n = 36
+    n = 2
 
     for i in range(n):
         voltages = np.zeros(n)
@@ -194,9 +194,6 @@ def main():
             mesh.plot_equilines(np.real(phi), title='Äquipotentiallinien phi')
             plt.show()
 
-
-
-
     print('finished')
 
     K_arr = K_list[0]
@@ -209,16 +206,13 @@ def main():
         #phi_arr = np.concatenate((phi_arr, phi_elec[k+1]), axis=1)
         phi_arr = np.hstack((phi_arr, phi_elec[k + 1]))
 
-
-    r_w = 1.1e-3
-    sigma = 57.7e6
-
     G = 0
-    C = phi_arr.T @ K_list[0] @ phi_arr / v_value
+    C = phi_arr.T @ K_list[0] @ phi_arr / (v_value ** 2)
 
-    np.savetxt('C_MachineSlot.csv', C, delimiter=',')
+    #np.savetxt('C_MachineSlot.csv', C, delimiter=',')
     print('C', np.diag(C))
     Y = G + 1j * omega * C
+    #np.savetxt('Y_MachineSlot.csv', Y, delimiter=',')
     print('Y', Y)
 
 
