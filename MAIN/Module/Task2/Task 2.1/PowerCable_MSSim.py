@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from PowerCable import PowerCable_Magn
-show_plot = False
+show_plot = True
 '''
 Task 2.1 a, b): Simulation von PowerCable in M-Statik zur Berechnung von R und L mit low frequency approach
 '''

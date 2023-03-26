@@ -198,8 +198,10 @@ def main():
     phi_arr = np.hstack((phi_elec[0], phi_elec[1], phi_elec[2]))
 
     print('C', phi_arr.T @ K_list[0] @ phi_arr)
-    print(K_list[0] == K_list[1])
-
+    #print(K_list[0] == K_list[1])
+    '''C [[1.08478611e-09 3.13061093e-10 3.13033335e-10]
+            [3.13061093e-10 1.08478930e-09 3.12990823e-10]
+            [3.13033335e-10 3.12990823e-10 1.08477673e-09]]'''
 
 
 if __name__ == '__main__':

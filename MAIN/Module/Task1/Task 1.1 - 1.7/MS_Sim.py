@@ -33,9 +33,9 @@ def calc_bfield(a, shape_function, msh):
 
     # bx = sum(c * A / 2 * area) / l_z , by = sum(b * A / 2 * area)  / (l_z)
     _, b, c, S = shape_function.get_coeff()
-    b_field = np.vstack([np.sum(c * a[msh.elem_to_node[:]] / (2 * S[:, None]), 1)
+    b_field = np.vstack([np.sum(c * a[msh.elem_to_node[:]] / (2 * S.reshape(-1, 1)), 1)
                          / shape_function.depth,
-                         - np.sum(b * a[msh.elem_to_node[:]] / (2 * S[:, None]), 1)
+                         - np.sum(b * a[msh.elem_to_node[:]] / (2 * S.reshape(-1, 1)), 1)
                          / shape_function.depth]).T
     return b_field
 
@@ -83,7 +83,7 @@ def main():
     #print(physical_groups[1][2])
     gmsh.finalize()
 
-    # indices for all entities by physical group
+    # indices for all elements by physical group
     elem_shell = entity_in_physical_group(physical_groups, msh.elem_to_node, 'SHELL')
     elem_wire = entity_in_physical_group(physical_groups, msh.elem_to_node, 'WIRE')
 
@@ -95,7 +95,7 @@ def main():
     # Task 4: setup the FE shape functions and assemble the stiffness matrix and load vector.
     # construct shape_function
 
-    # Instantiation of Shape function: gives only object that stores
+    # Instantiation of Shape function, calculating of a, b, c, S
     shape_function = ShapeFunction_N(depth)
     shape_function.calc_coeff(msh)
 
@@ -122,7 +122,6 @@ def main():
         idx_col[9 * k:9 * k + 9] = np.reshape(triple_global_indices.T, (9))
 
         # lokales Knu: ((b.T * b + c.T * c ) / (4 * area * l_z)) * reluctivity -> produziert 3x3 output
-        #print(Knu_for_elem(k, shape_function, reluctivity_in_elements))
 
         # aus 3x3 wird 1x9 und das in elem_entries geschrieben
         elem_entries[9 * k:9 * k + 9] = np.reshape(Knu_elem(k, shape_function, reluctivity_elem), (9))
@@ -147,27 +146,24 @@ def main():
     j_elems[elem_wire] = I / np.sum(shape_function.element_area[elem_wire])
 
     'grid currents_e = J integral(Ne,i dA) = J Ae/3 -> Ni aufintegriert über Fläche für jedes Element'
+    # num_elems x 1
     grid_currents = j_elems * shape_function.element_area / 3
     x_elems = grid_currents / I
-
-
-    # (172, 3): grid_currents:
-    # 3 mal nebeneinander kopiert mit np.tile um für jeden Node die Contribution zu bestimmen
-    grid_currents = np.tile(grid_currents, (3, 1)).transpose()
-    x_elems = np.tile(x_elems, (3, 1)).transpose()
 
     # vector with values for current contribution of each element on the nodes.
     values = np.zeros(msh.num_node)
     x_values = np.zeros(msh.num_node)
 
-    # Iteration durch jedes Element i: und wenn Node k an Ecke von Element i:
-    # Addiere Beitrag Ii,k zu Node k in Vector values:
-    # Am Ende: Für jeden Node stehen dort die addierten Strombeiträge von jedem Element, in welchem sich Node k befindet
-    for k in range(0, 3):
-        for i in range(0, msh.num_elements - 1):
-            idx_node = msh.elem_to_node[i, k]
-            values[idx_node] += grid_currents[i, k]
-            x_values[idx_node] += x_elems[i, k]
+    # Iteration durch jedes Element j
+    # addiere Grid current von Element j zu Node i, wenn Node i Teil von Element i ist
+    # Am Ende: Für jeden Node stehen dort die addierten Strombeiträge von jedem Element,
+    # in welchem sich Node j befindet
+
+    for i in range(3):
+        for j in range((msh.num_elements)):
+            idx_node = msh.elem_to_node[j, i]
+            values[idx_node] += grid_currents[j]
+            x_values[idx_node] += x_elems[j]
 
     # Zuweisung der Werte zu jeweiligen nodes in sparse format: num_nodes x 1
     j_grid = csr_matrix((values, (np.arange(msh.num_node), np.zeros(msh.num_node))), shape=(msh.num_node, 1))
@@ -179,8 +175,8 @@ def main():
 
     ##### Task 5: First validation is the check of the magnetic energy #####
 
-    x = np.array(msh.node[:, 0], ndmin=1).T
-    y = np.array(msh.node[:, 1], ndmin=1).T
+    x = np.array(msh.node[:, 0]).T
+    y = np.array(msh.node[:, 1]).T
 
     # Radial Koordinate [m]:
     r = np.sqrt(x ** 2 + y ** 2)
@@ -201,9 +197,8 @@ def main():
     a = np.zeros((msh.num_node, 1))  # Initialize vector of dofs
 
     # indices of GND are the boundary:
-    idx_bc = physical_groups[3]
-    idx_bc = idx_bc[2]  # take only the indices out of dict: 28
-    #
+    idx_bc = physical_groups[3][2] # take only the indices out of dict: 28
+
     value_bc = np.zeros((len(idx_bc), 1))
 
     # the indices where nothing is given: indices where we have to calculate a: 73 -> num_nodes - dof = index_constraint
@@ -287,7 +282,6 @@ def main():
         plot_properties.plot_sol(msh, a)
 
         # plot b_field:
-        # stärker, wo Reluktanz geringer ist -> in Shell ist B folglich größer
         plot_properties.plot_bfield(msh, b_field_abs)
 
 

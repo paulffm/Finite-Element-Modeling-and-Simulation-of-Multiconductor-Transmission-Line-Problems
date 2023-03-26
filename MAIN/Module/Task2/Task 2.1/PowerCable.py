@@ -223,8 +223,8 @@ class PowerCable_Elec:
         for bc, pg in zip(bcs, pgs_conductor_bound):
             geo.add_boundary_condition_to_physical_group(bc, pg)
 
-        #geo.add_boundary_condition_to_physical_group(bc_outer, pg_outer_bound)
-        geo.add_boundary_condition_to_physical_group(bc_outer, pg_outer_conductor)
+        geo.add_boundary_condition_to_physical_group(bc_outer, pg_outer_bound)
+        #geo.add_boundary_condition_to_physical_group(bc_outer, pg_outer_conductor)
 
         #
         # given

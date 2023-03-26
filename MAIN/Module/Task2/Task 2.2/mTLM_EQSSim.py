@@ -52,7 +52,7 @@ class PowerCable:
         """Current density in [A/m^2]"""
         return self.current / (np.pi * self.wire_radius ** 2)
 
-    def create_problem(self, bcs, magn=True, **kwargs):
+    def create_problem(self, bcs, **kwargs):
         geo = Geometry("Power cable", **kwargs)
 
         # fragen: Reluktanz?
@@ -177,7 +177,7 @@ def main():
 
         bcs = [BCDirichlet(val) if val != 0 else BCFloating() for val in Tu[:, i]]
         power_cable = PowerCable()
-        problem = power_cable.create_problem(mesh_size_factor=0.2, bcs=bcs, magn=False, show_gui=False)
+        problem = power_cable.create_problem(mesh_size_factor=0.2, bcs=bcs, show_gui=False)
         mesh: TriMesh = problem.mesh
         shape_function = TriCartesianNodalShapeFunction(mesh)
         problem.shape_function = shape_function
@@ -191,6 +191,7 @@ def main():
 
         # raise ValueError(f"Unexpected argument: {l}")
         # ValueError: Unexpected argument: [], da excitations empy
+        'man gibt normalerweise in load regions und excitations: habe hier keine exci => setze auf 0'
         load = shape_function.load_vector(0)
 
         matrix_shrink, rhs_shrink, _, _, support_data = shape_function.shrink(matrix, load, problem, 1)
@@ -204,9 +205,10 @@ def main():
         plt.show()
 
 
-'''Tu [ 0.81649658+0.00000000e+00j -0.40824829+2.08166817e-16j
- -0.40824829+1.94289029e-16j] [0.57735027-3.74700271e-16j 0.57735027-1.38777878e-17j
- 0.57735027+0.00000000e+00j] [-0.23780873+0.01542699j -0.55737018-0.01542699j  0.79517891+0.j        ]'''
+'''Tu [ 0.81649658+0.00000000e+00j -0.40824829+2.08166817e-16j -0.40824829+1.94289029e-16j] 
+        [0.57735027-3.74700271e-16j 0.57735027-1.38777878e-17j 0.57735027+0.00000000e+00j] 
+        [-0.23780873+0.01542699j -0.55737018-0.01542699j  0.79517891+0.j ]'''
+
 
 if __name__ == '__main__':
     main()

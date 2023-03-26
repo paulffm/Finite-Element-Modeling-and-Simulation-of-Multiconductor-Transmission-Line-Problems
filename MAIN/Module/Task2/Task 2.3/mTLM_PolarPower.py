@@ -1,6 +1,5 @@
 import numpy as np
 from matplotlib import pyplot as plt
-from mTLM import A_m, A, solve, P, Pout
 from matplotlib.pyplot import cm
 import numpy.linalg as la
 import scipy.linalg as sla
@@ -12,14 +11,75 @@ Task 2.3a) Berechnung u0, ul, i0, il und Berechnung von Pin und Pout
 Task 2.3b) Berechnung von Power out über Frequenz
 
 '''
-def Ak_m(Zkm_ch: float, bkm: float, l: float) -> np.ndarray:
+def Ak_m(Zkm_ch, bkm, l):
     """Calculates the local modal propagation matrix for the given tlm parameters."""
     bl = bkm * l
     return np.array([
         [np.cosh(bl), -Zkm_ch * np.sinh(bl)],
         [-np.sinh(bl) / Zkm_ch, np.cosh(bl)]
     ])
+def propMatrix(Zm_ch, bm, l_3, Tu, Ti):
+    # Modale Propagationsmatrix:
+    ak_m = [Ak_m(Zkm, bkm, l_3) for Zkm, bkm in zip(Zm_ch, bm)]
 
+    # Am ist Blockdiagonale von ak_m
+    am = sla.block_diag(ak_m[0], ak_m[1], ak_m[2])
+
+    # umsortieren sodass u1, u2, u3, i1, i2, i3 in dieser Reihenfolge steht
+    idx = [0, 2, 4, 1, 3, 5]
+    am = am[idx, :][:, idx]
+
+    # A = Qui * Am Qui^-1
+    Q = sla.block_diag(Tu, Ti)
+    a = Q @ am @ la.inv(Q)
+    return a
+
+def calc_Power(f, l_3, u0, R, L, G, C):
+
+    omega = 2 * np.pi * f
+
+    Z = R + 1j * omega * L
+    Y = G + 1j * omega * C
+
+    # (ZY) Tu = lambda Tu
+    # (YZ) Ti = lambda Ti
+    _, Tu = la.eig(Z @ Y)
+    _, Ti = la.eig(Y @ Z)
+
+    # Zm = Tu^-1 * Z * Ti
+    # Ym = Ti^-1 * Y * Tu
+    Zm = la.inv(Tu) @ Z @ Ti
+    Ym = la.inv(Ti) @ Y @ Tu
+
+    # Widerstand: wie breitet sich Mode aus: daher diag
+    Zm_ch = np.sqrt(np.diag(Zm) / np.diag(Ym))
+
+    # Ausbreitungskonstante für jeden Mode
+    bm = np.diag(np.sqrt(Zm * Ym))
+
+    # propagation matrix
+    a = propMatrix(Zm_ch, bm, l_3, Tu, Ti)
+
+    zero_33 = np.zeros([3, 3])
+    zero_3 = np.array([0, 0, 0])
+
+    r = 1
+    M11 = a
+    M12 = -np.eye(6)
+    M21 = sla.block_diag(np.eye(3), zero_33)
+    M22 = np.block([[zero_33, zero_33], [np.eye(3), -np.diag([r, r, r])]])
+    M = np.block([[M11, M12], [M21, M22]])
+    b = np.concatenate([zero_3, zero_3, u0, zero_3])
+
+    # Solve the System
+    x = la.solve(M, b)
+    i0 = x[3:6]
+    ul = x[6:9]
+    il = x[9:12]
+
+    p_in = np.real(0.5 * np.sum(u0 * np.conj(i0)))
+    p_out = np.real(0.5 * np.sum(ul * np.conj(il)))
+    return p_out
 def main():
 
     f = 1e3
@@ -61,10 +121,9 @@ def main():
 
     # A = Qui * Am Qui^-1
     Q = sla.block_diag(Tu, Ti)
-    print(Q.shape)
-    print(am.shape)
     a = Q @ am @ la.inv(Q)
 
+    # Shapes
     '''print('Z', Z_z, Z_z.shape)   #3x3
     print('Y', Y_y, Y_y.shape)      #3x3
     print('Zm', Zm, Zm.shape)       #3x3
@@ -75,7 +134,8 @@ def main():
     print('beta', b, b.shape)             #3x1
     print('AK_m', Ak_m(z_char[0], b[0], l).shape) # 2x2
     print('am', am, am.shape, am[0], am[0].shape)             #6x6
-    print('a', a, a.shape)                #6x6'''
+    print('a', a, a.shape)                #6x6
+    print('Q', Q, Q.shape) 6x6'''
 
 
     ## Task 2:
@@ -146,76 +206,19 @@ def main():
 
     p_in = np.real(0.5 * np.sum(u0 * np.conj(i0)))
     p_out = np.real(0.5 * np.sum(ul * np.conj(il)))
+
     print(f"Power loss {p_in - p_out}W and relative loss {100 * (p_in - p_out) / p_in} %")
 
     '''Task 2.3b) Berechnung von Power out über Frequenz'''
     # same as before: but in functions
-    f_list = np.logspace(1, 6, 200)
-    p_out_lst = []
+    f_lst = np.logspace(1, 6, 200)
+    p_out_lst = [calc_Power(f, l_3, u0, R, L, G, C) for f in f_lst]
 
-    for i in (f_list):
 
-        omega = 2 * np.pi * i
-        R = np.eye(3) * 1e-3
-        G = np.zeros((3, 3))
-        L = np.array([[5, 1, 1], [1, 5, 1], [1, 1, 5]]) * 1e-6
-        C = np.array([[5, -1, -1], [-1, 5, -1], [-1, -1, 5]]) * 1e-9
-
-        Z = R + 1j * omega * L
-        Y = G + 1j * omega * C
-
-        # (ZY) Tu = lambda Tu
-        # (YZ) Ti = lambda Ti
-        _, Tu = la.eig(Z @ Y)
-        _, Ti = la.eig(Y @ Z)
-
-        # Zm = Tu^-1 * Z * Ti
-        # Ym = Ti^-1 * Y * Tu
-        Zm = la.inv(Tu) @ Z @ Ti
-        Ym = la.inv(Ti) @ Y @ Tu
-
-        # Widerstand: wie breitet sich Mode aus: daher diag
-        Zm_ch = np.sqrt(np.diag(Zm) / np.diag(Ym))
-
-        # Ausbreitungskonstante für jeden Mode
-        bm = np.diag(np.sqrt(Zm * Ym))
-
-        # Modale Propagationsmatrix:
-        ak_m = [Ak_m(Zkm, bkm, l_3) for Zkm, bkm in zip(Zm_ch, bm)]
-
-        # Am ist Blockdiagonale von ak_m
-        am = sla.block_diag(ak_m[0], ak_m[1], ak_m[2])
-
-        # umsortieren sodass u1, u2, u3, i1, i2, i3 in dieser Reihenfolge steht
-        idx = [0, 2, 4, 1, 3, 5]
-        am = am[idx, :][:, idx]
-
-        # A = Qui * Am Qui^-1
-        Q = sla.block_diag(Tu, Ti)
-        a = Q @ am @ la.inv(Q)
-
-        zero_33 = np.zeros([3, 3])
-        zero_3 = np.array([0, 0, 0])
-
-        r = 1
-        M11 = a
-        M12 = -np.eye(6)
-        M21 = sla.block_diag(np.eye(3), zero_33)
-        M22 = np.block([[zero_33, zero_33], [np.eye(3), -np.diag([r, r, r])]])
-        M = np.block([[M11, M12], [M21, M22]])
-        b = np.concatenate([zero_3, zero_3, u0, zero_3])
-
-        # Solve the System
-        x = la.solve(M, b)
-        ul = x[6:9]
-        il = x[9:12]
-
-        p_out = np.real(0.5 * np.sum(ul * np.conj(il)))
-        p_out_lst.append(p_out)
 
 
     if show_plot:
-        plt.loglog(f_list, p_out_lst)
+        plt.loglog(f_lst, p_out_lst)
         plt.xlabel('frequency')
         plt.ylabel('Power out')
         plt.show()

@@ -137,5 +137,3 @@ def get_bc_idx(i):
             delimiter=",", dtype=int).tolist()
 
         return np.hstack((idx_fl_lst3, idx_d_lst3))
-
-print(get_bc_idx(1).shape)

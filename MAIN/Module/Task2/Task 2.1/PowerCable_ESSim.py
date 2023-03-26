@@ -4,7 +4,7 @@ from PowerCable import PowerCable_Elec
 from pyrit.bdrycond import BCDirichlet, BdryCond, BCFloating
 from pyrit.region import Regions
 from utils import get_bc_idx
-show_plot = False
+show_plot = True
 
 
 '''
@@ -36,7 +36,7 @@ def main():
         #print('Energy', solution.energy)
         K_lst.append(np.asarray(divgrad_matrix.toarray()))
         phi_elec.append(np.asarray(solution.potential).reshape(-1, 1))
-        print('pot', solution.potential.shape)
+        #print('pot', solution.potential.shape)
 
 
         # get indices with boundary conditions to shrink phi

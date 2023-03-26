@@ -172,11 +172,10 @@ def main():
     Ti_real = np.real(Ti)
     Ti_imag = np.imag(Ti)
 
-    print('Tu', Tu[:, 0], Tu[:, 1], Tu[:, 2])
+    #print('Tu', Tu[:, 0], Tu[:, 1], Tu[:, 2])
     print('Ti', Ti[:, 0], Ti[:, 1], Ti[:, 2])
 
     bcs = []
-    k = list(np.arange(3))
 
     for i in range(Ti.shape[0]):
 
@@ -214,6 +213,11 @@ def main():
         # nur das hier war die Aufgabe
         mesh.plot_scalar_field(np.linalg.norm(b_field, axis=1), title="Absolute b field")
         plt.show()
+
+    '''Ti [ 0.81649658+0.00000000e+00j -0.40824829+2.08166817e-16j -0.40824829+1.94289029e-16j] 
+            [0.57735027+0.00000000e+00j 0.57735027+4.16333634e-17j 0.57735027+5.72458747e-17j] 
+            [-0.07835994+0.0020687j -0.66465987-0.0020687j  0.7430198 +0.j       ]
+Current density: [214792.50722690823, -107396.25361345381, -107396.25361345382]'''
 
 if __name__ == '__main__':
     main()

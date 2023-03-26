@@ -157,8 +157,8 @@ def plot_bfield(msh, b_field_abs):
     :param b_field_abs:
     :return:
     '''
-    x = np.array(msh.node[:, 0], ndmin=1).T
-    y = np.array(msh.node[:, 1], ndmin=1).T
+    x = np.array(msh.node[:, 0]).T
+    y = np.array(msh.node[:, 1]).T
     triang = Triangulation(x, y, msh.elem_to_node)
     # Plotting
     fig = plt.figure()

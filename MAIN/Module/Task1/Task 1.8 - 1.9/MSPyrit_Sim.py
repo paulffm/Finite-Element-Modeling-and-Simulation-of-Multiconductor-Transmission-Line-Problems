@@ -343,7 +343,7 @@ print('num_elems', num_elems)
 rel_error = np.abs((energies - wire_problem.analytic_energy) / wire_problem.analytic_energy)
 print(f'rel_errors: {rel_error * 100} %')
 print(f'max element sizes: {element_sizes}')
-conv_order = (np.log(rel_error[0]) - np.log(rel_error[-1])) / (np.log(element_sizes[0]) - np.log(element_sizes[-1]))
+conv_order = - (np.log(rel_error[0]) - np.log(rel_error[-1])) / (np.log(element_sizes[0]) - np.log(element_sizes[-1]))
 print(f'Convergence order: {conv_order:.2f}')
 
 
