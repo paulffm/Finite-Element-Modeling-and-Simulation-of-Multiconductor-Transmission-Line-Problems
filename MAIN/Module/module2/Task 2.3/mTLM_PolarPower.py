@@ -170,7 +170,7 @@ def main():
             plt.title(f'Polar Plot of U and I for the 3 Modes: o=Voltage, x=Current')
             plt.show()
 
-    ### Task 3 ###
+    ### module3 ###
 
     '''Task 2.3a) Berechnung u0, ul, i0, il und Berechnung von Pin und Pout'''
     l_3 = 2e3

@@ -52,7 +52,7 @@ def main():
     I = 16  # [A]
     J_0 = I / (np.pi * r_1 ** 2)  # [A/m]
 
-    ##### Task2: Construction of a finite-element model with Gmsh #####
+    ##### module2: Construction of a finite-element model with Gmsh #####
     msh = Mesh.create()
     #print(msh.num_elements, msh.num_node): 172, 101
     pg = gmsh.model.getPhysicalGroups()
@@ -64,7 +64,7 @@ def main():
     # getNodesforPhysicalGroup(dim, tag)
     physical_groups = dict()
 
-    ##### Task 3: Visualization of mesh and regions #####
+    ##### module3: Visualization of mesh and regions #####
 
     for group in pg:
         # physical_groups unterscheidung durch tags: zugriff: physical_groups[3]
