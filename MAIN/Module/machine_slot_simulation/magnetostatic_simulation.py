@@ -1,5 +1,6 @@
 # coding=utf-8
-"""Simulation E-Statik Machine Slot zur Berechnung von C"""
+"""Simulation M-Statik zur Berechnung von Z in Machine Slot
+"""
 
 from typing import List
 import gmsh
@@ -9,20 +10,18 @@ from scipy.constants import epsilon_0, mu_0
 
 from pyrit.geometry import Geometry
 from pyrit.material import Materials, Mat, Permittivity, Conductivity, Reluctivity
-from pyrit.bdrycond import BdryCond, BCDirichlet, BC, BCFloating
+from pyrit.bdrycond import BdryCond, BCDirichlet
 from pyrit.excitation import CurrentDensity
 from pyrit.problem import Problem
 from pyrit.excitation import Excitations, Exci
 from pyrit.mesh import TriMesh
-from pyrit.shapefunction import TriCartesianNodalShapeFunction
-from pyrit.problem import MagneticProblemCartStatic, ElectricProblemCartStatic
-from scipy.stats import norm
-import scipy.sparse.linalg as sla
+from pyrit.shapefunction import TriCartesianEdgeShapeFunction
+from pyrit.problem import MagneticProblemCartStatic
 
 show_plot = False
 
 
-def create_machine_slot_problem(excitations_left: List[Exci], excitations_right: List[Exci], bcs: List[BC], **kwargs):
+def create_machine_slot_problem(excitations_left: List[Exci], excitations_right: List[Exci], **kwargs):
     """Create a general problem containing the machine slot model.
 
     Physical groups are created for each single conductor, their boundaries, the surrounding of the conductors, the
@@ -42,29 +41,27 @@ def create_machine_slot_problem(excitations_left: List[Exci], excitations_right:
     problem : Problem
         A general problem containing the machine slot model.
     """
-    stp_file_name = "Model_Forschungspraxis_CB.stp"
+    stp_file_name = "model.stp"
     number_wires = 18  # There are actually 36 single wires because each wire goes through twice (left and right)
 
     geo = Geometry("machine slot", **kwargs)
 
-    materials = Materials(
-        mat_surrounding_right := Mat("surrounding_right", Permittivity(epsilon_0), Reluctivity(1 / mu_0), Conductivity(0)),
-        mat_surrounding_left := Mat("surrounding_left", Permittivity(epsilon_0), Reluctivity(1 / mu_0), Conductivity(0)),
-        mat_separator := Mat("separator", Permittivity(epsilon_0), Reluctivity(1 / mu_0), Conductivity(0)),
-        copper := Mat("copper", Permittivity(epsilon_0), Reluctivity(1 / mu_0), Conductivity(1e6))
-    )
+    materials = Materials(mat_surrounding_right := Mat(Permittivity(epsilon_0), Reluctivity(1 / mu_0), Conductivity(0)),
+                          mat_surrounding_left := Mat(Permittivity(epsilon_0), Reluctivity(1 / mu_0), Conductivity(0)),
+                          mat_separator := Mat(Permittivity(epsilon_0), Reluctivity(1 / mu_0), Conductivity(0)),
+                          copper := Mat(Permittivity(epsilon_0), Reluctivity(1 / mu_0), Conductivity(1e6)))
 
-    boundary_conditions = BdryCond(bc_outer := BCDirichlet(0), *bcs)
-    excitations: Excitations = Excitations(*(excitations_left + excitations_right))
-    #excitations = Excitations(*(excitations_left + excitations_right))
+    boundary_conditions = BdryCond(bc_outer := BCDirichlet(0))
+
+    excitations = Excitations(*(excitations_left + excitations_right))
 
     pg_outer_bound = geo.create_physical_group(1, 1, "outer_bound")
 
+    # für id
     max_tag = 1
     # Physical groups of the boundaries of the right conductors
     pgs_conductor_bound_right = [geo.create_physical_group(max_tag + 1 + k, 1, f"conductor_bound_right_{k}") for k in
                                  range(number_wires)]
-    #print('pgs_conductor_bound_right', pgs_conductor_bound_right)
 
     max_tag = pgs_conductor_bound_right[-1].tag
     # Physical groups of the boundaries of the left conductors
@@ -92,10 +89,11 @@ def create_machine_slot_problem(excitations_left: List[Exci], excitations_right:
     geo.add_material_to_physical_group(copper, *pgs_conductor_surf_left)
     geo.add_material_to_physical_group(copper, *pgs_conductor_surf_right)
 
-    # Add boundary conditions to physical group
     geo.add_boundary_condition_to_physical_group(bc_outer, pg_outer_bound)
-    for bc, pg in zip(bcs, pgs_conductor_bound_left + pgs_conductor_bound_right):
-        geo.add_boundary_condition_to_physical_group(bc, pg)
+
+    for exci, pg in zip(excitations_left + excitations_right, pgs_conductor_surf_left + pgs_conductor_surf_right):
+        geo.add_excitation_to_physical_group(exci, pg)
+
 
     with geo:
         gmsh.merge(stp_file_name)
@@ -149,73 +147,115 @@ def create_machine_slot_problem(excitations_left: List[Exci], excitations_right:
         mesh = geo.get_mesh(dim=2)
         regions = geo.get_regions()
 
-    #mesh.node = mesh.node / 1000  # Rescale because the gmsh model is in mm. Now the mesh is in m `
-    shape_functions = TriCartesianNodalShapeFunction(mesh)
-    problem = ElectricProblemCartStatic("Machine slot", mesh, shape_functions, regions, materials, boundary_conditions,
-                                        excitations)
-    problem = Problem("Machine slot", mesh, None, regions, materials, boundary_conditions, excitations)
+
+    mesh.node = mesh.node / 1000  # Rescale because the gmsh model is in mm. Now the mesh is in m `
+    shape_function = TriCartesianEdgeShapeFunction(mesh)
+
+    # Setting up the FE problem
+    problem = MagneticProblemCartStatic("Machine slot", shape_function, mesh, regions, materials, boundary_conditions, excitations)
+
+    #problem = Problem("Machine slot", mesh, None, regions, materials, boundary_conditions, excitations)
 
     return problem
 
 
 def main():
-
-    '''HDG 2010AC bei f = 1.0 kHz Low Frequency Approx noch gemacht'''
+    ''' HDG 2010AC bei f = 1.0 kHz Low Frequency Approx noch gemacht'''
     """Simulate the slot as a MS problem."""
+
     frequency = 50  # The frequency of the problem
     omega = 2 * np.pi * frequency  # Angular frequency
 
+
+    X_mag = []
     K_list = []
-    phi_elec = []
-    v_value = 1
-    n = 2
+    a_mag = []
+    current = 1
+    n = 18
 
-    for i in range(n):
-        voltages = np.zeros(n)
-        voltages[i] = v_value
-        bcs = [BCDirichlet(val) if val != 0 else BCFloating() for val in voltages]
-        print(f'iteration {i+1}')
-        problem = create_machine_slot_problem([], [], bcs, show_gui=False, mesh_size_factor=0.03)
+    for i in range(2):
+        for j in range(n):
 
-        mesh: TriMesh = problem.mesh
-        shape_function = TriCartesianNodalShapeFunction(mesh)
-        problem.shape_function = shape_function
+            vals_l = np.zeros(18)
+            vals_r = np.zeros(18)
+            print(f'iteration {(j+1)+n*i}')
 
-        divgrad = shape_function.divgrad_operator(problem.regions, problem.materials, Permittivity)
-        load = shape_function.load_vector(problem.regions, problem.excitations)
-        #matrix =
+            if i == 0:
+                vals_l[j] = current
+                excis_left = [CurrentDensity(l_i) for l_i in vals_l]  # List of excitations for the left side in the slot
+                excis_right = [CurrentDensity(r_i) for r_i in vals_r]  # List of excitations for the right side in the slot
 
-        matrix_shrink, rhs_shrink, _, _, support_data = shape_function.shrink(divgrad, load, problem, 1)
-        phi_shrink, _ = type(problem).solve_linear_system(matrix_shrink.tocsr(), rhs_shrink.tocsr())
-        phi = shape_function.inflate(phi_shrink, problem, support_data)
+            if i == 1:
+                vals_r[j] = current
+                excis_left = [CurrentDensity(l_i) for l_i in vals_l]  # List of excitations for the left side in the slot
+                excis_right = [CurrentDensity(l_r) for l_r in vals_r]  # List of excitations for the right side in the slot
+            print('vals_l', vals_l)
+            print('vals_r', vals_r)
 
-        K_list.append(np.asarray(divgrad.toarray()))
-        phi_elec.append((phi).reshape(-1, 1))
-        if show_plot:
-            mesh.plot_scalar_field(np.real(phi), title='Distribution phi')
-            mesh.plot_equilines(np.real(phi), title='Äquipotentiallinien phi')
-            plt.show()
+            problem = create_machine_slot_problem(excis_left, excis_right, show_gui=False, mesh_size_factor=0.03)
 
-    print('finished')
+            mesh: TriMesh = problem.mesh
+            shape_function = TriCartesianEdgeShapeFunction(mesh)
+            problem.shape_function = shape_function
 
-    K_arr = K_list[0]
-    phi_arr = phi_elec[0]
-    print('K', K_list[0].shape, len(K_list))
-    print('phi', phi_elec[0].shape, len(phi_elec))
+            # region Build and solve the system
 
-    for k in range(n - 1):
-        #K_arr = np.hstack((K_arr, K_list[k+1]))
-        #phi_arr = np.concatenate((phi_arr, phi_elec[k+1]), axis=1)
-        phi_arr = np.hstack((phi_arr, phi_elec[k + 1]))
+            curlcurl = shape_function.curlcurl_operator(problem.regions, problem.materials, Reluctivity)
+            #mass = shape_function.mass_matrix(problem.regions, problem.materials, Conductivity)
 
-    G = 0
-    C = phi_arr.T @ K_list[0] @ phi_arr / (v_value ** 2)
+            #matrix = curlcurl + 1j * omega * mass
+            matrix = curlcurl
+            load = shape_function.load_vector(problem.regions, problem.excitations)
 
-    #np.savetxt('C_MachineSlot.csv', C, delimiter=',')
-    print('C', np.diag(C))
-    Y = G + 1j * omega * C
-    #np.savetxt('Y_MachineSlot.csv', Y, delimiter=',')
-    print('Y', Y)
+            matrix_shrink, rhs_shrink, _, _, support_data = shape_function.shrink(matrix, load, problem, 1)
+            a_shrink, _ = type(problem).solve_linear_system(matrix_shrink.tocsr(), rhs_shrink.tocsr())
+            vector_potential = shape_function.inflate(a_shrink, problem, support_data)
+
+            vector_potential = np.reshape(vector_potential, (-1, 1))
+            X = load / current
+            X_mag.append(np.asarray(X.toarray()))
+            K_list.append(np.asarray(matrix.toarray()))
+            a_mag.append(np.asarray(vector_potential).reshape(-1, 1))
+
+
+            b_field = shape_function.curl(np.real(vector_potential))
+            if show_plot:
+                vector_real = np.real(vector_potential)
+                mesh.plot_scalar_field(vector_real, title='Distribution a')
+                mesh.plot_equilines(vector_real, title='Äquipotentiallinien a')
+
+                b_field = np.linalg.norm(b_field, axis=1)
+                mesh.plot_scalar_field(b_field, title="Absolute b field")
+                plt.show()
+
+    Xm_arr = X_mag[0].reshape(-1, 1)
+    am_arr = a_mag[0].reshape(-1, 1)
+    print(am_arr.shape)
+    for k in range(n * 2 - 1):
+        Xm_arr = np.hstack((Xm_arr, X_mag[k+1]))
+        am_arr = np.hstack((am_arr, a_mag[k+1]))
+
+    print(K_list[0].shape)
+
+    r_w = 1.1e-3
+    sigma = 57.7e6
+    R = np.eye(n * 2) * (1 / (sigma * np.pi * r_w ** 2))
+
+    print('Resistance:', np.diag(R))
+    print('L2', am_arr.T @ K_list[0] @ am_arr / (current ** 2))
+
+
+    # cant invert
+    #print('L3', Xm_arr.T @ np.linalg.inv(K_list[0]) @ Xm_arr)
+
+    #np.savetxt('L_MachineSlot.csv', L, delimiter=',')
+    L = Xm_arr.T @ am_arr / current
+    print('L', L)
+    Z = R + 1j * omega * L
+    #np.savetxt('Z_MachineSlot.csv', Z, delimiter=',')
+    print('Z', Z)
+
+
 
 
 if __name__ == '__main__':

@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from PowerCable import PowerCable_Elec
+from powercable_properties import PowerCable_Elec
 from pyrit.bdrycond import BCDirichlet, BdryCond, BCFloating
 from pyrit.region import Regions
 from utils import get_bc_idx
@@ -8,7 +8,7 @@ show_plot = True
 
 
 '''
-Task 2.1 c): Simulation von PowerCable in E-Statik zur Berechnung von C mit low frequency approach
+powercable_simulation_static c): Simulation von PowerCable in E-Statik zur Berechnung von C mit low frequency approach
 '''
 
 def main():

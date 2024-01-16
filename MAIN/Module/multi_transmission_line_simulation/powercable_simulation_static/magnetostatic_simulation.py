@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from PowerCable import PowerCable_Magn
+from powercable_properties import PowerCable_Magn
 show_plot = True
 '''
-Task 2.1 a, b): Simulation von PowerCable in M-Statik zur Berechnung von R und L mit low frequency approach
+powercable_simulation_static a, b): Simulation von PowerCable in M-Statik zur Berechnung von R und L mit low frequency approach
 '''
 def main():
     '''HDG 2010AC bei f = 1.0 kHz Low Frequency Approx noch gemacht'''

@@ -42,8 +42,6 @@ class PowerCable_Magn:
     model_name: str = "PowerCable_ys"
     depth: float = 1
 
-
-
     @property
     def ids_wires(self):
         return [self.id_wire_u, self.id_wire_v, self.id_wire_w]
