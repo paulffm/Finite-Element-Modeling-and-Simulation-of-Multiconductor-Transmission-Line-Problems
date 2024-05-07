@@ -33,3 +33,7 @@ In this module we solve the described magnetostatic problem in **Python**. We st
 
 In this repository we implement an own simulation tool for multiconductor transmission-line models (MTLMs). Similar to the last problem, we mesh the geometry and specify the different materials with [Gmsh](https://gmsh.info). Then we solve the electro- and magnetostatic, and the electro- and magnetoquasistatic with and without excitation in the frequency-domain. Specifially, we use a modal decomposotion and the low-frequency approximation to tractably numerically solve this problem.
 ### Machine Slot Simulation
+#### Problem Setting
+<p align="center">
+  <img src="machine_slot.png"  alt="1" width = 584px height = 197px >
+</p>
