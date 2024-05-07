@@ -1,13 +1,13 @@
 # Finite Element Modeling and Simulation of Multiconductor Transmission-Line Problems
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/paulffm/Discrete-Time-Diffusion-Models-for-Discrete-Data/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/paulffm/Finite-Element-Modeling-and-Simulation-of-Multiconductor-Transmission-Line-Problems/blob/main/LICENSE)
 
 This repository analyzes multiconductor transmission line problems and provides a simulation tool to solve such problems through Finite Element Modeling. For further theoretical insight into multiconductor transmission lines, refer to the following paper:
 
 - [Nonuniqueness of modal transformations for multiconductor transmission line problems](https://onlinelibrary.wiley.com/doi/10.1002/etep.2342)
 
 <p align="center">
-  <img src="phidistrmitte.png"  alt="1" width = 640px height = 480px >
+  <img src="mtlm_system.png"  alt="1" width = 595px height = 325px >
 </p>
 
 ## Overview
@@ -31,9 +31,14 @@ In this module we solve the described magnetostatic problem in **Python**. We st
   <img src="power_cable.png"  alt="1" width = 736px height = 293px >
 </p>
 
-In this repository we implement an own simulation tool for multiconductor transmission-line models (MTLMs). Similar to the last problem, we mesh the geometry and specify the different materials with [Gmsh](https://gmsh.info). Then we solve the electro- and magnetostatic, and the electro- and magnetoquasistatic with and without excitation in the frequency-domain. Specifially, we use a modal decomposotion and the low-frequency approximation to tractably numerically solve this problem.
+In this module we implement an own simulation tool for multiconductor transmission-line models (MTLMs). Similar to the last problem, we mesh the geometry and specify the different materials with [Gmsh](https://gmsh.info). Then we solve the electro- and magnetostatic, and the electro- and magnetoquasistatic with and without excitation in the frequency-domain. Specifially, we use a modal decomposotion and the low-frequency approximation to tractably numerically solve this problem.
 ### Machine Slot Simulation
 #### Problem Setting
 <p align="center">
   <img src="machine_slot.png"  alt="1" width = 584px height = 197px >
+</p>
+
+In this module we implement an own simulation tool for МТLMs. Similar to the last problem, we mesh the geometry and specify the different materials with [Gmsh](https://gmsh.info). Then we solve the electro- and magnetostatic on a machine slot with 36 single wires.
+<p align="center">
+  <img src="phidistrmitte.png"  alt="1" width = 640px height = 480px >
 </p>
