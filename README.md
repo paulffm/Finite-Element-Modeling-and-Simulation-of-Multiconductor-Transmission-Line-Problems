@@ -7,7 +7,7 @@ This repository analyzes multiconductor transmission line problems and provides 
 - [Nonuniqueness of modal transformations for multiconductor transmission line problems](https://onlinelibrary.wiley.com/doi/10.1002/etep.2342)
 
 <p align="center">
-  <img src="ct_forwardrev_process2.png"  alt="1" width = 876px height = 621px >
+  <img src="phidistrmitte.png"  alt="1" width = 640px height = 480px >
 </p>
 
 ## Overview
@@ -19,7 +19,7 @@ The repository is divided in seperate modules: Transmission Line Simulation, Mul
 A model of a coaxial cable with axial length $l_z$ is considered. A current $I$ is homogeneously distributed along the cross section of a cylindrical copper wire with conductivity $\sigma_{Cu}$, radius $r_1$, aligned with the $z$-direction. The wire is enclosed within a cylindrical, non-conducting insulation shell with inner radius $r_1$, outer radius $r_2$ and with permeability μs and permittivity $\epsilon_s = \epsilon_0$, where $\mu_0$ and $\epsilon_0$ are the permeability and permittivity of vacuum. The outer surface of the insulation shell is considered as a perfect electric conductor.
 
 <p align="center">
-  <img src="phidistrmitte.png"  alt="1" width = 640px height = 480px >
+  <img src="coaxial_cable.png"  alt="1" width = 637px height = 198px >
 </p>
 
 In this module we solve the described magnetostatic problem in **Python**. We start by solving the problem analytical and plotting the respective fields. Afterwards we use
