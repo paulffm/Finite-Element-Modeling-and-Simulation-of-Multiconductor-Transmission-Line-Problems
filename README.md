@@ -19,7 +19,7 @@ The repository is divided in seperate modules: Transmission Line Simulation, Mul
 A model of a coaxial cable with axial length $l_z$ is considered. A current $I$ is homogeneously distributed along the cross section of a cylindrical copper wire with conductivity $\sigma_{Cu}$, radius $r_1$, aligned with the $z$-direction. The wire is enclosed within a cylindrical, non-conducting insulation shell with inner radius $r_1$, outer radius $r_2$ and with permeability μs and permittivity $\epsilon_s = \epsilon_0$, where $\mu_0$ and $\epsilon_0$ are the permeability and permittivity of vacuum. The outer surface of the insulation shell is considered as a perfect electric conductor.
 
 <p align="center">
-  <img src="coaxial_cable.png"  alt="1" width = 321px height = 128px >
+  <img src="coaxial_cable.png"  alt="1" width = 637px height = 199px >
 </p>
 
 In this module we solve the described magnetostatic problem in **Python**. We start by solving the problem analytical and plotting the respective fields. Afterwards we use
@@ -28,7 +28,7 @@ In this module we solve the described magnetostatic problem in **Python**. We st
 ### Multitransmission Line Simulation
 #### Problem Setting
 <p align="center">
-  <img src="power_cable.png"  alt="1" width = 321px height = 128px >
+  <img src="power_cable.png"  alt="1" width = 736px height = 293px >
 </p>
 
 In this repository we implement an own simulation tool for multiconductor transmission-line models (MTLMs)
