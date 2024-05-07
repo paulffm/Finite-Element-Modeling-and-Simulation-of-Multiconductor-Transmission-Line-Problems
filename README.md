@@ -12,7 +12,7 @@ This repository analyzes multiconductor transmission line problems and provides 
 
 ## Overview
 
-The repository is divided in seperate modules: Transmission Line Simulation, Multitransmission Line Simulation and Machine Slot Simulation.
+The repository is divided into three seperate modules: Transmission Line Simulation, Multitransmission Line Simulation and Machine Slot Simulation.
 
 ### Transmission Line Simulation
 #### Problem Setting
@@ -22,6 +22,7 @@ In this module we solve the described magnetostatic problem in **Python**. We st
 [Gmsh](https://gmsh.info), an open source FE mesh generator, and define with it the wire problem’s geometry and specify regions of different materials. Then, we define boundary conditions and solve the magnetic field problem on this meshed wire with FE modeling. Subsequently, we do some postprocesing, i.e., compare the numerical solutione with the analytical one, check convergence, discretization error,.... Finally, we use [Pyrit](https://www.temf.tu-darmstadt.de/emft/forschung_emft/software_1/software.en.jsp), a FE solver for coupled electro- and magneto-quasistatic and thermal problems written in Python, to solve this problem and compare its solution again with our previous results.
 
 ### Multitransmission Line Simulation
+In this repository we implement an own simulation tool for multiconductor transmission-line models (MTLMs)
 
 ### Machine Slot Simulation
 
