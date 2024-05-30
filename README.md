@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/paulffm/Finite-Element-Modeling-and-Simulation-of-Multiconductor-Transmission-Line-Problems/blob/main/LICENSE)
 
-Welcome to the repository for Finite Element Modeling and Simulation of Multiconductor Transmission-Line Problems. This repository offers an in-depth analysis of multiconductor transmission line problems and provides a comprehensive simulation tool to effectively address such challenges through Finite Element Modeling. For a deeper theoretical understanding of multiconductor transmission lines, you can refer to the following paper:
+Welcome to the repository for Finite Element Modeling and Simulation of Multiconductor Transmission-Line Problems. This project is part of the "Science in Practice II" course at Technische Universität Darmstadt and offers an in-depth analysis of multiconductor transmission line problems. It provides a comprehensive simulation tool to effectively address such challenges through Finite Element Modeling. For a deeper theoretical understanding of multiconductor transmission lines, you can refer to the following paper:
 
 - [Nonuniqueness of modal transformations for multiconductor transmission line problems](https://onlinelibrary.wiley.com/doi/10.1002/etep.2342)
 
